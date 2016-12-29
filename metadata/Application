@@ -1,0 +1,168 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "controllers": [
+            "controllerMapa"
+        ],
+        "name": "signeGeoportal",
+        "views": [
+            "Escritorio",
+            "LegendPanel",
+            "MapPanel",
+            "Map",
+            "ListaLayer"
+        ]
+    },
+    "name": "Application",
+    "configAlternates": {
+        "xMap": "object",
+        "xLegend": "object",
+        "xLayerStore": "object"
+    },
+    "designerId": "application",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "xMap",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "xLegend",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "xLayerStore",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.Loader",
+            "reference": {
+                "name": "loader",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "paths": [
+                    " {GeoExt: '../geoext2210/src/GeoExt'}"
+                ]
+            },
+            "name": "Loader6",
+            "designerId": "9fe8fb09-ad11-4e4a-9295-fe16a39831f7"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "// Carga el listado de capas disponibles en el servidor",
+                    "",
+                    "var store = Ext.create('GeoExt.data.WmsCapabilitiesLayerStore', {",
+                    "    storeId: 'wmscapsStore',",
+                    "    url: \"http://192.168.56.2:8080/geoserver/SIGE/wms?service=wms&version=1.1.1&request=GetCapabilities\",",
+                    "    autoLoad: true",
+                    "});",
+                    "",
+                    "var grid = Ext.ComponentQuery.query('listalayer')[0];",
+                    "",
+                    "grid.reconfigure(store);",
+                    "",
+                    "// Crear el panel de leyenda",
+                    "",
+                    "signeGeoportal.xLayerStore = Ext.create('Ext.data.TreeStore', {",
+                    "    model: 'GeoExt.data.LayerTreeModel',",
+                    "    root: {",
+                    "        plugins: [{",
+                    "            ptype: \"gx_layercontainer\",",
+                    "            loader: {",
+                    "                createNode: function(attr) {",
+                    "                    // add a WMS legend to each node created",
+                    "                    attr.component = {",
+                    "                        xtype: \"gx_wmslegend\",",
+                    "                        layerRecord: signeGeoportal.xMap.layers.getByLayer(attr.layer),",
+                    "                        showTitle: false,",
+                    "                        // custom class for css positioning",
+                    "                        // see tree-legend.html",
+                    "                        cls: \"legend\"",
+                    "                    };",
+                    "                    return GeoExt.tree.LayerLoader.prototype.createNode.call(this, attr);",
+                    "                }",
+                    "            }",
+                    "        }]",
+                    "    }",
+                    "});",
+                    "",
+                    "var tree = Ext.create('GeoExt.tree.Panel', {",
+                    "    region: \"center\",",
+                    "    autoScroll: true,",
+                    "    viewConfig: {",
+                    "        plugins: [{",
+                    "            ptype: 'treeviewdragdrop',",
+                    "            appendOnly: false",
+                    "        }]",
+                    "    },",
+                    "    store: signeGeoportal.xLayerStore,",
+                    "    rootVisible: false,",
+                    "    lines: false",
+                    "});",
+                    "",
+                    "var legendpanel = Ext.ComponentQuery.query('legendpanel')[0];",
+                    "",
+                    "legendpanel.add(tree);"
+                ]
+            },
+            "name": "launch",
+            "designerId": "b043cf2f-eb12-433d-ad8d-a2143b8d4e82"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|params": [
+                    "titulo_capa, url_capa, nombre_capa"
+                ],
+                "fn": "aniadarCapa",
+                "implHandler": [
+                    "var wms = new OpenLayers.Layer.WMS(",
+                    "    titulo_capa,",
+                    "    url_capa,",
+                    "    {layers:nombre_capa,",
+                    "     transparent : 'true',",
+                    "     format: 'image/png'",
+                    "    },",
+                    "    {opacity: 0.8,",
+                    "     isBaseLayer: false,",
+                    "//     attribution: \"<img src='\"+url_capa+\"request=GetLegendGraphic&format=image/png&width=18&height=17&layer=\"+nombre_capa+\"&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000033;fontSize:12;bgColor:0xFFFFEE;dpi:180'>\"",
+                    "    }",
+                    ");",
+                    "",
+                    "signeGeoportal.xMap.map.addLayer(wms);",
+                    "",
+                    "",
+                    "console.log(signeGeoportal.xLayerStore);",
+                    "",
+                    ""
+                ]
+            },
+            "name": "aniadarCapa",
+            "designerId": "a1340267-0c8f-40c7-be26-da70db6ec608"
+        }
+    ]
+}

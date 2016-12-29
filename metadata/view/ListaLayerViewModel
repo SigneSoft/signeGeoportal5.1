@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "listalayer",
+        "designer|userClassName": "ListaLayerViewModel"
+    },
+    "designerId": "ac11a4f2-0dff-4ec9-b9b5-4b34f23102a5"
+}

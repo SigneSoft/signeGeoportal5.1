@@ -1,0 +1,17 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "defer": false,
+        "designer|userClassName": "js_ja9uybb9",
+        "id": "search",
+        "url": "../ext511451/src/ux/grid/Search.js",
+        "x-compile": true
+    },
+    "name": "js1",
+    "designerId": "3f82b9f3-b8ea-478e-a066-b586eae8b724"
+}

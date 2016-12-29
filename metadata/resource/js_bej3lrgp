@@ -1,0 +1,17 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "defer": false,
+        "designer|userClassName": "js_bej3lrgp",
+        "id": "googleapís",
+        "url": "https://maps.googleapis.com/maps/api/js?key=AIzaSyD-5SYjvy7fpl27Ug8e9DljkFiFLnoTpSY&v=3.5",
+        "x-compile": true
+    },
+    "name": "js",
+    "designerId": "6812a096-0c35-4772-844e-1b6f6b6bbc40"
+}

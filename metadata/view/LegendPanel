@@ -1,0 +1,31 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "legendpanel",
+        "designer|userClassName": "LegendPanel",
+        "height": "100%",
+        "items": null,
+        "layout": "fit",
+        "title": "Contenido del Mapa",
+        "width": "100%"
+    },
+    "name": "MyPanel1",
+    "configAlternates": {
+        "items": "object"
+    },
+    "designerId": "cad4187c-619d-477d-a609-7cee55148f55",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "items",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "6005aeb1-1f56-49eb-913a-0a3cb47447b0",
+    "viewModelInstanceId": "b0ac05ab-a25a-4728-9938-d8fc900ef72d"
+}

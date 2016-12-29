@@ -1,0 +1,97 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|padding": "",
+        "designer|initialView": true,
+        "designer|userAlias": "escritorio",
+        "designer|userClassName": "Escritorio",
+        "layout": "border",
+        "padding": "10 10 10"
+    },
+    "name": "MyViewport",
+    "designerId": "a60423d4-cd5a-4fda-8e22-a83e9c4ffcfe",
+    "viewControllerInstanceId": "e196907b-acfc-4fcf-93e5-7a62572eb268",
+    "viewModelInstanceId": "7ab4065a-0a01-47e5-b1a8-0e7e8d89b025",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "collapseDirection": "left",
+                "collapsible": true,
+                "hideCollapseTool": true,
+                "itemId": "contenedorOpcion",
+                "layout": "accordion",
+                "layout|region": "west",
+                "layout|split": true,
+                "titleCollapse": true,
+                "width": 300
+            },
+            "name": "MyPanel",
+            "designerId": "188550fe-bdc2-40c0-a225-0cabf0a1ba92",
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "legendpanel",
+                    "designerId": "fb85d06e-4b22-42da-871e-2d20649bdacf",
+                    "masterInstanceId": "cad4187c-619d-477d-a609-7cee55148f55"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "listalayer",
+                    "designerId": "e2dc5bef-b8f9-456e-b005-b7c6663155e1",
+                    "masterInstanceId": "9a8573dd-1394-40f5-8751-3faedd443dd9"
+                }
+            ]
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "contenedorPrincipal",
+                "layout": "fit",
+                "layout|flex": null,
+                "layout|region": "center",
+                "margin": "0 0 5 0"
+            },
+            "name": "MyContainer",
+            "designerId": "174c0249-e474-4dde-a4eb-d9efc6557978",
+            "cn": [
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "name": "mappanel1",
+                    "designerId": "04045572-3604-4eda-b1a5-78825e34496e",
+                    "masterInstanceId": "46caa872-8989-4970-9eea-d804a17bd5b4"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,82 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "anchor": null,
+        "designer|userAlias": "mappanel",
+        "designer|userClassName": "MapPanel",
+        "height": null,
+        "items": [
+            "{",
+            "            xtype: 'map',",
+            "            region: 'center'",
+            "        }"
+        ],
+        "layout": "fit",
+        "margin": "",
+        "title": "",
+        "width": ""
+    },
+    "name": "MyPanel",
+    "configAlternates": {
+        "items": "object"
+    },
+    "designerId": "46caa872-8989-4970-9eea-d804a17bd5b4",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "items",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "anchor",
+            "type": "string"
+        }
+    ],
+    "viewControllerInstanceId": "b94f8c74-8471-4979-a5b7-db3c675d5112",
+    "viewModelInstanceId": "7fef3286-8bb6-4cd8-b7cc-89f6ece6a358",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "itemId": "barraHerramientas"
+            },
+            "name": "MyToolbar",
+            "designerId": "94b6e71f-2c60-4b14-83ba-d48b59a53635",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconAlign": "top",
+                        "iconCls": "zoom-extent",
+                        "id": "btnEnfocarPredeterminado",
+                        "layout|flex": null,
+                        "scale": "medium",
+                        "text": "Enfocar país",
+                        "tooltip": [
+                            "Enfocar al país"
+                        ]
+                    },
+                    "name": "MyButton",
+                    "designerId": "f8101d12-7bfd-44c8-8868-ed9c7f9bb2fa"
+                }
+            ]
+        }
+    ]
+}

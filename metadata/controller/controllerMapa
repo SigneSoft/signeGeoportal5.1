@@ -1,0 +1,41 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "controllerMapa"
+    },
+    "name": "MyController",
+    "designerId": "57b5bd24-aacb-4e2b-b591-bcf482d529b8",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnEnfocarPredeterminado",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnEnfocarPredeterminadoClick",
+                "implHandler": [
+                    "signeGeoportal.xMap.map.zoomToScale(2000000,false);",
+                    "",
+                    "//signePortal.xMap.zoomToExtent(new OpenLayers.Bounds(minLng,minLat,maxLng,maxLat));"
+                ],
+                "name": "click"
+            },
+            "name": "onBtnEnfocarPredeterminadoClick",
+            "designerId": "f6bd9f62-343b-4527-8cf1-f2e3728865e0"
+        }
+    ]
+}

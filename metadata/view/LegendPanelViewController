@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "legendpanel",
+        "designer|userClassName": "LegendPanelViewController"
+    },
+    "designerId": "6005aeb1-1f56-49eb-913a-0a3cb47447b0"
+}

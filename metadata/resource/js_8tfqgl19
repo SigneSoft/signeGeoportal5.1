@@ -1,0 +1,17 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "defer": false,
+        "designer|userClassName": "js_8tfqgl19",
+        "id": "GOOGLE",
+        "url": "../proj4js110/lib/defs/GOOGLE.js",
+        "x-compile": true
+    },
+    "name": "js",
+    "designerId": "74230882-9b01-4f45-9080-2e64ea1c8138"
+}

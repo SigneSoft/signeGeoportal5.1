@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "legendpanel",
+        "designer|userClassName": "LegendPanelViewModel"
+    },
+    "designerId": "b0ac05ab-a25a-4728-9938-d8fc900ef72d"
+}

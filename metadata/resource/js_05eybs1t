@@ -1,0 +1,17 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "defer": false,
+        "designer|userClassName": "js_05eybs1t",
+        "id": "proj4js",
+        "url": "../proj4js110/lib/proj4js.js",
+        "x-compile": true
+    },
+    "name": "js",
+    "designerId": "7efe7499-f158-4258-9982-1f37b6bcf241"
+}

@@ -1,0 +1,128 @@
+{
+    "type": "Ext.grid.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "listalayer",
+        "designer|userClassName": "ListaLayer",
+        "height": "100%",
+        "id": "",
+        "itemId": "",
+        "title": "Buscar capa para añadir al mapa",
+        "width": "100%"
+    },
+    "name": "MyGridPanel",
+    "designerId": "9a8573dd-1394-40f5-8751-3faedd443dd9",
+    "viewControllerInstanceId": "3ab5283c-03e8-46e2-aa09-b24412222116",
+    "viewModelInstanceId": "ac11a4f2-0dff-4ec9-b9b5-4b34f23102a5",
+    "cn": [
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "title",
+                "flex": 0.7,
+                "text": "Titulo"
+            },
+            "name": "MyColumn",
+            "designerId": "48111a05-75da-48d0-a0e6-2c0ae8a6d9f9"
+        },
+        {
+            "type": "Ext.grid.column.Column",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dataIndex": "abstract",
+                "flex": 0.3,
+                "hidden": true,
+                "text": "Descripción"
+            },
+            "name": "MyColumn1",
+            "designerId": "51624259-f635-4d71-a22b-2b3ad70814ab"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "id": "toolListaLayer"
+            },
+            "name": "MyToolbar1",
+            "designerId": "e7af2d33-a17c-4ef1-8b97-8d49bb606731"
+        },
+        {
+            "type": "Ext.grid.column.Action",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "acOpcion",
+                "width": 30
+            },
+            "name": "MyActionColumn",
+            "designerId": "4f75caa5-b52b-49aa-8a88-07a5b1bc0c65",
+            "cn": [
+                {
+                    "type": "actioncolumnitem",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "altText": "Añadir Capa",
+                        "iconCls": "add-file-icon",
+                        "tooltip": "Añadir Capa al Mapa"
+                    },
+                    "name": "MyActionColumnItem",
+                    "designerId": "c910e33d-2793-4829-a5b7-12200615b2e2",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "view",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "item",
+                                    "e",
+                                    "record",
+                                    "row"
+                                ],
+                                "designer|viewControllerFn": "aniadir",
+                                "fn": "handler",
+                                "implHandler": [
+                                    "signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name);",
+                                    "//console.log(record.data);"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "076fb778-df9e-4395-9f7a-760190f5ef42"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

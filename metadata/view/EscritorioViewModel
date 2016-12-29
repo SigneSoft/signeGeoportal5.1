@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "escritorio",
+        "designer|userClassName": "EscritorioViewModel"
+    },
+    "designerId": "7ab4065a-0a01-47e5-b1a8-0e7e8d89b025"
+}

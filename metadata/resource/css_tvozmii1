@@ -1,0 +1,15 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css_tvozmii1",
+        "id": "iconos",
+        "url": "iconos.css"
+    },
+    "name": "css",
+    "designerId": "dcb4408c-8c32-4ff7-b4c1-725ac79e4dfc"
+}

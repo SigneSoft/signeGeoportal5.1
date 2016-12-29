@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "listalayer",
+        "designer|userClassName": "ListaLayerViewController"
+    },
+    "designerId": "3ab5283c-03e8-46e2-aa09-b24412222116"
+}
