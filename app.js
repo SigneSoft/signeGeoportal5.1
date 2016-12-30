@@ -31,7 +31,8 @@ Ext.application({
         'LegendPanel',
         'MapPanel',
         'Map',
-        'ListaLayer'
+        'ListaLayer',
+        'InfoPanel'
     ],
     controllers: [
         'controllerMapa'
@@ -52,7 +53,7 @@ Ext.application({
 
         grid.reconfigure(store);
 
-        // Crear el panel de leyenda
+        // Define y crea el panel de leyenda
 
         signeGeoportal.xLayerStore = Ext.create('Ext.data.TreeStore', {
             model: 'GeoExt.data.LayerTreeModel',
@@ -94,6 +95,50 @@ Ext.application({
         var legendpanel = Ext.ComponentQuery.query('legendpanel')[0];
 
         legendpanel.add(tree);
+
+        // Define y crea el panel de información
+
+        signeGeoportal.xInfo = new OpenLayers.Control.WMSGetFeatureInfo({
+        //    autoActivate: true,
+            infoFormat: "application/vnd.ogc.gml",
+            maxFeatures: 3,
+            eventListeners: {
+                "getfeatureinfo": function(e) {
+                    var items = [];
+
+                    Ext.each(e.features, function(feature) {
+
+                        var propiedades = Ext.create('Ext.grid.property.Grid', {
+                            title: feature.fid,
+                            itemId: "infogrid",
+                            nameColumnWidth: '60%',
+                            source: feature.attributes
+                        });
+
+                        propiedades.columns[0].setText('Propiedad');
+                        propiedades.columns[1].setText('Valor');
+
+                        items.push(propiedades);
+                        /*items.push({
+                            xtype: "propertygrid",
+                            itemId: "infogrid",
+                            title: feature.fid,
+                            source: feature.attributes
+                        });*/
+                    });
+
+
+                    var infopanel = Ext.ComponentQuery.query('infopanel')[0];
+
+                    infopanel.remove('infogrid',false);
+                    infopanel.add(items);
+
+                }
+            }
+        });
+
+        signeGeoportal.xMap.map.addControl(signeGeoportal.xInfo);
+
     },
 
     aniadarCapa: function(titulo_capa, url_capa, nombre_capa) {
@@ -106,7 +151,7 @@ Ext.application({
             },
             {opacity: 0.8,
              isBaseLayer: false,
-        //     attribution: "<img src='"+url_capa+"request=GetLegendGraphic&format=image/png&width=18&height=17&layer="+nombre_capa+"&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000033;fontSize:12;bgColor:0xFFFFEE;dpi:180'>"
+             //     attribution: "<img src='"+url_capa+"request=GetLegendGraphic&format=image/png&width=18&height=17&layer="+nombre_capa+"&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000033;fontSize:12;bgColor:0xFFFFEE;dpi:180'>"
             }
         );
 

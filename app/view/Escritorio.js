@@ -19,8 +19,9 @@ Ext.define('signeGeoportal.view.Escritorio', {
 
     requires: [
         'signeGeoportal.view.EscritorioViewModel',
-        'signeGeoportal.view.LegendPanel',
         'signeGeoportal.view.ListaLayer',
+        'signeGeoportal.view.LegendPanel',
+        'signeGeoportal.view.InfoPanel',
         'signeGeoportal.view.MapPanel',
         'Ext.grid.Panel'
     ],
@@ -48,10 +49,13 @@ Ext.define('signeGeoportal.view.Escritorio', {
             titleCollapse: true,
             items: [
                 {
+                    xtype: 'listalayer'
+                },
+                {
                     xtype: 'legendpanel'
                 },
                 {
-                    xtype: 'listalayer'
+                    xtype: 'infopanel'
                 }
             ]
         },

@@ -20,8 +20,10 @@ Ext.define('signeGeoportal.view.ListaLayer', {
     requires: [
         'signeGeoportal.view.ListaLayerViewModel',
         'signeGeoportal.view.ListaLayerViewController',
+        'Ext.grid.filters.filter.String',
         'Ext.toolbar.Toolbar',
-        'Ext.grid.column.Action'
+        'Ext.grid.column.Action',
+        'Ext.grid.filters.Filters'
     ],
 
     controller: 'listalayer',
@@ -39,7 +41,11 @@ Ext.define('signeGeoportal.view.ListaLayer', {
             xtype: 'gridcolumn',
             dataIndex: 'title',
             text: 'Titulo',
-            flex: 0.7
+            flex: 0.7,
+            filter: {
+                type: 'string',
+                emptyText: 'Escriba el título de la capa...'
+            }
         },
         {
             xtype: 'gridcolumn',
@@ -67,6 +73,13 @@ Ext.define('signeGeoportal.view.ListaLayer', {
             xtype: 'toolbar',
             dock: 'top',
             id: 'toolListaLayer'
+        }
+    ],
+    plugins: [
+        {
+            ptype: 'gridfilters',
+            pluginId: 'gfListaLayer',
+            menuFilterText: 'Filtrar'
         }
     ]
 

@@ -17,15 +17,22 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
     extend: 'Ext.app.Controller',
 
     control: {
-        "#btnEnfocarPredeterminado": {
-            click: 'onBtnEnfocarPredeterminadoClick'
+        "#btnEnfocar": {
+            click: 'onBtnEnfocarClick'
+        },
+        "#btnInformacion": {
+            click: 'onBtnInformacionClick'
         }
     },
 
-    onBtnEnfocarPredeterminadoClick: function(button, e, eOpts) {
+    onBtnEnfocarClick: function(button, e, eOpts) {
         signeGeoportal.xMap.map.zoomToScale(2000000,false);
 
         //signePortal.xMap.zoomToExtent(new OpenLayers.Bounds(minLng,minLat,maxLng,maxLat));
+    },
+
+    onBtnInformacionClick: function(button, e, eOpts) {
+
     }
 
 });

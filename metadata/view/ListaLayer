@@ -32,7 +32,22 @@
                 "text": "Titulo"
             },
             "name": "MyColumn",
-            "designerId": "48111a05-75da-48d0-a0e6-2c0ae8a6d9f9"
+            "designerId": "48111a05-75da-48d0-a0e6-2c0ae8a6d9f9",
+            "cn": [
+                {
+                    "type": "Ext.grid.filters.filter.String",
+                    "reference": {
+                        "name": "filter",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "emptyText": "Escriba el título de la capa..."
+                    },
+                    "name": "MyStringFilter",
+                    "designerId": "7a0aaebd-f6c1-4ecd-b08e-7dc2829ff2af"
+                }
+            ]
         },
         {
             "type": "Ext.grid.column.Column",
@@ -123,6 +138,20 @@
                     ]
                 }
             ]
+        },
+        {
+            "type": "Ext.grid.filters.Filters",
+            "reference": {
+                "name": "plugins",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "menuFilterText": "Filtrar",
+                "pluginId": "gfListaLayer"
+            },
+            "name": "MyGridFiltersPlugin",
+            "designerId": "0c8029d2-9555-4123-94d2-6adc6939908d"
         }
     ]
 }

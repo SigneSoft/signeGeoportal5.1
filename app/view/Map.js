@@ -76,6 +76,35 @@ Ext.define('signeGeoportal.view.Map', {
 			{type: google.maps.MapTypeId.HYBRID, numZoomLevels: 20}
 		);
     
+		// map.zoomToMaxExtent();
+/*		var info = new OpenLayers.Control.WMSGetFeatureInfo({
+		autoActivate: true,
+		infoFormat: "application/vnd.ogc.gml",
+		maxFeatures: 3,
+		eventListeners: {
+		"getfeatureinfo": function(e) {
+			var items = [];
+			Ext.each(e.features, function(feature) {
+				items.push({
+					xtype: "propertygrid",
+					title: feature.fid,
+					source: feature.attributes
+				});
+			});
+			
+			var infopanel = Ext.ComponentQuery.query('infopanel')[0];
+
+//			infopanel.push(items);
+			infopanel.add(items);			
+			
+			console.log(items);
+		}
+		}
+		});
+			
+			map.addControl(info);*/
+//			info.activate();
+	
 		/*var gsat = new OpenLayers.Layer.Google(
 			"Google Satellite",
 			{type: google.maps.MapTypeId.SATELLITE, numZoomLevels: 22}
@@ -88,29 +117,9 @@ Ext.define('signeGeoportal.view.Map', {
 		});
 			
    	
-	   // map.zoomToMaxExtent();
-		/*signeGeoportal.xLayerStore = Ext.create('Ext.data.TreeStore', {
-			model: 'GeoExt.data.LayerTreeModel',
-			root: {
-				plugins: [{
-					ptype: "gx_layercontainer",
-					loader: {
-						createNode: function(attr) {
-							// add a WMS legend to each node created
-							attr.component = {
-								xtype: "gx_wmslegend",
-								layerRecord: signeGeoportal.xMap.layers.getByLayer(attr.layer),
-								showTitle: false,
-								// custom class for css positioning
-								// see tree-legend.html
-								cls: "legend"
-							};
-							return GeoExt.tree.LayerLoader.prototype.createNode.call(this, attr);
-						}
-					}
-				}]
-			}
-		});*/
+	   
+		
+		
 		
 	items.push(signeGeoportal.xMap);
 	

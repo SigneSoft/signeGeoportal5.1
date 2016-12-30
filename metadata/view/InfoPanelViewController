@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "infopanel",
+        "designer|userClassName": "InfoPanelViewController"
+    },
+    "designerId": "fe167f4a-f8fd-4487-bff7-85415880647f"
+}

@@ -65,7 +65,7 @@
                     "userConfig": {
                         "iconAlign": "top",
                         "iconCls": "zoom-extent",
-                        "id": "btnEnfocarPredeterminado",
+                        "id": "btnEnfocar",
                         "layout|flex": null,
                         "scale": "medium",
                         "text": "Enfocar país",
@@ -75,6 +75,76 @@
                     },
                     "name": "MyButton",
                     "designerId": "f8101d12-7bfd-44c8-8868-ed9c7f9bb2fa"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "enableToggle": true,
+                        "iconAlign": "top",
+                        "iconCls": "info",
+                        "id": "btnInformacion",
+                        "layout|flex": null,
+                        "scale": "medium",
+                        "text": "Información",
+                        "tooltip": [
+                            "Enfocar al país"
+                        ]
+                    },
+                    "name": "MyButton1",
+                    "designerId": "ad994ae1-d3b7-4d10-98fe-df2c6d6fdfc7",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "state"
+                                ],
+                                "fn": "toggleHandler",
+                                "implHandler": [
+                                    "if (state === true){    ",
+                                    "    signeGeoportal.xInfo.activate();    ",
+                                    "}else{",
+                                    "    signeGeoportal.xInfo.deactivate();       ",
+                                    "}",
+                                    ""
+                                ]
+                            },
+                            "name": "toggleHandler",
+                            "designerId": "6e3d0c99-b29a-49b9-9888-60128752aa41"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconAlign": "top",
+                        "iconCls": "print",
+                        "id": "btnImprimir",
+                        "layout|flex": null,
+                        "scale": "medium",
+                        "text": "Imprimir",
+                        "tooltip": [
+                            "Enfocar al país"
+                        ]
+                    },
+                    "name": "MyButton2",
+                    "designerId": "e07ec1c9-085e-4d4b-b660-d0643a96602b"
                 }
             ]
         }

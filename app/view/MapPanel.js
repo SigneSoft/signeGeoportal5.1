@@ -46,11 +46,38 @@ Ext.define('signeGeoportal.view.MapPanel', {
             items: [
                 {
                     xtype: 'button',
-                    id: 'btnEnfocarPredeterminado',
+                    id: 'btnEnfocar',
                     iconAlign: 'top',
                     iconCls: 'zoom-extent',
                     scale: 'medium',
                     text: 'Enfocar país',
+                    tooltip: 'Enfocar al país'
+                },
+                {
+                    xtype: 'button',
+                    toggleHandler: function(button, state) {
+                        if (state === true){
+                            signeGeoportal.xInfo.activate();
+                        }else{
+                            signeGeoportal.xInfo.deactivate();
+                        }
+
+                    },
+                    id: 'btnInformacion',
+                    enableToggle: true,
+                    iconAlign: 'top',
+                    iconCls: 'info',
+                    scale: 'medium',
+                    text: 'Información',
+                    tooltip: 'Enfocar al país'
+                },
+                {
+                    xtype: 'button',
+                    id: 'btnImprimir',
+                    iconAlign: 'top',
+                    iconCls: 'print',
+                    scale: 'medium',
+                    text: 'Imprimir',
                     tooltip: 'Enfocar al país'
                 }
             ]

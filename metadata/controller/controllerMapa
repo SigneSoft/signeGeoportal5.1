@@ -19,14 +19,14 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|controlQuery": "#btnEnfocarPredeterminado",
+                "designer|controlQuery": "#btnEnfocar",
                 "designer|params": [
                     "button",
                     "e",
                     "eOpts"
                 ],
                 "designer|targetType": "Ext.button.Button",
-                "fn": "onBtnEnfocarPredeterminadoClick",
+                "fn": "onBtnEnfocarClick",
                 "implHandler": [
                     "signeGeoportal.xMap.map.zoomToScale(2000000,false);",
                     "",
@@ -34,8 +34,32 @@
                 ],
                 "name": "click"
             },
-            "name": "onBtnEnfocarPredeterminadoClick",
+            "name": "onBtnEnfocarClick",
             "designerId": "f6bd9f62-343b-4527-8cf1-f2e3728865e0"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnInformacion",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnInformacionClick",
+                "implHandler": [
+                    ""
+                ],
+                "name": "click"
+            },
+            "name": "onBtnInformacionClick",
+            "designerId": "7e0d2fcb-e0ec-49ff-9b9c-65ada5e633a1"
         }
     ]
 }

@@ -46,6 +46,17 @@
                         "type": "array"
                     },
                     "codeClass": null,
+                    "name": "listalayer",
+                    "designerId": "e2dc5bef-b8f9-456e-b005-b7c6663155e1",
+                    "masterInstanceId": "9a8573dd-1394-40f5-8751-3faedd443dd9"
+                },
+                {
+                    "type": "linkedinstance",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
                     "name": "legendpanel",
                     "designerId": "fb85d06e-4b22-42da-871e-2d20649bdacf",
                     "masterInstanceId": "cad4187c-619d-477d-a609-7cee55148f55"
@@ -57,9 +68,9 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "listalayer",
-                    "designerId": "e2dc5bef-b8f9-456e-b005-b7c6663155e1",
-                    "masterInstanceId": "9a8573dd-1394-40f5-8751-3faedd443dd9"
+                    "name": "infopanel",
+                    "designerId": "5540ff9e-3481-48fe-9b35-369dce80369a",
+                    "masterInstanceId": "41ab2da3-c791-4901-9133-7b8dd576767f"
                 }
             ]
         },
@@ -87,7 +98,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "mappanel1",
+                    "name": "mappanel",
                     "designerId": "04045572-3604-4eda-b1a5-78825e34496e",
                     "masterInstanceId": "46caa872-8989-4970-9eea-d804a17bd5b4"
                 }
