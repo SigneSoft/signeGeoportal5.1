@@ -20,8 +20,8 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
         "#btnEnfocar": {
             click: 'onBtnEnfocarClick'
         },
-        "#btnInformacion": {
-            click: 'onBtnInformacionClick'
+        "#btnEliminarCapa": {
+            click: 'onBtnEliminarCapaClick'
         }
     },
 
@@ -31,7 +31,29 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
         //signePortal.xMap.zoomToExtent(new OpenLayers.Bounds(minLng,minLat,maxLng,maxLat));
     },
 
-    onBtnInformacionClick: function(button, e, eOpts) {
+    onBtnEliminarCapaClick: function(button, e, eOpts) {
+        var arbolCapa = Ext.getCmp("treelayer");
+        record = arbolCapa.getSelectionModel().getSelection()[0];
+        layer = signeGeoportal.xMap.map.getLayer(record.data.layer.id);
+
+        if (layer){
+            Ext.MessageBox.show({
+                title : 'Eliminar Capa',
+                buttons : Ext.MessageBox.YESNO,
+                msg : 'Realmente desea eliminar la capa ' + record.data.layer.name +  ' del mapa ?',
+                icon : Ext.Msg.WARNING,
+                fn : function(btn)
+                {
+                    if (btn == 'yes')
+                    {
+                        signeGeoportal.xMap.map.removeLayer(layer);
+                    }
+
+                }
+            });
+        }
+
+
 
     }
 

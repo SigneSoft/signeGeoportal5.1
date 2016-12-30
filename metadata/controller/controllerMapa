@@ -45,21 +45,43 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|controlQuery": "#btnInformacion",
+                "designer|controlQuery": "#btnEliminarCapa",
                 "designer|params": [
                     "button",
                     "e",
                     "eOpts"
                 ],
                 "designer|targetType": "Ext.button.Button",
-                "fn": "onBtnInformacionClick",
+                "fn": "onBtnEliminarCapaClick",
                 "implHandler": [
+                    "var arbolCapa = Ext.getCmp(\"treelayer\");",
+                    "record = arbolCapa.getSelectionModel().getSelection()[0];",
+                    "layer = signeGeoportal.xMap.map.getLayer(record.data.layer.id);",
+                    "",
+                    "if (layer){",
+                    "    Ext.MessageBox.show({",
+                    "        title : 'Eliminar Capa',",
+                    "        buttons : Ext.MessageBox.YESNO,",
+                    "        msg : 'Realmente desea eliminar la capa ' + record.data.layer.name +  ' del mapa ?',",
+                    "        icon : Ext.Msg.WARNING,",
+                    "        fn : function(btn)",
+                    "        {",
+                    "            if (btn == 'yes')",
+                    "            {",
+                    "                signeGeoportal.xMap.map.removeLayer(layer);",
+                    "            }",
+                    "",
+                    "        }",
+                    "    });",
+                    "}",
+                    "",
+                    "",
                     ""
                 ],
                 "name": "click"
             },
-            "name": "onBtnInformacionClick",
-            "designerId": "7e0d2fcb-e0ec-49ff-9b9c-65ada5e633a1"
+            "name": "onBtnEliminarCapaClick",
+            "designerId": "c0698dc8-8eeb-4965-a752-0c1242a76e25"
         }
     ]
 }

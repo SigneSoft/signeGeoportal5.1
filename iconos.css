@@ -1,4 +1,6 @@
 .add-file-icon {background:transparent url(./icons/add.png) 0 0 no-repeat !important;}
+.remove-file-icon{background:transparent url(./icons/delete.png) 0 0 no-repeat !important;}
+.edit-file-icon{background:transparent url(./icons/file_edit.png) 0 0 no-repeat !important;}
 .zoom-extent {background:transparent url(./icons/zoom_default.png) no-repeat center !important;}
 .info {background:transparent url(./icons/finger.png) no-repeat center !important;}
 .print {background:transparent url(./icons/print_map.png) no-repeat center !important;}

@@ -78,9 +78,10 @@ Ext.application({
             }
         });
 
-        var tree = Ext.create('GeoExt.tree.Panel', {
+        var treeLayer = Ext.create('GeoExt.tree.Panel', {
             region: "center",
             autoScroll: true,
+            id: 'treelayer',
             viewConfig: {
                 plugins: [{
                     ptype: 'treeviewdragdrop',
@@ -94,7 +95,7 @@ Ext.application({
 
         var legendpanel = Ext.ComponentQuery.query('legendpanel')[0];
 
-        legendpanel.add(tree);
+        legendpanel.add(treeLayer);
 
         // Define y crea el panel de información
 
@@ -156,11 +157,6 @@ Ext.application({
         );
 
         signeGeoportal.xMap.map.addLayer(wms);
-
-
-        console.log(signeGeoportal.xLayerStore);
-
-
     }
 
 });
