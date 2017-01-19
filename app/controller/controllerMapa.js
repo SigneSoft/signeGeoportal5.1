@@ -16,12 +16,19 @@
 Ext.define('signeGeoportal.controller.controllerMapa', {
     extend: 'Ext.app.Controller',
 
+    views: [
+        'PrintPreview'
+    ],
+
     control: {
         "#btnEnfocar": {
             click: 'onBtnEnfocarClick'
         },
         "#btnEliminarCapa": {
             click: 'onBtnEliminarCapaClick'
+        },
+        "#btnImprimir": {
+            click: 'onBtnImprimirClick'
         }
     },
 
@@ -53,6 +60,39 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
             });
         }
 
+
+
+    },
+
+    onBtnImprimirClick: function(button, e, eOpts) {
+        /*** Funcional ****/
+        printDialog = Ext.create('Ext.Window', {
+            title: "Vista previa de impresión",
+            layout: "fit",
+            border: false,
+            width: 500,
+            modal: true,
+           // autoHeight: true,
+            items: [{
+                xtype: 'textfield',
+                fieldLabel: 'Titulo',
+                id: 'txtTitulo',
+                anchor: '90%',
+            },{
+                xtype: "gx_printmappanel",
+                sourceMap: signeGeoportal.xMap,
+                printProvider: printProvider
+            }],
+            tbar: [{
+                text: "Imprimir PDF",
+                handler: function(){
+                    printDialog.items.get(1).printProvider.customParams.mapTitle = Ext.getCmp('txtTitulo').getValue();
+                    printDialog.items.get(1).print();
+                }
+            }]
+        });
+
+        printDialog.show();
 
 
     }

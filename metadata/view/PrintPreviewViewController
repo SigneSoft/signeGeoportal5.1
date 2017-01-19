@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "printpreview",
+        "designer|userClassName": "PrintPreviewViewController"
+    },
+    "designerId": "3a1769f2-ad29-457f-a822-35d781262f9a"
+}

@@ -9,8 +9,9 @@
         "designer|userAlias": "infopanel",
         "designer|userClassName": "InfoPanel",
         "height": "100%",
-        "layout": "fit",
-        "title": "Información",
+        "layout": "accordion",
+        "title": "Información de elementos",
+        "titleAlign": "center",
         "width": "100%"
     },
     "name": "MyPanel1",

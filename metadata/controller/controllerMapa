@@ -6,7 +6,10 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userClassName": "controllerMapa"
+        "designer|userClassName": "controllerMapa",
+        "views": [
+            "PrintPreview"
+        ]
     },
     "name": "MyController",
     "designerId": "57b5bd24-aacb-4e2b-b591-bcf482d529b8",
@@ -82,6 +85,59 @@
             },
             "name": "onBtnEliminarCapaClick",
             "designerId": "c0698dc8-8eeb-4965-a752-0c1242a76e25"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnImprimir",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnImprimirClick",
+                "implHandler": [
+                    "/*** Funcional ****/",
+                    "printDialog = Ext.create('Ext.Window', {",
+                    "    title: \"Vista previa de impresión\",",
+                    "    layout: \"fit\",",
+                    "    border: false,",
+                    "    width: 500,",
+                    "    modal: true,",
+                    "   // autoHeight: true,",
+                    "    items: [{",
+                    "        xtype: 'textfield',",
+                    "        fieldLabel: 'Titulo',",
+                    "        id: 'txtTitulo',",
+                    "        anchor: '90%',",
+                    "    },{",
+                    "        xtype: \"gx_printmappanel\",",
+                    "        sourceMap: signeGeoportal.xMap,",
+                    "        printProvider: printProvider",
+                    "    }],",
+                    "    tbar: [{",
+                    "        text: \"Imprimir PDF\",",
+                    "        handler: function(){",
+                    "            printDialog.items.get(1).printProvider.customParams.mapTitle = Ext.getCmp('txtTitulo').getValue();",
+                    "            printDialog.items.get(1).print();",
+                    "        }",
+                    "    }]",
+                    "});",
+                    "",
+                    "printDialog.show();",
+                    "",
+                    ""
+                ],
+                "name": "click"
+            },
+            "name": "onBtnImprimirClick",
+            "designerId": "e0c461fd-c825-4b3f-be06-62b84c273af4"
         }
     ]
 }

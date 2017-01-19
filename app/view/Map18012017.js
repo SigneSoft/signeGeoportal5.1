@@ -8,7 +8,6 @@ Ext.define('signeGeoportal.view.Map', {
 		'GeoExt.tree.Panel',
 		'Ext.tree.plugin.TreeViewDragDrop',
 		'GeoExt.panel.Map',
-		'GeoExt.panel.PrintMap',
 		'GeoExt.tree.OverlayLayerContainer',
 		'GeoExt.tree.BaseLayerContainer',
 		'GeoExt.data.LayerTreeModel',
@@ -32,17 +31,6 @@ Ext.define('signeGeoportal.view.Map', {
 		items = [],
 		ctrl;
 	
-		
-		printProvider = Ext.create('GeoExt.data.MapfishPrintProvider', {
-			method: "GET", // "POST" recommended for production use
-			// provide url instead for lazy loading
-			capabilities: printCapabilities,
-			customParams: {
-			mapTitle: "Titulo",
-			comment: "Comentario"
-			}
-		});
-
 		var map = new OpenLayers.Map({
 			projection: new OpenLayers.Projection("EPSG:900913"),
 			resolutions:[39135.7584765625,19567.8792382813,9783.93961914063,4891.96980957031,2445.98490478516,1222.99245239258,611.496226196289,305.748113098145,152.874056549072,76.4370282745361,38.2185141372681,19.109257068634,9.55462853431702,4.77731426715851,2.38865713357925,1.19432856678963,0.597164283394815],
@@ -73,8 +61,7 @@ Ext.define('signeGeoportal.view.Map', {
                         'target="_blank">contributors<a>'
                 }
             )
-		
-	
+				
     	/*var gphy = new OpenLayers.Layer.Google(
 			"Google Physical",
 			{type: google.maps.MapTypeId.TERRAIN}
@@ -101,7 +88,7 @@ Ext.define('signeGeoportal.view.Map', {
 		signeGeoportal.xMap = Ext.create('GeoExt.MapPanel', {
 			region: "center",
 			map: map,
-			//layers: [osm]
+			layers: [osm]
 		});
 					
 	items.push(signeGeoportal.xMap);

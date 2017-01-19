@@ -34,7 +34,8 @@ Ext.define('signeGeoportal.view.ListaLayer', {
     id: '',
     itemId: '',
     width: '100%',
-    title: 'Buscar capa para añadir al mapa',
+    title: 'Explorador de capas',
+    titleAlign: 'center',
 
     columns: [
         {

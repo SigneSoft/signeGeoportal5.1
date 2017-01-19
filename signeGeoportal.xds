@@ -13,7 +13,16 @@
             }
         },
         "urlPrefix": "http://localhost/signeGeoportal5.1/",
-        "exportPath": ""
+        "exportPath": "",
+        "projectHasEnabledWebServer": false,
+        "lockUrlPrefix": false,
+        "buildShouldOverwriteIndex": false,
+        "generateArchitectVersion": true,
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "installStatus": "Not Installed"
     },
     "xdsVersion": "3.2.0",
     "xdsBuild": 320,
@@ -36,7 +45,10 @@
             "6005aeb1-1f56-49eb-913a-0a3cb47447b0",
             "41ab2da3-c791-4901-9133-7b8dd576767f",
             "7d16481c-d890-44f7-9d77-4a82e0a3ca81",
-            "fe167f4a-f8fd-4487-bff7-85415880647f"
+            "fe167f4a-f8fd-4487-bff7-85415880647f",
+            "69bc9d27-6c27-4211-9c97-07f75945759b",
+            "38174076-6d92-4a70-9513-3316be420717",
+            "3a1769f2-ad29-457f-a822-35d781262f9a"
         ],
         "store": [],
         "controller": [

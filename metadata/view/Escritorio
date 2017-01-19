@@ -33,12 +33,31 @@
                 "layout": "accordion",
                 "layout|region": "west",
                 "layout|split": true,
+                "margin": "0 0 5 0",
                 "titleCollapse": true,
                 "width": 300
             },
             "name": "MyPanel",
             "designerId": "188550fe-bdc2-40c0-a225-0cabf0a1ba92",
             "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "dock": "top",
+                        "height": null,
+                        "html": [
+                            "<div class=\"logo-empresa\"></div>"
+                        ],
+                        "id": "contenedorLogo"
+                    },
+                    "name": "MyContainer2",
+                    "designerId": "b543b988-f38b-480c-acb2-8d28e98db564"
+                },
                 {
                     "type": "linkedinstance",
                     "reference": {

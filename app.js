@@ -100,12 +100,16 @@ Ext.application({
         // Define y crea el panel de información
 
         signeGeoportal.xInfo = new OpenLayers.Control.WMSGetFeatureInfo({
-        //    autoActivate: true,
+            //    autoActivate: true,
             infoFormat: "application/vnd.ogc.gml",
             maxFeatures: 3,
             eventListeners: {
                 "getfeatureinfo": function(e) {
                     var items = [];
+
+                    var infopanel = Ext.ComponentQuery.query('infopanel')[0];
+
+                    infopanel.remove('infogrid',false);
 
                     Ext.each(e.features, function(feature) {
 
@@ -113,13 +117,16 @@ Ext.application({
                             title: feature.fid,
                             itemId: "infogrid",
                             nameColumnWidth: '60%',
-                            source: feature.attributes
+                            source: feature.attributes,
+                            heigth:200,
                         });
 
                         propiedades.columns[0].setText('Propiedad');
                         propiedades.columns[1].setText('Valor');
 
                         items.push(propiedades);
+                        //infopanel.add(items);
+
                         /*items.push({
                             xtype: "propertygrid",
                             itemId: "infogrid",
@@ -128,10 +135,9 @@ Ext.application({
                         });*/
                     });
 
+                    console.log(items);
 
-                    var infopanel = Ext.ComponentQuery.query('infopanel')[0];
 
-                    infopanel.remove('infogrid',false);
                     infopanel.add(items);
 
                 }

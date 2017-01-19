@@ -41,12 +41,21 @@ Ext.define('signeGeoportal.view.Escritorio', {
             region: 'west',
             split: true,
             itemId: 'contenedorOpcion',
+            margin: '0 0 5 0',
             width: 300,
             layout: 'accordion',
             collapseDirection: 'left',
             collapsible: true,
             hideCollapseTool: true,
             titleCollapse: true,
+            dockedItems: [
+                {
+                    xtype: 'container',
+                    dock: 'top',
+                    html: '<div class="logo-empresa"></div>',
+                    id: 'contenedorLogo'
+                }
+            ],
             items: [
                 {
                     xtype: 'listalayer'

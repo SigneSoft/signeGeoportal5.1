@@ -12,6 +12,7 @@
         "items": null,
         "layout": "fit",
         "title": "Contenido del Mapa",
+        "titleAlign": "center",
         "width": "100%"
     },
     "name": "MyPanel1",

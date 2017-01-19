@@ -4,3 +4,19 @@
 .zoom-extent {background:transparent url(./icons/zoom_default.png) no-repeat center !important;}
 .info {background:transparent url(./icons/finger.png) no-repeat center !important;}
 .print {background:transparent url(./icons/print_map.png) no-repeat center !important;}
+
+
+
+.logo-empresa{
+ background-image: url(./imagenmenu/logo_encabezado.jpg);
+    background-size: 100% 100%;
+	background-repeat: no-repeat;
+    width: 300px;
+    height : 75px;
+    line-height: 60px;	
+}
+
+.x-fondo{
+	background: url(./imagenmenu/header-bg.jpg);
+    width: 100%;
+}

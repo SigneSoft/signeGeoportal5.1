@@ -30,6 +30,7 @@ Ext.define('signeGeoportal.view.LegendPanel', {
     width: '100%',
     layout: 'fit',
     title: 'Contenido del Mapa',
+    titleAlign: 'center',
 
     dockedItems: [
         {

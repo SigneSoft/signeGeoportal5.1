@@ -11,7 +11,8 @@
         "height": "100%",
         "id": "",
         "itemId": "",
-        "title": "Buscar capa para añadir al mapa",
+        "title": "Explorador de capas",
+        "titleAlign": "center",
         "width": "100%"
     },
     "name": "MyGridPanel",
