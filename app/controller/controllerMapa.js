@@ -66,35 +66,114 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
 
     onBtnImprimirClick: function(button, e, eOpts) {
         /*** Funcional ****/
-        printDialog = Ext.create('Ext.Window', {
+        /*printDialog = Ext.create('Ext.Window', {
             title: "Vista previa de impresión",
             layout: "fit",
             border: false,
             width: 500,
             modal: true,
-           // autoHeight: true,
+            heigth: 200,
+            // autoHeight: true,
             items: [{
                 xtype: 'textfield',
                 fieldLabel: 'Titulo',
                 id: 'txtTitulo',
-                anchor: '90%',
+                width: 200,
+                height: 10,
+                //  anchor: '90%',
             },{
                 xtype: "gx_printmappanel",
                 sourceMap: signeGeoportal.xMap,
-                printProvider: printProvider
-            }],
+                printProvider: printProvider,
+            },
+                    {
+                        xtype: 'textarea',
+                        fieldLabel: 'Comentario',
+                        id: 'txtComentario',
+                        width: 100,
+                        //        anchor: '90%',
+                    }],
             tbar: [{
                 text: "Imprimir PDF",
                 handler: function(){
                     printDialog.items.get(1).printProvider.customParams.mapTitle = Ext.getCmp('txtTitulo').getValue();
+                    printDialog.items.get(1).printProvider.customParams.comment = Ext.getCmp('txtComentario').getValue();
                     printDialog.items.get(1).print();
                 }
             }]
         });
 
+        printDialog.show();*/
+
+        printDialog = Ext.create('Ext.Window', {
+            height: 580,
+            width: 650,
+            layout: 'border',
+            title: 'Vista previa de impresión.',
+            modal: true,
+            items: [
+                {
+                    xtype: 'panel',
+                    region: 'north',
+                    height: 160,
+                    title: '',
+                    dockedItems: [
+                        {
+                            xtype: 'toolbar',
+                            dock: 'top',
+                            items: [
+                                {
+                                    xtype: 'button',
+                                    id: 'btnImprimirMapa',
+                                    text: 'Imprimir PDF',
+                                    handler: function(){
+                                        printDialog.items.get(1).items.get(0).printProvider.customParams.mapTitle = Ext.getCmp('txtTitulo').getValue();
+                                        printDialog.items.get(1).items.get(0).printProvider.customParams.comment = Ext.getCmp('txtComentario').getValue();
+                                        printDialog.items.get(1).items.get(0).print();
+                                    }
+
+                                }
+                            ]
+                        }
+                    ],
+                    items: [
+                        {
+                            xtype: 'fieldset',
+                            title: 'Información del mapa',
+                            items: [
+                                {
+                                    xtype: 'textfield',
+                                    anchor: '100%',
+                                    id: 'txtTitulo',
+                                    fieldLabel: 'Titulo',
+                                    name: 'tituloMapa',
+                                    allowBlank: false
+                                },
+                                {
+                                    xtype: 'textareafield',
+                                    anchor: '100%',
+                                    id: 'txtComentario',
+                                    fieldLabel: 'Comentario',
+                                    name: 'comentarioMapa',
+                                    allowBlank: false
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    xtype: 'panel',
+                    items: {
+                        xtype: "gx_printmappanel",
+                        sourceMap: signeGeoportal.xMap,
+                        printProvider: printProvider,
+                    },
+                    region: 'center',
+                    layout: 'fit',
+                }]
+        });
+
         printDialog.show();
-
-
     }
 
 });
