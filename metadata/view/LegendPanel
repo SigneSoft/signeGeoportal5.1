@@ -11,7 +11,7 @@
         "height": "100%",
         "items": null,
         "layout": "fit",
-        "title": "Contenido del Mapa",
+        "title": "Leyenda",
         "titleAlign": "center",
         "width": "100%"
     },
@@ -28,39 +28,5 @@
         }
     ],
     "viewControllerInstanceId": "6005aeb1-1f56-49eb-913a-0a3cb47447b0",
-    "viewModelInstanceId": "b0ac05ab-a25a-4728-9938-d8fc900ef72d",
-    "cn": [
-        {
-            "type": "Ext.toolbar.Toolbar",
-            "reference": {
-                "name": "dockedItems",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "dock": "top",
-                "id": "tbLegendPanel"
-            },
-            "name": "MyToolbar2",
-            "designerId": "97f9ad0e-aee5-4f0e-a08b-6bcd228a2ba5",
-            "cn": [
-                {
-                    "type": "Ext.button.Button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "iconCls": "remove-file-icon",
-                        "id": "btnEliminarCapa",
-                        "layout|flex": null,
-                        "text": ""
-                    },
-                    "name": "MyButton3",
-                    "designerId": "d6f0ba72-7f37-42a4-85ae-ec1008e9a3ad"
-                }
-            ]
-        }
-    ]
+    "viewModelInstanceId": "b0ac05ab-a25a-4728-9938-d8fc900ef72d"
 }

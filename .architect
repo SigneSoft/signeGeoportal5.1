@@ -6,13 +6,15 @@
             "cn": [
                 {
                     "id": "188550fe-bdc2-40c0-a225-0cabf0a1ba92",
-                    "expanded": false,
                     "cn": [
                         {
                             "id": "b543b988-f38b-480c-acb2-8d28e98db564"
                         },
                         {
                             "id": "e2dc5bef-b8f9-456e-b005-b7c6663155e1"
+                        },
+                        {
+                            "id": "9f7927a3-102e-4089-ae42-1f50462e8059"
                         },
                         {
                             "id": "fb85d06e-4b22-42da-871e-2d20649bdacf"
@@ -110,17 +112,7 @@
             "id": "3ab5283c-03e8-46e2-aa09-b24412222116"
         },
         "cad4187c-619d-477d-a609-7cee55148f55": {
-            "id": "cad4187c-619d-477d-a609-7cee55148f55",
-            "cn": [
-                {
-                    "id": "97f9ad0e-aee5-4f0e-a08b-6bcd228a2ba5",
-                    "cn": [
-                        {
-                            "id": "d6f0ba72-7f37-42a4-85ae-ec1008e9a3ad"
-                        }
-                    ]
-                }
-            ]
+            "id": "cad4187c-619d-477d-a609-7cee55148f55"
         },
         "b0ac05ab-a25a-4728-9938-d8fc900ef72d": {
             "id": "b0ac05ab-a25a-4728-9938-d8fc900ef72d"
@@ -137,19 +129,24 @@
         "fe167f4a-f8fd-4487-bff7-85415880647f": {
             "id": "fe167f4a-f8fd-4487-bff7-85415880647f"
         },
-        "69bc9d27-6c27-4211-9c97-07f75945759b": {
-            "id": "69bc9d27-6c27-4211-9c97-07f75945759b",
+        "dd6293bf-c4a1-4d4e-8f7f-aafd9249b833": {
+            "id": "dd6293bf-c4a1-4d4e-8f7f-aafd9249b833",
             "cn": [
                 {
-                    "id": "1fb20575-5584-4019-b6c5-322b4b08c99d"
+                    "id": "10d3fca6-3247-4734-afc6-f7c8c492b21c",
+                    "cn": [
+                        {
+                            "id": "d6f0ba72-7f37-42a4-85ae-ec1008e9a3ad"
+                        }
+                    ]
                 }
             ]
         },
-        "38174076-6d92-4a70-9513-3316be420717": {
-            "id": "38174076-6d92-4a70-9513-3316be420717"
+        "6d798e4a-f7ce-4ba3-a960-8cb272eeef44": {
+            "id": "6d798e4a-f7ce-4ba3-a960-8cb272eeef44"
         },
-        "3a1769f2-ad29-457f-a822-35d781262f9a": {
-            "id": "3a1769f2-ad29-457f-a822-35d781262f9a"
+        "bc5e5b67-ff07-4e43-84ec-15bcdd4ea9ff": {
+            "id": "bc5e5b67-ff07-4e43-84ec-15bcdd4ea9ff"
         },
         "store": true,
         "model": true,
@@ -192,13 +189,16 @@
         },
         "dcb4408c-8c32-4ff7-b4c1-725ac79e4dfc": {
             "id": "dcb4408c-8c32-4ff7-b4c1-725ac79e4dfc"
+        },
+        "e09e4017-01ca-409e-b11d-1a238980a476": {
+            "id": "e09e4017-01ca-409e-b11d-1a238980a476"
         }
     },
     "tabState": {
         "openTabs": [
-            "57b5bd24-aacb-4e2b-b591-bcf482d529b8",
             "application",
-            "69bc9d27-6c27-4211-9c97-07f75945759b",
+            "dd6293bf-c4a1-4d4e-8f7f-aafd9249b833",
+            "a60423d4-cd5a-4fda-8e22-a83e9c4ffcfe",
             "41ab2da3-c791-4901-9133-7b8dd576767f"
         ]
     },
@@ -206,8 +206,8 @@
         "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "57b5bd24-aacb-4e2b-b591-bcf482d529b8",
-        "selectedInstance": "e0c461fd-c825-4b3f-be06-62b84c273af4"
+        "topInstance": "application",
+        "selectedInstance": "b043cf2f-eb12-433d-ad8d-a2143b8d4e82"
     },
     "editMode": "code",
     "userSettings": {

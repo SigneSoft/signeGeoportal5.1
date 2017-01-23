@@ -16,7 +16,7 @@
         "exportPath": "",
         "projectHasEnabledWebServer": false,
         "lockUrlPrefix": false,
-        "buildShouldOverwriteIndex": false,
+        "buildShouldOverwriteIndex": true,
         "generateArchitectVersion": true,
         "spacesToIndent": 4,
         "lineEnding": "CRLF",
@@ -46,9 +46,9 @@
             "41ab2da3-c791-4901-9133-7b8dd576767f",
             "7d16481c-d890-44f7-9d77-4a82e0a3ca81",
             "fe167f4a-f8fd-4487-bff7-85415880647f",
-            "69bc9d27-6c27-4211-9c97-07f75945759b",
-            "38174076-6d92-4a70-9513-3316be420717",
-            "3a1769f2-ad29-457f-a822-35d781262f9a"
+            "dd6293bf-c4a1-4d4e-8f7f-aafd9249b833",
+            "6d798e4a-f7ce-4ba3-a960-8cb272eeef44",
+            "bc5e5b67-ff07-4e43-84ec-15bcdd4ea9ff"
         ],
         "store": [],
         "controller": [
@@ -63,7 +63,8 @@
             "7efe7499-f158-4258-9982-1f37b6bcf241",
             "74230882-9b01-4f45-9080-2e64ea1c8138",
             "3f82b9f3-b8ea-478e-a066-b586eae8b724",
-            "dcb4408c-8c32-4ff7-b4c1-725ac79e4dfc"
+            "dcb4408c-8c32-4ff7-b4c1-725ac79e4dfc",
+            "e09e4017-01ca-409e-b11d-1a238980a476"
         ],
         "app": [
             "application"

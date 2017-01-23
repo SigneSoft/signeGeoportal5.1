@@ -1,0 +1,56 @@
+{
+    "type": "Ext.panel.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "contentpanel",
+        "designer|userClassName": "ContentPanel",
+        "height": 250,
+        "id": "contentpanel",
+        "layout": "fit",
+        "title": "Contenido del mapa",
+        "titleAlign": "center",
+        "width": 400
+    },
+    "name": "MyPanel1",
+    "designerId": "dd6293bf-c4a1-4d4e-8f7f-aafd9249b833",
+    "viewControllerInstanceId": "bc5e5b67-ff07-4e43-84ec-15bcdd4ea9ff",
+    "viewModelInstanceId": "6d798e4a-f7ce-4ba3-a960-8cb272eeef44",
+    "cn": [
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top",
+                "id": "tbLegendPanel"
+            },
+            "name": "MyToolbar2",
+            "designerId": "10d3fca6-3247-4734-afc6-f7c8c492b21c",
+            "cn": [
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "remove-file-icon",
+                        "id": "btnEliminarCapa",
+                        "layout|flex": null,
+                        "text": ""
+                    },
+                    "name": "MyButton3",
+                    "designerId": "d6f0ba72-7f37-42a4-85ae-ec1008e9a3ad"
+                }
+            ]
+        }
+    ]
+}

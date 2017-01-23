@@ -32,7 +32,8 @@ Ext.application({
         'MapPanel',
         'Map',
         'ListaLayer',
-        'InfoPanel'
+        'InfoPanel',
+        'ContentPanel'
     ],
     controllers: [
         'controllerMapa'
@@ -60,7 +61,7 @@ Ext.application({
             root: {
                 plugins: [{
                     ptype: "gx_layercontainer",
-                    loader: {
+                    /*loader: {
                         createNode: function(attr) {
                             // add a WMS legend to each node created
                             attr.component = {
@@ -73,10 +74,11 @@ Ext.application({
                             };
                             return GeoExt.tree.LayerLoader.prototype.createNode.call(this, attr);
                         }
-                    }
+                    }*/
                 }]
             }
         });
+
 
         var treeLayer = Ext.create('GeoExt.tree.Panel', {
             region: "center",
@@ -93,9 +95,22 @@ Ext.application({
             lines: false
         });
 
+        //*** Este código añade al panel el arbol que contiene los layers y la leyenda
+        var contentpanel = Ext.ComponentQuery.query('contentpanel')[0];
+        contentpanel.add(treeLayer);
+
+        var legendLayer = Ext.create('GeoExt.panel.Legend',{
+            region: "center",
+            autoScroll: true,
+            id: 'legendlayer',
+            padding: 5,
+            layerStore: signeGeoportal.xMap.layers
+        });
+
         var legendpanel = Ext.ComponentQuery.query('legendpanel')[0];
 
-        legendpanel.add(treeLayer);
+        //*** Este código añade al panel el arbol que contiene los layers y la leyenda
+        legendpanel.add(legendLayer);
 
         // Define y crea el panel de información
 
@@ -115,7 +130,6 @@ Ext.application({
 
                         var propiedades = Ext.create('Ext.grid.property.Grid', {
                             title: feature.fid,
-                            itemId: "infogrid",
                             nameColumnWidth: '60%',
                             source: feature.attributes,
                             heigth:200,
@@ -125,20 +139,22 @@ Ext.application({
                         propiedades.columns[1].setText('Valor');
 
                         items.push(propiedades);
-                        //infopanel.add(items);
-
-                        /*items.push({
-                            xtype: "propertygrid",
-                            itemId: "infogrid",
-                            title: feature.fid,
-                            source: feature.attributes
-                        });*/
                     });
 
-                    console.log(items);
-
-
                     infopanel.add(items);
+
+                    /*var popup = Ext.create('GeoExt.window.Popup', {
+                        title: "Feature Info",
+                        width: 300,
+                        height: 300,
+                        layout: "accordion",
+                        map: signeGeoportal.xMap,
+                        location: e.xy,
+                        items: items
+                    });
+
+                    popup.show();*/
+
 
                 }
             }

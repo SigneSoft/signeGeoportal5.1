@@ -16,6 +16,11 @@ Ext.define('signeGeoportal.view.Map', {
 		'GeoExt.container.WmsLegend',
 		'GeoExt.tree.Column',
 		'GeoExt.data.MapfishPrintProvider',
+		'GeoExt.data.PrintPage',
+		'GeoExt.panel.Legend',
+		'GeoExt.container.WmsLegend',
+		'GeoExt.container.UrlLegend',
+		'GeoExt.container.VectorLegend',
 		// We need to require this class, even though it is used by Ext.EventObjectImpl
 		// see: http://www.sencha.com/forum/showthread.php?262124-Missed-(-)-dependency-reference-to-a-Ext.util.Point-in-Ext.EventObjectImpl
 		'Ext.util.Point'
@@ -43,6 +48,10 @@ Ext.define('signeGeoportal.view.Map', {
 			}
 		});
 
+		printPage = Ext.create('GeoExt.data.PrintPage', {
+			printProvider: printProvider
+		});
+		
 		var map = new OpenLayers.Map({
 			projection: new OpenLayers.Projection("EPSG:900913"),
 			resolutions:[39135.7584765625,19567.8792382813,9783.93961914063,4891.96980957031,2445.98490478516,1222.99245239258,611.496226196289,305.748113098145,152.874056549072,76.4370282745361,38.2185141372681,19.109257068634,9.55462853431702,4.77731426715851,2.38865713357925,1.19432856678963,0.597164283394815],

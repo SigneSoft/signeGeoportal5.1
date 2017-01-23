@@ -6,8 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "printpreview",
-        "designer|userClassName": "PrintPreviewViewModel"
+        "designer|userAlias": "contentpanel",
+        "designer|userClassName": "ContentPanelViewModel"
     },
-    "designerId": "38174076-6d92-4a70-9513-3316be420717"
+    "designerId": "6d798e4a-f7ce-4ba3-a960-8cb272eeef44"
 }

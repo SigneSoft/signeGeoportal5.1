@@ -18,9 +18,7 @@ Ext.define('signeGeoportal.view.LegendPanel', {
     alias: 'widget.legendpanel',
 
     requires: [
-        'signeGeoportal.view.LegendPanelViewModel',
-        'Ext.toolbar.Toolbar',
-        'Ext.button.Button'
+        'signeGeoportal.view.LegendPanelViewModel'
     ],
 
     viewModel: {
@@ -29,23 +27,7 @@ Ext.define('signeGeoportal.view.LegendPanel', {
     height: '100%',
     width: '100%',
     layout: 'fit',
-    title: 'Contenido del Mapa',
-    titleAlign: 'center',
-
-    dockedItems: [
-        {
-            xtype: 'toolbar',
-            dock: 'top',
-            id: 'tbLegendPanel',
-            items: [
-                {
-                    xtype: 'button',
-                    id: 'btnEliminarCapa',
-                    iconCls: 'remove-file-icon',
-                    text: ''
-                }
-            ]
-        }
-    ]
+    title: 'Leyenda',
+    titleAlign: 'center'
 
 });

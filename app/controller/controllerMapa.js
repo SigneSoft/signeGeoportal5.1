@@ -17,7 +17,7 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
     extend: 'Ext.app.Controller',
 
     views: [
-        'PrintPreview'
+        'LegendPanel'
     ],
 
     control: {
@@ -127,9 +127,23 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
                                     id: 'btnImprimirMapa',
                                     text: 'Imprimir PDF',
                                     handler: function(){
+                                        var legendpanel = Ext.getCmp('legendlayer');
+                                        //console.log();
+
+
+                                        var includeLegend;
+                                        includeLegend = true;
+                                        printPage.scale = 100000;
+                                        printPage.fit(signeGeoportal.xMap, true);
+
                                         printDialog.items.get(1).items.get(0).printProvider.customParams.mapTitle = Ext.getCmp('txtTitulo').getValue();
                                         printDialog.items.get(1).items.get(0).printProvider.customParams.comment = Ext.getCmp('txtComentario').getValue();
-                                        printDialog.items.get(1).items.get(0).print();
+                                        printDialog.items.get(1).items.get(0).print(signeGeoportal.xMap, printPage, includeLegend && {legend: legendpanel});
+
+                                        // convenient way to fit the print page to the visible map area
+                                        //printPage.fit(mapPanel, true);
+                                        // print the page, optionally including the legend
+                                        //printProvider.print(mapPanel, printPage, includeLegend && {legend: legendPanel});
                                     }
 
                                 }
@@ -167,6 +181,8 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
                         xtype: "gx_printmappanel",
                         sourceMap: signeGeoportal.xMap,
                         printProvider: printProvider,
+                        zoom: 10,
+                        limitScales:false
                     },
                     region: 'center',
                     layout: 'fit',

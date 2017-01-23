@@ -6,8 +6,8 @@
     },
     "codeClass": null,
     "userConfig": {
-        "designer|userAlias": "printpreview",
-        "designer|userClassName": "PrintPreviewViewController"
+        "designer|userAlias": "contentpanel",
+        "designer|userClassName": "ContentPanelViewController"
     },
-    "designerId": "3a1769f2-ad29-457f-a822-35d781262f9a"
+    "designerId": "bc5e5b67-ff07-4e43-84ec-15bcdd4ea9ff"
 }
