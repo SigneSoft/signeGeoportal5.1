@@ -45,7 +45,7 @@
                         "iconCls": "remove-file-icon",
                         "id": "btnEliminarCapa",
                         "layout|flex": null,
-                        "text": ""
+                        "text": "Eliminar"
                     },
                     "name": "MyButton3",
                     "designerId": "d6f0ba72-7f37-42a4-85ae-ec1008e9a3ad"

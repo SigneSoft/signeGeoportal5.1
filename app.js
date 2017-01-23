@@ -124,7 +124,8 @@ Ext.application({
 
                     var infopanel = Ext.ComponentQuery.query('infopanel')[0];
 
-                    infopanel.remove('infogrid',false);
+                    infopanel.removeAll();
+                    //infopanel.remove('infogrid',false);
 
                     Ext.each(e.features, function(feature) {
 

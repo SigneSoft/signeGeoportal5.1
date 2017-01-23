@@ -43,7 +43,7 @@ Ext.define('signeGeoportal.view.ContentPanel', {
                     xtype: 'button',
                     id: 'btnEliminarCapa',
                     iconCls: 'remove-file-icon',
-                    text: ''
+                    text: 'Eliminar'
                 }
             ]
         }
