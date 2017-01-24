@@ -93,7 +93,15 @@ Ext.application({
             },
             store: signeGeoportal.xLayerStore,
             rootVisible: false,
-            lines: false
+            lines: false,
+            listeners: {
+                itemclick : function(view,rec,item,index,eventObj) {
+                    layer = signeGeoportal.getApplication().obtenerLayer();
+                    var slider = Ext.getCmp('slider');
+                    slider.setValue(layer.opacity * 100);
+
+                }
+            }
         });
 
         var contentpanel = Ext.ComponentQuery.query('contentpanel')[0];
@@ -118,6 +126,7 @@ Ext.application({
         					  });*/
 
         var slider = Ext.create('GeoExt.slider.LayerOpacity', {
+            id:'slider',
             aggressive: true,
             width: '100%',
             inverse: true,
@@ -130,7 +139,7 @@ Ext.application({
             }),
             listeners:{change:function(slider,newValue,thumb) {
                 var layer = signeGeoportal.getApplication().obtenerLayer();
-                console.log(layer);
+                //console.log(layer);
                 if(layer)
                     layer.setOpacity(newValue/100.0);
             }

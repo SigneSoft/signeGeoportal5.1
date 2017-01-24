@@ -23,6 +23,7 @@ Ext.define('signeGeoportal.view.Map', {
 		'GeoExt.container.VectorLegend',
 		'GeoExt.slider.LayerOpacity',
 		'GeoExt.slider.Tip',
+        'GeoExt.plugins.PrintExtent',
 		// We need to require this class, even though it is used by Ext.EventObjectImpl
 		// see: http://www.sencha.com/forum/showthread.php?262124-Missed-(-)-dependency-reference-to-a-Ext.util.Point-in-Ext.EventObjectImpl
 		'Ext.util.Point'
@@ -32,7 +33,7 @@ Ext.define('signeGeoportal.view.Map', {
     layout: 'fit',
     region: 'center',
 	//anchor: '100% 100%',
-	zoom: 7,
+	//zoom: 7,
 	//setCenter: (new OpenLayers.LonLat(-10029760,1779651), 7),
     initComponent: function() {
         var me = this,
@@ -50,6 +51,7 @@ Ext.define('signeGeoportal.view.Map', {
 			}
 		});
 
+		
 		printPage = Ext.create('GeoExt.data.PrintPage', {
 			printProvider: printProvider
 		});
@@ -61,7 +63,7 @@ Ext.define('signeGeoportal.view.Map', {
 			units: 'm', 
 			allOverlays: true,
 			maxExtent : new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34),
-			restrictedExtent : new OpenLayers.Bounds(-10303710, 1480018,-9775377,2137988),//10580107,   1521600,  -9452508,   2130650),
+			//restrictedExtent : new OpenLayers.Bounds(-10303710, 1480018,-9775377,2137988),//10580107,   1521600,  -9452508,   2130650),
 			// define la resolución máxima del mapa*/
 			controls: []	
 		});
@@ -72,58 +74,35 @@ Ext.define('signeGeoportal.view.Map', {
 		map.addControl(new OpenLayers.Control.Navigation());	//
 		map.addControl(new OpenLayers.Control.ScaleLine());     // la linea de escala
 
+
 		
-		/*var osm = new OpenLayers.Layer.WMS(
-                "OpenStreetMap WMS",
-                "https://ows.terrestris.de/osm/service?",
-                {layers: 'OSM-WMS'},
-                {
-                    attribution: '&copy; terrestris GmbH & Co. KG <br>' +
-                        'Data &copy; OpenStreetMap ' +
-                        '<a href="http://www.openstreetmap.org/copyright/en"' +
-                        'target="_blank">contributors<a>'
-                }
-            )
-		
-	
-    	var gphy = new OpenLayers.Layer.Google(
-			"Google Physical",
-			{type: google.maps.MapTypeId.TERRAIN}
-		);*/
-		
-	   
-		/*var gmap = new OpenLayers.Layer.Google(
+		var gmap = new OpenLayers.Layer.Google(
 			"Google Streets", // the default
 			{numZoomLevels: 20}
 		);
+	
+    	var gphy = new OpenLayers.Layer.Google(
+			"Google Physical",
+			{type: google.maps.MapTypeId.TERRAIN, visibility: false}
+		);
+			   
 
 		var ghyb = new OpenLayers.Layer.Google(
 			"Google Hybrid",
-			{type: google.maps.MapTypeId.HYBRID, numZoomLevels: 20}
-		);*/
-    
-		// map.zoomToMaxExtent();
-	
-		/*var gsat = new OpenLayers.Layer.Google(
-			"Google Satellite",
-			{type: google.maps.MapTypeId.SATELLITE, numZoomLevels: 22}
-		);*/
-		
-		var osm = new OpenLayers.Layer.OSM();
-		var gmap = new OpenLayers.Layer.Google("Google Streets", 
-			{visibility: true, 
-			isBaseLayer: true}
+			{type: google.maps.MapTypeId.HYBRID, numZoomLevels: 20 , visibility: false}
 		);
+    
 		
 		// note that first layer must be visible
-		map.addLayers([gmap,osm]);
+		map.addLayers([gmap,gphy,ghyb]);
 			
 			
 		signeGeoportal.xMap = Ext.create('GeoExt.MapPanel', {
 			region: "center",
 			map: map,
-			//layers: [gphy]
-		});
+			zoom:7,
+			center: new OpenLayers.LonLat(-10048800, 1785400)
+			});
 						
 		items.push(signeGeoportal.xMap);
 		

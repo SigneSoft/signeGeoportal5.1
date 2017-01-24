@@ -102,10 +102,15 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
         });
 
         printDialog.show();*/
+        var printExtent = Ext.create('GeoExt.plugins.PrintExtent', {
+            printProvider: printProvider
+        });
+
+
 
         printDialog = Ext.create('Ext.Window', {
             height: 580,
-            width: 650,
+            width: 450,
             layout: 'border',
             title: 'Vista previa de impresión.',
             modal: true,
@@ -113,7 +118,7 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
                 {
                     xtype: 'panel',
                     region: 'north',
-                    height: 160,
+                    layout: 'fit',
                     title: '',
                     dockedItems: [
                         {
@@ -124,6 +129,7 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
                                     xtype: 'button',
                                     id: 'btnImprimirMapa',
                                     text: 'Imprimir PDF',
+                                    iconCls: 'print-pdf',
                                     handler: function(){
                                         var legendpanel = Ext.getCmp('legendlayer');
                                         //console.log();
@@ -139,9 +145,9 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
                                         printDialog.items.get(1).items.get(0).print(signeGeoportal.xMap, printPage, includeLegend && {legend: legendpanel});
 
                                         // convenient way to fit the print page to the visible map area
-                                        //printPage.fit(mapPanel, true);
+                                        printPage.fit(mapPanel, true);
                                         // print the page, optionally including the legend
-                                        //printProvider.print(mapPanel, printPage, includeLegend && {legend: legendPanel});
+                                        printProvider.print(mapPanel, printPage, includeLegend && {legend: legendPanel});
                                     }
 
                                 }
@@ -151,6 +157,7 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
                     items: [
                         {
                             xtype: 'fieldset',
+                            height: 120,
                             title: 'Información del mapa',
                             items: [
                                 {
@@ -179,15 +186,21 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
                         xtype: "gx_printmappanel",
                         sourceMap: signeGeoportal.xMap,
                         printProvider: printProvider,
-                        zoom: 10,
-                        limitScales:false
+                        zoom:20,
+                        center: new OpenLayers.LonLat(-10048800, 1735400),
+                        //limitScales:true,
+                        //plugins: [printExtent],
                     },
                     region: 'center',
                     layout: 'fit',
                 }]
         });
 
+
         printDialog.show();
+
+        //printExtent.addPage();
+
     }
 
 });
