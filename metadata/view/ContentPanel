@@ -29,10 +29,21 @@
             "codeClass": null,
             "userConfig": {
                 "dock": "top",
-                "id": "tbLegendPanel"
+                "id": "tbLegendPanel",
+                "items": null
             },
             "name": "MyToolbar2",
+            "configAlternates": {
+                "items": "object"
+            },
             "designerId": "10d3fca6-3247-4734-afc6-f7c8c492b21c",
+            "customConfigs": [
+                {
+                    "group": "(Custom Properties)",
+                    "name": "items",
+                    "type": "string"
+                }
+            ],
             "cn": [
                 {
                     "type": "Ext.button.Button",
@@ -51,6 +62,23 @@
                     "designerId": "d6f0ba72-7f37-42a4-85ae-ec1008e9a3ad"
                 }
             ]
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "bottom",
+                "id": "tbSlider"
+            },
+            "name": "MyToolbar3",
+            "configAlternates": {
+                "items": "object"
+            },
+            "designerId": "00aa92cf-5f29-4a38-bff1-08b148db60e8"
         }
     ]
 }

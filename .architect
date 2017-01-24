@@ -14,13 +14,13 @@
                             "id": "e2dc5bef-b8f9-456e-b005-b7c6663155e1"
                         },
                         {
-                            "id": "9f7927a3-102e-4089-ae42-1f50462e8059"
-                        },
-                        {
                             "id": "fb85d06e-4b22-42da-871e-2d20649bdacf"
                         },
                         {
                             "id": "5540ff9e-3481-48fe-9b35-369dce80369a"
+                        },
+                        {
+                            "id": "9f7927a3-102e-4089-ae42-1f50462e8059"
                         }
                     ]
                 },
@@ -139,6 +139,9 @@
                             "id": "d6f0ba72-7f37-42a4-85ae-ec1008e9a3ad"
                         }
                     ]
+                },
+                {
+                    "id": "00aa92cf-5f29-4a38-bff1-08b148db60e8"
                 }
             ]
         },
@@ -198,12 +201,11 @@
         "openTabs": [
             "application",
             "dd6293bf-c4a1-4d4e-8f7f-aafd9249b833",
-            "a60423d4-cd5a-4fda-8e22-a83e9c4ffcfe",
-            "41ab2da3-c791-4901-9133-7b8dd576767f"
+            "57b5bd24-aacb-4e2b-b591-bcf482d529b8"
         ]
     },
     "canvasState": {
-        "topInstance": "dd6293bf-c4a1-4d4e-8f7f-aafd9249b833"
+        "topInstance": null
     },
     "inspectorState": {
         "topInstance": "application",

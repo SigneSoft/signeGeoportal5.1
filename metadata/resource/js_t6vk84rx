@@ -9,7 +9,7 @@
         "defer": false,
         "designer|userClassName": "js_t6vk84rx",
         "id": "OpenLayers",
-        "url": "../OpenLayers2131/OpenLayers.js",
+        "url": "../OpenLayers212/OpenLayers.js",
         "x-compile": true
     },
     "name": "js",

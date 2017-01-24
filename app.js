@@ -60,7 +60,8 @@ Ext.application({
             model: 'GeoExt.data.LayerTreeModel',
             root: {
                 plugins: [{
-                    ptype: "gx_layercontainer",
+                    ptype: "gx_overlaylayercontainer",
+                    //ptype: "gx_layercontainer",
                     /*loader: {
                         createNode: function(attr) {
                             // add a WMS legend to each node created
@@ -79,7 +80,7 @@ Ext.application({
             }
         });
 
-
+        //*** Este código añade al panel el arbol que contiene los layers
         var treeLayer = Ext.create('GeoExt.tree.Panel', {
             region: "center",
             autoScroll: true,
@@ -95,10 +96,53 @@ Ext.application({
             lines: false
         });
 
-        //*** Este código añade al panel el arbol que contiene los layers y la leyenda
         var contentpanel = Ext.ComponentQuery.query('contentpanel')[0];
         contentpanel.add(treeLayer);
 
+        /*var slider= new GeoExt.LayerOpacitySlider({
+        					id:"opacity_slider",
+        					aggressive:true,
+        					vertical:false,
+        					width:100,
+        					value:70,
+        					minValue:0,
+        					maxValue:100,
+        					plugins: new GeoExt.LayerOpacitySliderTip() ,
+        					listeners:{change:function(slider,newValue,thumb) {
+        											  var record = getRecordTree();
+        											  if(record.layer)
+        											     record.layer.setOpacity(newValue/100.0);
+        											  }
+
+        						  }
+        					  });*/
+
+        var slider = Ext.create('GeoExt.slider.LayerOpacity', {
+            aggressive: true,
+            width: '100%',
+            inverse: true,
+            fieldLabel: "Transparencia",
+            value:80,
+            plugins: Ext.create("GeoExt.slider.Tip", {
+                getText: function(thumb) {
+                    return Ext.String.format('Transparencia: {0}%', thumb.value);
+                }
+            }),
+            listeners:{change:function(slider,newValue,thumb) {
+                var layer = signeGeoportal.getApplication().obtenerLayer();
+                console.log(layer);
+                if(layer)
+                    layer.setOpacity(newValue/100.0);
+            }
+                      }
+        });
+
+
+        var legendtool = Ext.getCmp('tbSlider');
+        legendtool.add(slider);
+        //legendtool.doLayout();*/
+
+        //*** Este código añade al panel el arbol que contiene la leyenda
         var legendLayer = Ext.create('GeoExt.panel.Legend',{
             region: "center",
             autoScroll: true,
@@ -109,11 +153,10 @@ Ext.application({
 
         var legendpanel = Ext.ComponentQuery.query('legendpanel')[0];
 
-        //*** Este código añade al panel el arbol que contiene los layers y la leyenda
+
         legendpanel.add(legendLayer);
 
         // Define y crea el panel de información
-
         signeGeoportal.xInfo = new OpenLayers.Control.WMSGetFeatureInfo({
             //    autoActivate: true,
             infoFormat: "application/vnd.ogc.gml",
@@ -173,13 +216,25 @@ Ext.application({
              transparent : 'true',
              format: 'image/png'
             },
-            {opacity: 0.8,
+            {opacity: 0.7,
              isBaseLayer: false,
+             //displayInLayerSwitcher:false
              //     attribution: "<img src='"+url_capa+"request=GetLegendGraphic&format=image/png&width=18&height=17&layer="+nombre_capa+"&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000033;fontSize:12;bgColor:0xFFFFEE;dpi:180'>"
             }
         );
 
         signeGeoportal.xMap.map.addLayer(wms);
+    },
+
+    obtenerLayer: function() {
+        var arbolCapa = Ext.getCmp("treelayer");
+        record = arbolCapa.getSelectionModel().getSelection()[0];
+        layer = signeGeoportal.xMap.map.getLayer(record.data.layer.id);
+
+        return layer;
+        //alert("func cambiando opacidad");
+
+
     }
 
 });

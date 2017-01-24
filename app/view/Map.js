@@ -21,6 +21,8 @@ Ext.define('signeGeoportal.view.Map', {
 		'GeoExt.container.WmsLegend',
 		'GeoExt.container.UrlLegend',
 		'GeoExt.container.VectorLegend',
+		'GeoExt.slider.LayerOpacity',
+		'GeoExt.slider.Tip',
 		// We need to require this class, even though it is used by Ext.EventObjectImpl
 		// see: http://www.sencha.com/forum/showthread.php?262124-Missed-(-)-dependency-reference-to-a-Ext.util.Point-in-Ext.EventObjectImpl
 		'Ext.util.Point'
@@ -65,13 +67,13 @@ Ext.define('signeGeoportal.view.Map', {
 		});
 
 		map.addControl(new OpenLayers.Control.MousePosition());		
-		//map.addControl(new OpenLayers.Control.LayerSwitcher());		
+		map.addControl(new OpenLayers.Control.LayerSwitcher());		
 		map.addControl(new OpenLayers.Control.PanZoomBar());   // la linea de zoom
 		map.addControl(new OpenLayers.Control.Navigation());	//
 		map.addControl(new OpenLayers.Control.ScaleLine());     // la linea de escala
 
 		
-		var osm = new OpenLayers.Layer.WMS(
+		/*var osm = new OpenLayers.Layer.WMS(
                 "OpenStreetMap WMS",
                 "https://ows.terrestris.de/osm/service?",
                 {layers: 'OSM-WMS'},
@@ -84,13 +86,13 @@ Ext.define('signeGeoportal.view.Map', {
             )
 		
 	
-    	/*var gphy = new OpenLayers.Layer.Google(
+    	var gphy = new OpenLayers.Layer.Google(
 			"Google Physical",
 			{type: google.maps.MapTypeId.TERRAIN}
-		);
+		);*/
 		
-			
-		var gmap = new OpenLayers.Layer.Google(
+	   
+		/*var gmap = new OpenLayers.Layer.Google(
 			"Google Streets", // the default
 			{numZoomLevels: 20}
 		);
@@ -107,14 +109,24 @@ Ext.define('signeGeoportal.view.Map', {
 			{type: google.maps.MapTypeId.SATELLITE, numZoomLevels: 22}
 		);*/
 		
+		var osm = new OpenLayers.Layer.OSM();
+		var gmap = new OpenLayers.Layer.Google("Google Streets", 
+			{visibility: true, 
+			isBaseLayer: true}
+		);
+		
+		// note that first layer must be visible
+		map.addLayers([gmap,osm]);
+			
+			
 		signeGeoportal.xMap = Ext.create('GeoExt.MapPanel', {
 			region: "center",
 			map: map,
-			//layers: [osm]
+			//layers: [gphy]
 		});
-					
-	items.push(signeGeoportal.xMap);
-	
+						
+		items.push(signeGeoportal.xMap);
+		
 	Ext.apply(me, {
           items: items
 			});

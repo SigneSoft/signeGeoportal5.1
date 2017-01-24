@@ -46,6 +46,11 @@ Ext.define('signeGeoportal.view.ContentPanel', {
                     text: 'Eliminar'
                 }
             ]
+        },
+        {
+            xtype: 'toolbar',
+            dock: 'bottom',
+            id: 'tbSlider'
         }
     ]
 

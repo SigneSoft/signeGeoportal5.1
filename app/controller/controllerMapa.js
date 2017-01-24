@@ -39,9 +39,7 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
     },
 
     onBtnEliminarCapaClick: function(button, e, eOpts) {
-        var arbolCapa = Ext.getCmp("treelayer");
-        record = arbolCapa.getSelectionModel().getSelection()[0];
-        layer = signeGeoportal.xMap.map.getLayer(record.data.layer.id);
+        var layer = signeGeoportal.getApplication().obtenerLayer();
 
         if (layer){
             Ext.MessageBox.show({

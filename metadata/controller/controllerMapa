@@ -57,9 +57,7 @@
                 "designer|targetType": "Ext.button.Button",
                 "fn": "onBtnEliminarCapaClick",
                 "implHandler": [
-                    "var arbolCapa = Ext.getCmp(\"treelayer\");",
-                    "record = arbolCapa.getSelectionModel().getSelection()[0];",
-                    "layer = signeGeoportal.xMap.map.getLayer(record.data.layer.id);",
+                    "var layer = signeGeoportal.getApplication().obtenerLayer();",
                     "",
                     "if (layer){",
                     "    Ext.MessageBox.show({",
