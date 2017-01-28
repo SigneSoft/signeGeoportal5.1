@@ -64,7 +64,65 @@ Ext.define('signeGeoportal.view.ListaLayer', {
                     handler: 'aniadir',
                     altText: 'Añadir Capa',
                     iconCls: 'add-file-icon',
-                    tooltip: 'Añadir Capa al Mapa'
+                    tooltip: 'Añadir capa al mapa'
+                }
+            ]
+        },
+        {
+            xtype: 'actioncolumn',
+            id: 'acMetadata',
+            width: 30,
+            items: [
+                {
+                    handler: function(view, rowIndex, colIndex, item, e, record, row) {
+                        //console.log(record);
+
+                        if (signeGeoportal.xTip) {
+                            signeGeoportal.xTip.destroy();
+                            signeGeoportal.xTip = null;
+                        }
+
+                        signeGeoportal.xTip = window.Ext.create('Ext.tip.ToolTip', {
+                            title: '<h3>'+record.data.title+'</h3>',
+                            //title: '<a href="#">'+record.data.title+'</a>',
+                            id: 'content-anchor-tip',
+                            target: 'acMetadata',
+                            anchor: 'left',
+                            html: '<ul><li><b><u>Descripción: </u></b>'+ record.data.abstract +
+                            '</li><br><li><b><u>Nombre : </u></b>'+record.data.name+'</li><br>' +
+                            '<li><b><u>Enlace WMS: </u></b>'+record.data.url+'</li></ul>',
+                            width: 415,
+                            autoShow:true,
+                            autoHide: false,
+                            closable: true,
+                            stateful: false,
+                            dismissDelay: 10000,
+                            //contentEl: 'content-tip', // load content from the page
+                            listeners: {
+                                /*'render': function(){
+                                this.header.on('click', function(header, e){
+                                e.stopEvent();
+                                Ext.Msg.alert('Link', 'Link to something interesting.');
+                                Ext.getCmp('content-anchor-tip').hide();
+                                }, this, {delegate:'a'});
+                                },*/
+                                'hide': function () {
+                                    signeGeoportal.xTip.destroy();
+                                    signeGeoportal.xTip = null;
+                                }
+                            }
+                        });
+
+                        // show immediately
+                        signeGeoportal.xTip.show();
+
+
+
+                    },
+                    getTip: function(value, metadata, record, row, col, store) {
+                        return 'Ver metadata';
+                    },
+                    iconCls: 'help-icon'
                 }
             ]
         }

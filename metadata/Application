@@ -26,7 +26,8 @@
         "xLegend": "object",
         "xLayerStore": "object",
         "xInfo": "object",
-        "xSlider": "object"
+        "xSlider": "object",
+        "xTip": "object"
     },
     "designerId": "application",
     "customConfigs": [
@@ -53,6 +54,11 @@
         {
             "group": "(Custom Properties)",
             "name": "xSlider",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "xTip",
             "type": "string"
         }
     ],
@@ -89,6 +95,7 @@
                     "    url: \"http://192.168.56.2:8080/geoserver/SIGE/wms?service=wms&version=1.1.1&request=GetCapabilities\",",
                     "    autoLoad: true",
                     "});",
+                    "",
                     "",
                     "var grid = Ext.ComponentQuery.query('listalayer')[0];",
                     "",

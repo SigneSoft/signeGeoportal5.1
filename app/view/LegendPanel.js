@@ -27,7 +27,7 @@ Ext.define('signeGeoportal.view.LegendPanel', {
     height: '100%',
     width: '100%',
     layout: 'fit',
-    title: 'Leyenda',
+    title: 'Simbología',
     titleAlign: 'center'
 
 });

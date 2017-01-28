@@ -104,7 +104,7 @@
                     "userConfig": {
                         "altText": "Añadir Capa",
                         "iconCls": "add-file-icon",
-                        "tooltip": "Añadir Capa al Mapa"
+                        "tooltip": "Añadir capa al mapa"
                     },
                     "name": "MyActionColumnItem",
                     "designerId": "c910e33d-2793-4829-a5b7-12200615b2e2",
@@ -135,6 +135,127 @@
                             },
                             "name": "handler",
                             "designerId": "076fb778-df9e-4395-9f7a-760190f5ef42"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Action",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "acMetadata",
+                "width": 30
+            },
+            "name": "MyActionColumn1",
+            "designerId": "11265d77-15e6-4918-9eda-2d6b1e9139d7",
+            "cn": [
+                {
+                    "type": "actioncolumnitem",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconCls": "help-icon",
+                        "tooltip": null
+                    },
+                    "name": "MyActionColumnItem1",
+                    "configAlternates": {
+                        "getTip": "object"
+                    },
+                    "designerId": "be8136da-6b65-422c-971b-16bd391f4098",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "view",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "item",
+                                    "e",
+                                    "record",
+                                    "row"
+                                ],
+                                "fn": "handler",
+                                "implHandler": [
+                                    "//console.log(record);",
+                                    "",
+                                    "if (signeGeoportal.xTip) {",
+                                    "    signeGeoportal.xTip.destroy();",
+                                    "    signeGeoportal.xTip = null;",
+                                    "}",
+                                    "",
+                                    "signeGeoportal.xTip = window.Ext.create('Ext.tip.ToolTip', {",
+                                    "    title: '<h3>'+record.data.title+'</h3>',",
+                                    "    //title: '<a href=\"#\">'+record.data.title+'</a>',",
+                                    "    id: 'content-anchor-tip',",
+                                    "    target: 'acMetadata',",
+                                    "    anchor: 'left',",
+                                    "    html: '<ul><li><b><u>Descripción: </u></b>'+ record.data.abstract + ",
+                                    "    '</li><br><li><b><u>Nombre : </u></b>'+record.data.name+'</li><br>' +",
+                                    "    '<li><b><u>Enlace WMS: </u></b>'+record.data.url+'</li></ul>',",
+                                    "    width: 415,",
+                                    "    autoShow:true,",
+                                    "    autoHide: false,",
+                                    "    closable: true,",
+                                    "    stateful: false,",
+                                    "    dismissDelay: 10000,",
+                                    "    //contentEl: 'content-tip', // load content from the page",
+                                    "    listeners: {",
+                                    "        /*'render': function(){",
+                                    "            this.header.on('click', function(header, e){",
+                                    "                e.stopEvent();",
+                                    "                Ext.Msg.alert('Link', 'Link to something interesting.');",
+                                    "                Ext.getCmp('content-anchor-tip').hide();",
+                                    "            }, this, {delegate:'a'});",
+                                    "        },*/",
+                                    "        'hide': function () {",
+                                    "            signeGeoportal.xTip.destroy();",
+                                    "            signeGeoportal.xTip = null;",
+                                    "        }",
+                                    "    }",
+                                    "});",
+                                    "",
+                                    "// show immediately",
+                                    "signeGeoportal.xTip.show();",
+                                    "",
+                                    "",
+                                    ""
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "af096c62-fc97-4bd2-992a-552291d55c62"
+                        },
+                        {
+                            "type": "basicfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "value, metadata, record, row, col, store"
+                                ],
+                                "fn": "getTip",
+                                "implHandler": [
+                                    "return 'Ver metadata';"
+                                ]
+                            },
+                            "name": "getTip",
+                            "designerId": "258c3f9b-197c-46d5-abed-33afb39234ab"
                         }
                     ]
                 }

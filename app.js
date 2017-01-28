@@ -50,6 +50,7 @@ Ext.application({
             autoLoad: true
         });
 
+
         var grid = Ext.ComponentQuery.query('listalayer')[0];
 
         grid.reconfigure(store);
