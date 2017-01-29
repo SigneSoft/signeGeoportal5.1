@@ -43,7 +43,7 @@ Ext.define('signeGeoportal.view.Escritorio', {
             split: true,
             itemId: 'contenedorOpcion',
             margin: '0 0 5 0',
-            width: 300,
+            width: 400,
             layout: 'accordion',
             collapseDirection: 'left',
             collapsible: true,

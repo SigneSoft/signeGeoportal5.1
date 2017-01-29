@@ -88,66 +88,6 @@
             },
             "codeClass": null,
             "userConfig": {
-                "id": "acOpcion",
-                "width": 30
-            },
-            "name": "MyActionColumn",
-            "designerId": "4f75caa5-b52b-49aa-8a88-07a5b1bc0c65",
-            "cn": [
-                {
-                    "type": "actioncolumnitem",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "altText": "Añadir Capa",
-                        "iconCls": "add-file-icon",
-                        "tooltip": "Añadir capa al mapa"
-                    },
-                    "name": "MyActionColumnItem",
-                    "designerId": "c910e33d-2793-4829-a5b7-12200615b2e2",
-                    "cn": [
-                        {
-                            "type": "fixedfunction",
-                            "reference": {
-                                "name": "items",
-                                "type": "array"
-                            },
-                            "codeClass": null,
-                            "userConfig": {
-                                "designer|params": [
-                                    "view",
-                                    "rowIndex",
-                                    "colIndex",
-                                    "item",
-                                    "e",
-                                    "record",
-                                    "row"
-                                ],
-                                "designer|viewControllerFn": "aniadir",
-                                "fn": "handler",
-                                "implHandler": [
-                                    "signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name);",
-                                    "//console.log(record.data);"
-                                ]
-                            },
-                            "name": "handler",
-                            "designerId": "076fb778-df9e-4395-9f7a-760190f5ef42"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "Ext.grid.column.Action",
-            "reference": {
-                "name": "columns",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
                 "id": "acMetadata",
                 "width": 30
             },
@@ -198,14 +138,14 @@
                                     "}",
                                     "",
                                     "signeGeoportal.xTip = window.Ext.create('Ext.tip.ToolTip', {",
-                                    "    title: '<h3>'+record.data.title+'</h3>',",
+                                    "    title: '<h3><font color=\"#08298A\">'+record.data.title+'</font></h3>',",
                                     "    //title: '<a href=\"#\">'+record.data.title+'</a>',",
                                     "    id: 'content-anchor-tip',",
                                     "    target: 'acMetadata',",
                                     "    anchor: 'left',",
-                                    "    html: '<ul><li><b><u>Descripción: </u></b>'+ record.data.abstract + ",
-                                    "    '</li><br><li><b><u>Nombre : </u></b>'+record.data.name+'</li><br>' +",
-                                    "    '<li><b><u>Enlace WMS: </u></b>'+record.data.url+'</li></ul>',",
+                                    "    html: '<ul><li><font color=\"#013ADF\"><b><u>Descripción: </u></b></font>'+ record.data.abstract +",
+                                    "    '</li><br><li><font color=\"#013ADF\"><b><u>Nombre : </u></b></font>'+record.data.name+'</li><br>' +",
+                                    "    '<li><font color=\"#013ADF\"><b><u>Enlace WMS: </u></b></font>'+record.data.url+'</li></ul></font>',",
                                     "    width: 415,",
                                     "    autoShow:true,",
                                     "    autoHide: false,",
@@ -256,6 +196,66 @@
                             },
                             "name": "getTip",
                             "designerId": "258c3f9b-197c-46d5-abed-33afb39234ab"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.grid.column.Action",
+            "reference": {
+                "name": "columns",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "acOpcion",
+                "width": 30
+            },
+            "name": "MyActionColumn",
+            "designerId": "4f75caa5-b52b-49aa-8a88-07a5b1bc0c65",
+            "cn": [
+                {
+                    "type": "actioncolumnitem",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "altText": "Añadir Capa",
+                        "iconCls": "add-file-icon",
+                        "tooltip": "Añadir capa al mapa"
+                    },
+                    "name": "MyActionColumnItem",
+                    "designerId": "c910e33d-2793-4829-a5b7-12200615b2e2",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "view",
+                                    "rowIndex",
+                                    "colIndex",
+                                    "item",
+                                    "e",
+                                    "record",
+                                    "row"
+                                ],
+                                "designer|viewControllerFn": "aniadir",
+                                "fn": "handler",
+                                "implHandler": [
+                                    "signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name);",
+                                    "//console.log(record.data);"
+                                ]
+                            },
+                            "name": "handler",
+                            "designerId": "076fb778-df9e-4395-9f7a-760190f5ef42"
                         }
                     ]
                 }

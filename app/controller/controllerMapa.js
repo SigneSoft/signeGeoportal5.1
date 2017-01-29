@@ -145,9 +145,9 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
                                         printDialog.items.get(1).items.get(0).print(signeGeoportal.xMap, printPage, includeLegend && {legend: legendpanel});
 
                                         // convenient way to fit the print page to the visible map area
-                                        printPage.fit(mapPanel, true);
+                                        //printPage.fit(mapPanel, true);
                                         // print the page, optionally including the legend
-                                        printProvider.print(mapPanel, printPage, includeLegend && {legend: legendPanel});
+                                        printProvider.print(signeGeoportal.xMap, printPage, includeLegend && {legend: legendpanel});
                                     }
 
                                 }

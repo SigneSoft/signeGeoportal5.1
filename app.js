@@ -157,7 +157,7 @@ Ext.application({
             region: "center",
             autoScroll: true,
             id: 'legendlayer',
-            padding: 5,
+            padding: '5 10 5 10',
             layerStore: signeGeoportal.xMap.layers
         });
 
@@ -169,10 +169,13 @@ Ext.application({
         // Define y crea el panel de información
         signeGeoportal.xInfo = new OpenLayers.Control.WMSGetFeatureInfo({
             //    autoActivate: true,
-            infoFormat: "application/vnd.ogc.gml",
+            //infoFormat: "application/vnd.ogc.gml",
             maxFeatures: 3,
             eventListeners: {
                 "getfeatureinfo": function(e) {
+
+                    console.log(e.text);
+
                     var items = [];
 
                     var infopanel = Ext.ComponentQuery.query('infopanel')[0];
@@ -180,7 +183,18 @@ Ext.application({
                     infopanel.removeAll();
                     //infopanel.remove('infogrid',false);
 
-                    Ext.each(e.features, function(feature) {
+                    var propiedades = Ext.create('Ext.form.Panel', {
+                        //title: 'Simple Form',
+                        region: "center",
+                        autoScroll: true,
+                        padding: '5 10 5 10',
+                        html: e.text,
+                    });
+
+
+
+
+                    /*Ext.each(e.features, function(feature) {
 
                         var propiedades = Ext.create('Ext.grid.property.Grid', {
                             title: feature.fid,
@@ -192,8 +206,10 @@ Ext.application({
                         propiedades.columns[0].setText('Propiedad');
                         propiedades.columns[1].setText('Valor');
 
+
                         items.push(propiedades);
-                    });
+                    });*/
+                    items.push(propiedades);
 
                     infopanel.add(items);
 

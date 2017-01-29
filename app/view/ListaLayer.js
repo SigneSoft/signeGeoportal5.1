@@ -57,19 +57,6 @@ Ext.define('signeGeoportal.view.ListaLayer', {
         },
         {
             xtype: 'actioncolumn',
-            id: 'acOpcion',
-            width: 30,
-            items: [
-                {
-                    handler: 'aniadir',
-                    altText: 'Añadir Capa',
-                    iconCls: 'add-file-icon',
-                    tooltip: 'Añadir capa al mapa'
-                }
-            ]
-        },
-        {
-            xtype: 'actioncolumn',
             id: 'acMetadata',
             width: 30,
             items: [
@@ -83,14 +70,14 @@ Ext.define('signeGeoportal.view.ListaLayer', {
                         }
 
                         signeGeoportal.xTip = window.Ext.create('Ext.tip.ToolTip', {
-                            title: '<h3>'+record.data.title+'</h3>',
+                            title: '<h3><font color="#08298A">'+record.data.title+'</font></h3>',
                             //title: '<a href="#">'+record.data.title+'</a>',
                             id: 'content-anchor-tip',
                             target: 'acMetadata',
                             anchor: 'left',
-                            html: '<ul><li><b><u>Descripción: </u></b>'+ record.data.abstract +
-                            '</li><br><li><b><u>Nombre : </u></b>'+record.data.name+'</li><br>' +
-                            '<li><b><u>Enlace WMS: </u></b>'+record.data.url+'</li></ul>',
+                            html: '<ul><li><font color="#013ADF"><b><u>Descripción: </u></b></font>'+ record.data.abstract +
+                            '</li><br><li><font color="#013ADF"><b><u>Nombre : </u></b></font>'+record.data.name+'</li><br>' +
+                            '<li><font color="#013ADF"><b><u>Enlace WMS: </u></b></font>'+record.data.url+'</li></ul></font>',
                             width: 415,
                             autoShow:true,
                             autoHide: false,
@@ -123,6 +110,19 @@ Ext.define('signeGeoportal.view.ListaLayer', {
                         return 'Ver metadata';
                     },
                     iconCls: 'help-icon'
+                }
+            ]
+        },
+        {
+            xtype: 'actioncolumn',
+            id: 'acOpcion',
+            width: 30,
+            items: [
+                {
+                    handler: 'aniadir',
+                    altText: 'Añadir Capa',
+                    iconCls: 'add-file-icon',
+                    tooltip: 'Añadir capa al mapa'
                 }
             ]
         }

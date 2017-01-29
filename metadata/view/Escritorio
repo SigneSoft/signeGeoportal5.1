@@ -35,7 +35,7 @@
                 "layout|split": true,
                 "margin": "0 0 5 0",
                 "titleCollapse": true,
-                "width": 300
+                "width": 400
             },
             "name": "MyPanel",
             "designerId": "188550fe-bdc2-40c0-a225-0cabf0a1ba92",
