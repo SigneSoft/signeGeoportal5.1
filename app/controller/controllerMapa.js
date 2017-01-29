@@ -63,50 +63,9 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
     },
 
     onBtnImprimirClick: function(button, e, eOpts) {
-        /*** Funcional ****/
-        /*printDialog = Ext.create('Ext.Window', {
-            title: "Vista previa de impresión",
-            layout: "fit",
-            border: false,
-            width: 500,
-            modal: true,
-            heigth: 200,
-            // autoHeight: true,
-            items: [{
-                xtype: 'textfield',
-                fieldLabel: 'Titulo',
-                id: 'txtTitulo',
-                width: 200,
-                height: 10,
-                //  anchor: '90%',
-            },{
-                xtype: "gx_printmappanel",
-                sourceMap: signeGeoportal.xMap,
-                printProvider: printProvider,
-            },
-                    {
-                        xtype: 'textarea',
-                        fieldLabel: 'Comentario',
-                        id: 'txtComentario',
-                        width: 100,
-                        //        anchor: '90%',
-                    }],
-            tbar: [{
-                text: "Imprimir PDF",
-                handler: function(){
-                    printDialog.items.get(1).printProvider.customParams.mapTitle = Ext.getCmp('txtTitulo').getValue();
-                    printDialog.items.get(1).printProvider.customParams.comment = Ext.getCmp('txtComentario').getValue();
-                    printDialog.items.get(1).print();
-                }
-            }]
-        });
-
-        printDialog.show();*/
         var printExtent = Ext.create('GeoExt.plugins.PrintExtent', {
             printProvider: printProvider
         });
-
-
 
         printDialog = Ext.create('Ext.Window', {
             height: 580,
@@ -131,23 +90,24 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
                                     text: 'Imprimir PDF',
                                     iconCls: 'print-pdf',
                                     handler: function(){
-                                        var legendpanel = Ext.getCmp('legendlayer');
-                                        //console.log();
-
+                                        var legendlayer = Ext.getCmp('legendlayer');
+                                        var printMapPanel = Ext.getCmp('printmappanel');
 
                                         var includeLegend;
                                         includeLegend = true;
-                                        printPage.scale = 100000;
-                                        printPage.fit(signeGeoportal.xMap, true);
 
-                                        printDialog.items.get(1).items.get(0).printProvider.customParams.mapTitle = Ext.getCmp('txtTitulo').getValue();
-                                        printDialog.items.get(1).items.get(0).printProvider.customParams.comment = Ext.getCmp('txtComentario').getValue();
-                                        printDialog.items.get(1).items.get(0).print(signeGeoportal.xMap, printPage, includeLegend && {legend: legendpanel});
+                                        var scale = printProvider.scales.getAt(1);
+                                        printPage.setScale(scale, "m");
 
-                                        // convenient way to fit the print page to the visible map area
-                                        //printPage.fit(mapPanel, true);
-                                        // print the page, optionally including the legend
-                                        printProvider.print(signeGeoportal.xMap, printPage, includeLegend && {legend: legendpanel});
+
+                                        printProvider.customParams.mapTitle = Ext.getCmp('txtTitulo').getValue();
+                                        printProvider.customParams.comment = Ext.getCmp('txtComentario').getValue();
+
+                                        var opt = {"mode":"screen"};
+                                        printPage.fit(printMapPanel, opt);
+
+                                        printProvider.setDpi(printProvider.dpis.getAt(1));
+                                        printProvider.print(printMapPanel, printPage, includeLegend && {legend: legendlayer});
                                     }
 
                                 }
@@ -184,10 +144,10 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
                     xtype: 'panel',
                     items: {
                         xtype: "gx_printmappanel",
+                        id: 'printmappanel',
                         sourceMap: signeGeoportal.xMap,
                         printProvider: printProvider,
-                        zoom:20,
-                        center: new OpenLayers.LonLat(-10048800, 1735400),
+                        //center: new OpenLayers.LonLat(-10048800, 1735400),
                         //limitScales:true,
                         //plugins: [printExtent],
                     },

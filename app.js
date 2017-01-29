@@ -174,7 +174,7 @@ Ext.application({
             eventListeners: {
                 "getfeatureinfo": function(e) {
 
-                    console.log(e.text);
+                    //console.log(e.text);
 
                     var items = [];
 
