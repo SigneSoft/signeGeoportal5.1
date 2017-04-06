@@ -73,8 +73,6 @@ Ext.define('signeGeoportal.view.Map', {
 		map.addControl(new OpenLayers.Control.PanZoomBar());   // la linea de zoom
 		map.addControl(new OpenLayers.Control.Navigation());	//
 		map.addControl(new OpenLayers.Control.ScaleLine());     // la linea de escala
-
-
 		
 		var gmap = new OpenLayers.Layer.Google(
 			"Google Streets", // the default

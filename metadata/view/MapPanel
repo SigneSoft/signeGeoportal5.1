@@ -92,7 +92,7 @@
                         "scale": "medium",
                         "text": "Información",
                         "tooltip": [
-                            "Enfocar al país"
+                            "Información de elementos"
                         ]
                     },
                     "name": "MyButton1",
@@ -140,11 +140,32 @@
                         "scale": "medium",
                         "text": "Imprimir",
                         "tooltip": [
-                            "Enfocar al país"
+                            "Imprimir mapa"
                         ]
                     },
                     "name": "MyButton2",
                     "designerId": "e07ec1c9-085e-4d4b-b660-d0643a96602b"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconAlign": "top",
+                        "iconCls": "help-icon1",
+                        "id": "btnAyuda",
+                        "layout|flex": null,
+                        "scale": "medium",
+                        "text": "Ayuda",
+                        "tooltip": [
+                            "Ayuda"
+                        ]
+                    },
+                    "name": "MyButton4",
+                    "designerId": "cc6084dc-022b-463a-ae16-1b91e5eea2cd"
                 }
             ]
         }

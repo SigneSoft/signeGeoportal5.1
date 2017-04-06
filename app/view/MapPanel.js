@@ -69,7 +69,7 @@ Ext.define('signeGeoportal.view.MapPanel', {
                     iconCls: 'info',
                     scale: 'medium',
                     text: 'Información',
-                    tooltip: 'Enfocar al país'
+                    tooltip: 'Información de elementos'
                 },
                 {
                     xtype: 'button',
@@ -78,7 +78,16 @@ Ext.define('signeGeoportal.view.MapPanel', {
                     iconCls: 'print',
                     scale: 'medium',
                     text: 'Imprimir',
-                    tooltip: 'Enfocar al país'
+                    tooltip: 'Imprimir mapa'
+                },
+                {
+                    xtype: 'button',
+                    id: 'btnAyuda',
+                    iconAlign: 'top',
+                    iconCls: 'help-icon1',
+                    scale: 'medium',
+                    text: 'Ayuda',
+                    tooltip: 'Ayuda'
                 }
             ]
         }

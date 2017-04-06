@@ -9,7 +9,7 @@
         "defer": false,
         "designer|userClassName": "js_tx9dcdw5",
         "id": "printCapabilities",
-        "url": "http://192.168.56.2:8080/print-servlet-2.1.1/pdf/info.json?var=printCapabilities",
+        "url": "http://192.168.56.101:8282/geoserver/pdf/info.json?var=printCapabilities",
         "x-compile": true
     },
     "name": "js2",
