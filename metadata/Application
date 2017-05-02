@@ -10,6 +10,9 @@
             "controllerMapa"
         ],
         "name": "signeGeoportal",
+        "stores": [
+            "storeParametro"
+        ],
         "views": [
             "Escritorio",
             "LegendPanel",
@@ -17,7 +20,8 @@
             "Map",
             "ListaLayer",
             "InfoPanel",
-            "ContentPanel"
+            "ContentPanel",
+            "VentanaParametro"
         ]
     },
     "name": "Application",
@@ -27,7 +31,8 @@
         "xLayerStore": "object",
         "xInfo": "object",
         "xSlider": "object",
-        "xTip": "object"
+        "xTip": "object",
+        "xClone": "object"
     },
     "designerId": "application",
     "customConfigs": [
@@ -59,6 +64,11 @@
         {
             "group": "(Custom Properties)",
             "name": "xTip",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "xClone",
             "type": "string"
         }
     ],
@@ -293,25 +303,47 @@
             "codeClass": null,
             "userConfig": {
                 "designer|params": [
-                    "titulo_capa, url_capa, nombre_capa"
+                    "titulo_capa, url_capa, nombre_capa, clone",
+                    "param"
                 ],
                 "fn": "aniadarCapa",
                 "implHandler": [
-                    "var wms = new OpenLayers.Layer.WMS(",
-                    "    titulo_capa,",
-                    "    url_capa,",
-                    "    {layers:nombre_capa,",
-                    "     transparent : 'true',",
-                    "     format: 'image/png'",
-                    "    },",
-                    "    {opacity: 0.7,",
-                    "     isBaseLayer: false,",
-                    "     //displayInLayerSwitcher:false",
-                    "     //     attribution: \"<img src='\"+url_capa+\"request=GetLegendGraphic&format=image/png&width=18&height=17&layer=\"+nombre_capa+\"&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000033;fontSize:12;bgColor:0xFFFFEE;dpi:180'>\"",
-                    "    }",
-                    ");",
+                    "if (!param){",
+                    "    var wms = new OpenLayers.Layer.WMS(",
+                    "        clone.title,",
+                    "        clone.url,",
+                    "        {layers:clone.name,",
+                    "         transparent : 'true',",
+                    "         format: 'image/png'",
+                    "        },",
+                    "        {opacity: 0.7,",
+                    "         isBaseLayer: false,",
+                    "         //displayInLayerSwitcher:false",
+                    "         //     attribution: \"<img src='\"+url_capa+\"request=GetLegendGraphic&format=image/png&width=18&height=17&layer=\"+nombre_capa+\"&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000033;fontSize:12;bgColor:0xFFFFEE;dpi:180'>\"",
+                    "        }",
+                    "    );",
                     "",
-                    "signeGeoportal.xMap.map.addLayer(wms);"
+                    "    signeGeoportal.xMap.map.addLayer(wms);",
+                    "}else{",
+                    "    var wms = new OpenLayers.Layer.WMS(",
+                    "        clone.title,",
+                    "        clone.url,",
+                    "        {layers:clone.name,",
+                    "         transparent : 'true',",
+                    "         format: 'image/png',",
+                    "         viewparams: 'parametro:'+param,",
+                    "        },",
+                    "        {opacity: 0.7,",
+                    "         isBaseLayer: false,",
+                    "         //displayInLayerSwitcher:false",
+                    "         //     attribution: \"<img src='\"+url_capa+\"request=GetLegendGraphic&format=image/png&width=18&height=17&layer=\"+nombre_capa+\"&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000033;fontSize:12;bgColor:0xFFFFEE;dpi:180'>\"",
+                    "        }",
+                    "    );",
+                    "",
+                    "    signeGeoportal.xMap.map.addLayer(wms);",
+                    "}    ",
+                    "",
+                    ""
                 ]
             },
             "name": "aniadarCapa",

@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ventanaparametro",
+        "designer|userClassName": "VentanaParametroViewController"
+    },
+    "designerId": "531d3614-df6d-49fc-a96a-8f95df4e577c"
+}

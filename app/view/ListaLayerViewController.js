@@ -18,7 +18,28 @@ Ext.define('signeGeoportal.view.ListaLayerViewController', {
     alias: 'controller.listalayer',
 
     aniadir: function(view, rowIndex, colIndex, item, e, record, row) {
-        signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name);
+
+        var clone = record.clone();
+
+        //console.log(clone.data);
+
+        var storeParametro = Ext.StoreMgr.lookup("storeParametro");
+
+        storeParametro.getProxy().setExtraParam("nombre_capa", record.data.name);
+
+        storeParametro.load(function(records, operation, success) {
+
+            if (this.getCount()>=1){
+                signeGeoportal.xClone = clone.data;
+
+                var windowParametro= Ext.widget('ventanaparametro');
+                windowParametro.setTitle("Seleccione el(los) parámetro(s) de la capa " + record.data.title);
+                windowParametro.show();
+            }else{
+                signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name, clone.data, null);
+            }
+        });
+
         //console.log(record.data);
     }
 

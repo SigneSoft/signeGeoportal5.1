@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewModel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "ventanaparametro",
+        "designer|userClassName": "VentanaParametroViewModel"
+    },
+    "designerId": "350c5644-d610-4bb5-bf90-b00834a68307"
+}

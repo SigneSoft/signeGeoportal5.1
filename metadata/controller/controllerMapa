@@ -204,6 +204,37 @@
             },
             "name": "onBtnImprimirClick",
             "designerId": "e0c461fd-c825-4b3f-be06-62b84c273af4"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#mygridpanel",
+                "designer|params": [
+                    "dataview",
+                    "record",
+                    "item",
+                    "index",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.grid.Panel",
+                "fn": "onMygridpanelItemDblClick",
+                "implHandler": [
+                    "console.log(signeGeoportal.xClone);",
+                    "",
+                    "signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name, signeGeoportal.xClone, record.data.descripcion);",
+                    "",
+                    ""
+                ],
+                "name": "itemdblclick"
+            },
+            "name": "onMygridpanelItemDblClick",
+            "designerId": "24645043-50f5-4448-be2c-675fde0d7205"
         }
     ]
 }

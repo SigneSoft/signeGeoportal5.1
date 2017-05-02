@@ -26,6 +26,9 @@ Ext.application({
     requires: [
         'Ext.Loader'
     ],
+    stores: [
+        'storeParametro'
+    ],
     views: [
         'Escritorio',
         'LegendPanel',
@@ -33,7 +36,8 @@ Ext.application({
         'Map',
         'ListaLayer',
         'InfoPanel',
-        'ContentPanel'
+        'ContentPanel',
+        'VentanaParametro'
     ],
     controllers: [
         'controllerMapa'
@@ -235,22 +239,43 @@ Ext.application({
 
     },
 
-    aniadarCapa: function(titulo_capa, url_capa, nombre_capa) {
-        var wms = new OpenLayers.Layer.WMS(
-            titulo_capa,
-            url_capa,
-            {layers:nombre_capa,
-             transparent : 'true',
-             format: 'image/png'
-            },
-            {opacity: 0.7,
-             isBaseLayer: false,
-             //displayInLayerSwitcher:false
-             //     attribution: "<img src='"+url_capa+"request=GetLegendGraphic&format=image/png&width=18&height=17&layer="+nombre_capa+"&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000033;fontSize:12;bgColor:0xFFFFEE;dpi:180'>"
-            }
-        );
+    aniadarCapa: function(titulo_capa, url_capa, nombre_capa, clone, param) {
+        if (!param){
+            var wms = new OpenLayers.Layer.WMS(
+                clone.title,
+                clone.url,
+                {layers:clone.name,
+                 transparent : 'true',
+                 format: 'image/png'
+                },
+                {opacity: 0.7,
+                 isBaseLayer: false,
+                 //displayInLayerSwitcher:false
+                 //     attribution: "<img src='"+url_capa+"request=GetLegendGraphic&format=image/png&width=18&height=17&layer="+nombre_capa+"&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000033;fontSize:12;bgColor:0xFFFFEE;dpi:180'>"
+                }
+            );
 
-        signeGeoportal.xMap.map.addLayer(wms);
+            signeGeoportal.xMap.map.addLayer(wms);
+        }else{
+            var wms = new OpenLayers.Layer.WMS(
+                clone.title,
+                clone.url,
+                {layers:clone.name,
+                 transparent : 'true',
+                 format: 'image/png',
+                 viewparams: 'parametro:'+param,
+                },
+                {opacity: 0.7,
+                 isBaseLayer: false,
+                 //displayInLayerSwitcher:false
+                 //     attribution: "<img src='"+url_capa+"request=GetLegendGraphic&format=image/png&width=18&height=17&layer="+nombre_capa+"&legend_options=fontName:Times%20New%20Roman;fontAntiAliasing:true;fontColor:0x000033;fontSize:12;bgColor:0xFFFFEE;dpi:180'>"
+                }
+            );
+
+            signeGeoportal.xMap.map.addLayer(wms);
+        }
+
+
     },
 
     obtenerLayer: function() {

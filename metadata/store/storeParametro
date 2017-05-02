@@ -1,0 +1,160 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "designer|userClassName": "storeParametro",
+        "listeners": [
+            "{",
+            "write: function(store, operation, eOpts){",
+            "",
+            "if (operation.action == 'destroy') {",
+            "\tExt.MessageBox.show({",
+            "\ttitle: 'Mensaje del Sistema  ',",
+            "\tmsg:  operation._resultSet.message,",
+            "\tbuttons: Ext.MessageBox.OK,",
+            "\ticon: Ext.MessageBox.INFO",
+            "\t});    ",
+            "}",
+            "",
+            "if (operation.action == 'create') {",
+            "\tExt.MessageBox.show({",
+            "\ttitle: 'Mensaje del Sistema  ',",
+            "\tmsg:  operation._resultSet.message,",
+            "\tbuttons: Ext.MessageBox.OK,",
+            "\ticon: Ext.MessageBox.INFO",
+            "\t});    ",
+            "}",
+            "",
+            "",
+            "if (operation.action == 'update') {",
+            "\tExt.MessageBox.show({",
+            "\ttitle: 'Mensaje del Sistema  ',",
+            "\tmsg:  operation._resultSet.message,",
+            "\tbuttons: Ext.MessageBox.OK,",
+            "\ticon: Ext.MessageBox.INFO",
+            "\t});    ",
+            "}        ",
+            "\tthis.load();",
+            "/*this.load({",
+            "\tmetodo: 'READ',",
+            "\tid: 0",
+            "});*/",
+            "}",
+            "}"
+        ],
+        "model": "modelParametro",
+        "storeId": "storeParametro"
+    },
+    "name": "MyJsonStore",
+    "configAlternates": {
+        "listeners": "object"
+    },
+    "designerId": "bab6d0d6-1f39-422a-b355-78c76e13d4b4",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "listeners",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "api": [
+                    "{read: 'http://192.168.56.101:8282/serverside/getCatalogo.jsp'}"
+                ],
+                "idParam": null,
+                "password": "",
+                "url": "",
+                "username": null
+            },
+            "name": "MyAjaxProxy",
+            "designerId": "58f0fd8f-cf29-47d2-9ead-cf2f19fb56bf",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": "message",
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader2",
+                    "designerId": "45f7e021-2ac7-4359-b167-51152c70c61a"
+                },
+                {
+                    "type": "Ext.data.writer.Json",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "encode": true,
+                        "rootProperty": "data",
+                        "writeAllFields": true,
+                        "writeRecordId": false
+                    },
+                    "name": "MyJsonWriter1",
+                    "designerId": "0c0084ba-ccb0-4405-8d22-cb5d6ba8652f"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onAjaxException",
+                        "implHandler": [
+                            "if (operation.getError()){",
+                            "\tif (operation.getError().statusText){",
+                            "\t\tExt.MessageBox.show({",
+                            "\t\t\ttitle: 'Mensaje del Sistema',",
+                            "\t\t\tmsg: operation.getError().statusText,",
+                            "\t\t\ticon: Ext.MessageBox.ERROR,",
+                            "\t\t\tbuttons: Ext.Msg.OK",
+                            "\t\t});",
+                            "\t}else{",
+                            "\t\tExt.MessageBox.show({",
+                            "\t\t\ttitle: 'Mensaje del Sistema',",
+                            "\t\t\tmsg: operation.getError(),",
+                            "\t\t\ticon: Ext.MessageBox.ERROR,",
+                            "\t\t\tbuttons: Ext.Msg.OK",
+                            "\t\t});",
+                            "\t}",
+                            "}else{",
+                            "\tvar json = Ext.decode(request.responseText);",
+                            "\tExt.MessageBox.show({",
+                            "\t\ttitle: 'Mensaje del Sistema',",
+                            "\t\tmsg: json.message,",
+                            "\t\ticon: Ext.MessageBox.ERROR,",
+                            "\t\tbuttons: Ext.Msg.OK",
+                            "\t});",
+                            "}"
+                        ],
+                        "name": "exception",
+                        "scope": "me"
+                    },
+                    "name": "onAjaxException",
+                    "designerId": "be1a8434-68b9-4d38-9ec1-9b06705accff"
+                }
+            ]
+        }
+    ]
+}
