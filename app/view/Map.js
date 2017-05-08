@@ -76,18 +76,18 @@ Ext.define('signeGeoportal.view.Map', {
 		
 		var gmap = new OpenLayers.Layer.Google(
 			"Google Streets", // the default
-			{numZoomLevels: 20}
+			{numZoomLevels: 20, isBaseLayer: true}
 		);
 	
     	var gphy = new OpenLayers.Layer.Google(
 			"Google Physical",
-			{type: google.maps.MapTypeId.TERRAIN, visibility: false}
+			{type: google.maps.MapTypeId.TERRAIN, isBaseLayer: true, visibility: false}
 		);
 			   
 
 		var ghyb = new OpenLayers.Layer.Google(
 			"Google Hybrid",
-			{type: google.maps.MapTypeId.HYBRID, numZoomLevels: 20 , visibility: false}
+			{type: google.maps.MapTypeId.HYBRID, numZoomLevels: 20, isBaseLayer: true, visibility: false}
 		);
     
 		

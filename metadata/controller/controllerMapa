@@ -225,9 +225,9 @@
                 "designer|targetType": "Ext.grid.Panel",
                 "fn": "onMygridpanelItemDblClick",
                 "implHandler": [
-                    "console.log(signeGeoportal.xClone);",
+                    "//console.log(signeGeoportal.xClone);",
                     "",
-                    "signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name, signeGeoportal.xClone, record.data.descripcion);",
+                    "signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name, signeGeoportal.xClone, record.data.descripcion, record.data.descripcion);",
                     "",
                     ""
                 ],

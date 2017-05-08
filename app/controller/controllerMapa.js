@@ -167,9 +167,9 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
     },
 
     onMygridpanelItemDblClick: function(dataview, record, item, index, e, eOpts) {
-        console.log(signeGeoportal.xClone);
+        //console.log(signeGeoportal.xClone);
 
-        signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name, signeGeoportal.xClone, record.data.descripcion);
+        signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name, signeGeoportal.xClone, record.data.descripcion, record.data.descripcion);
 
 
     }

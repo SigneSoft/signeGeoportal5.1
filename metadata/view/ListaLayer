@@ -268,7 +268,7 @@
                                     "        windowParametro.setTitle(\"Seleccione el(los) parámetro(s) de la capa \" + record.data.title);",
                                     "        windowParametro.show();",
                                     "    }else{",
-                                    "        signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name, clone.data, null);",
+                                    "        signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name, clone.data, null, null);",
                                     "    }",
                                     "});",
                                     "",

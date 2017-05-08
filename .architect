@@ -272,9 +272,7 @@
     },
     "tabState": {
         "openTabs": [
-            "8c6a966f-1d05-402e-b89c-200cec4ba7e2",
             "application",
-            "9a8573dd-1394-40f5-8751-3faedd443dd9",
             "57b5bd24-aacb-4e2b-b591-bcf482d529b8"
         ]
     },
@@ -282,8 +280,8 @@
         "topInstance": null
     },
     "inspectorState": {
-        "topInstance": "9a8573dd-1394-40f5-8751-3faedd443dd9",
-        "selectedInstance": "076fb778-df9e-4395-9f7a-760190f5ef42"
+        "topInstance": "application",
+        "selectedInstance": "b043cf2f-eb12-433d-ad8d-a2143b8d4e82"
     },
     "editMode": "code",
     "userSettings": {
