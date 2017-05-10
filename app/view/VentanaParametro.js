@@ -19,35 +19,40 @@ Ext.define('signeGeoportal.view.VentanaParametro', {
 
     requires: [
         'signeGeoportal.view.VentanaParametroViewModel',
-        'Ext.grid.Panel',
-        'Ext.grid.column.Column'
+        'Ext.grid.property.Grid',
+        'Ext.toolbar.Toolbar',
+        'Ext.button.Button'
     ],
 
     viewModel: {
         type: 'ventanaparametro'
     },
     border: false,
-    height: 231,
+    height: 325,
     id: 'VentanaParametro',
-    width: 400,
+    width: 473,
+    layout: 'border',
     title: 'Parametros de capa',
     modal: true,
 
     items: [
         {
-            xtype: 'gridpanel',
-            height: 200,
-            itemId: 'mygridpanel',
-            width: 400,
-            manageHeight: false,
-            title: '',
-            store: 'storeParametro',
-            columns: [
+            xtype: 'propertygrid',
+            region: 'center',
+            id: 'pgParametro',
+            title: ''
+        }
+    ],
+    dockedItems: [
+        {
+            xtype: 'toolbar',
+            dock: 'top',
+            items: [
                 {
-                    xtype: 'gridcolumn',
-                    dataIndex: 'descripcion',
-                    text: 'Descripción',
-                    flex: 1
+                    xtype: 'button',
+                    id: 'btnAniadirCapa',
+                    iconCls: 'add-file-icon',
+                    text: 'Añadir'
                 }
             ]
         }

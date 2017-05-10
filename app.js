@@ -26,7 +26,11 @@ Ext.application({
     requires: [
         'Ext.Loader'
     ],
+    models: [
+        'modelParametro'
+    ],
     stores: [
+        'storeCatalogo',
         'storeParametro'
     ],
     views: [
@@ -241,8 +245,10 @@ Ext.application({
 
     },
 
-    aniadarCapa: function(titulo_capa, url_capa, nombre_capa, clone, paramVal, paramText) {
-        if (!paramVal){
+    aniadirCapa: function(titulo_capa, url_capa, nombre_capa, clone, parametros, texto) {
+        console.log(parametros);
+
+        if (!parametros){
             var wms = new OpenLayers.Layer.WMS(
                 clone.title,
                 clone.url,
@@ -259,13 +265,15 @@ Ext.application({
 
             signeGeoportal.xMap.map.addLayer(wms);
         }else{
+
+
             var wms = new OpenLayers.Layer.WMS(
-                clone.title+' '+paramText,
+                clone.title + " " + texto,
                 clone.url,
                 {layers:clone.name,
                  transparent : 'true',
                  format: 'image/png',
-                 viewparams: 'parametro:'+paramText,
+                 viewparams: parametros,
                 },
                 {opacity: 0.7,
                  isBaseLayer: false

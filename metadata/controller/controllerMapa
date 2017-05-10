@@ -213,28 +213,34 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|controlQuery": "#mygridpanel",
+                "designer|controlQuery": "#btnAniadirCapa",
                 "designer|params": [
-                    "dataview",
-                    "record",
-                    "item",
-                    "index",
+                    "button",
                     "e",
                     "eOpts"
                 ],
-                "designer|targetType": "Ext.grid.Panel",
-                "fn": "onMygridpanelItemDblClick",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnAniadirCapaClick",
                 "implHandler": [
-                    "//console.log(signeGeoportal.xClone);",
+                    "var pgParametro = Ext.getCmp('pgParametro');",
+                    "data = pgParametro.getSource();",
+                    "store = pgParametro.getStore();",
+                    "var strParametros = \"\";",
+                    "var strTexto = \"\";",
                     "",
-                    "signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name, signeGeoportal.xClone, record.data.descripcion, record.data.descripcion);",
+                    "for(var i=0;i<store.data.items.length;i++)",
+                    "{",
+                    "    strParametros = strParametros + \"p\" + i + \":\" + store.data.items[i].data.value + \";\";",
+                    "    strTexto = strTexto + store.data.items[i].data.value + \" \";",
+                    "}",
                     "",
+                    "signeGeoportal.getApplication().aniadirCapa(signeGeoportal.xClone.title, signeGeoportal.xClone.url, signeGeoportal.xClone.name, signeGeoportal.xClone, strParametros, strTexto);",
                     ""
                 ],
-                "name": "itemdblclick"
+                "name": "click"
             },
-            "name": "onMygridpanelItemDblClick",
-            "designerId": "24645043-50f5-4448-be2c-675fde0d7205"
+            "name": "onBtnAniadirCapaClick",
+            "designerId": "df4476bf-411f-43df-ae8d-e1b041afc4a8"
         }
     ]
 }

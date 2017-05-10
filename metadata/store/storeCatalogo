@@ -7,7 +7,7 @@
     "codeClass": null,
     "userConfig": {
         "autoLoad": false,
-        "designer|userClassName": "storeParametro",
+        "designer|userClassName": "storeCatalogo",
         "listeners": [
             "{",
             "write: function(store, operation, eOpts){",
@@ -48,13 +48,13 @@
             "}"
         ],
         "model": "modelCatalogo",
-        "storeId": "storeParametro"
+        "storeId": "storeCatalogo"
     },
-    "name": "storeCatalogo1",
+    "name": "MyJsonStore",
     "configAlternates": {
         "listeners": "object"
     },
-    "designerId": "10b90892-b477-429e-afcd-be2cf6c3774e",
+    "designerId": "bab6d0d6-1f39-422a-b355-78c76e13d4b4",
     "customConfigs": [
         {
             "group": "(Custom Properties)",
@@ -72,7 +72,7 @@
             "codeClass": null,
             "userConfig": {
                 "api": [
-                    "{read: 'http://192.168.56.101:8282/serverside/getParametro.jsp'}"
+                    "{read: 'http://192.168.56.101:8282/serverside/getCatalogo.jsp'}"
                 ],
                 "idParam": null,
                 "password": "",
@@ -80,7 +80,7 @@
                 "username": null
             },
             "name": "MyAjaxProxy",
-            "designerId": "5302c79b-0321-4047-be65-3866caefa7dc",
+            "designerId": "58f0fd8f-cf29-47d2-9ead-cf2f19fb56bf",
             "cn": [
                 {
                     "type": "Ext.data.reader.Json",
@@ -94,7 +94,7 @@
                         "rootProperty": "data"
                     },
                     "name": "MyJsonReader2",
-                    "designerId": "9ec0b37a-2bb2-495f-abf4-d0d9d2416e08"
+                    "designerId": "45f7e021-2ac7-4359-b167-51152c70c61a"
                 },
                 {
                     "type": "Ext.data.writer.Json",
@@ -110,7 +110,7 @@
                         "writeRecordId": false
                     },
                     "name": "MyJsonWriter1",
-                    "designerId": "0ca61739-98d8-4e27-9be7-d2ea645ae458"
+                    "designerId": "0c0084ba-ccb0-4405-8d22-cb5d6ba8652f"
                 },
                 {
                     "type": "basiceventbinding",
@@ -152,7 +152,7 @@
                         "scope": "me"
                     },
                     "name": "onAjaxException",
-                    "designerId": "ff0cf821-7955-4a8f-a902-f0405141a125"
+                    "designerId": "be1a8434-68b9-4d38-9ec1-9b06705accff"
                 }
             ]
         }

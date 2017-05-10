@@ -9,11 +9,12 @@
         "border": false,
         "designer|userAlias": "ventanaparametro",
         "designer|userClassName": "VentanaParametro",
-        "height": 231,
+        "height": 325,
         "id": "VentanaParametro",
+        "layout": "border",
         "modal": true,
         "title": "Parametros de capa",
-        "width": 400
+        "width": 473
     },
     "name": "MyWindow",
     "designerId": "8c6a966f-1d05-402e-b89c-200cec4ba7e2",
@@ -21,37 +22,48 @@
     "viewModelInstanceId": "350c5644-d610-4bb5-bf90-b00834a68307",
     "cn": [
         {
-            "type": "Ext.grid.Panel",
+            "type": "Ext.grid.property.Grid",
             "reference": {
                 "name": "items",
                 "type": "array"
             },
             "codeClass": null,
             "userConfig": {
-                "height": 200,
-                "itemId": "mygridpanel",
-                "manageHeight": false,
-                "store": "storeParametro",
-                "title": "",
-                "width": 400
+                "id": "pgParametro",
+                "layout|region": "center",
+                "title": ""
             },
-            "name": "MyGridPanel",
-            "designerId": "d1d79731-6d33-4c67-b0ab-2d8a149a7f00",
+            "name": "MyPropertyGrid",
+            "designerId": "71a21b27-5f57-4a1f-a549-b90c86263d6d"
+        },
+        {
+            "type": "Ext.toolbar.Toolbar",
+            "reference": {
+                "name": "dockedItems",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "dock": "top"
+            },
+            "name": "MyToolbar",
+            "designerId": "484aa52f-ef79-4b20-846e-20ff1f452f08",
             "cn": [
                 {
-                    "type": "Ext.grid.column.Column",
+                    "type": "Ext.button.Button",
                     "reference": {
-                        "name": "columns",
+                        "name": "items",
                         "type": "array"
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "dataIndex": "descripcion",
-                        "flex": 1,
-                        "text": "Descripción"
+                        "iconCls": "add-file-icon",
+                        "id": "btnAniadirCapa",
+                        "layout|flex": null,
+                        "text": "Añadir"
                     },
-                    "name": "MyColumn2",
-                    "designerId": "ecaf7972-c490-471e-930f-3e091fd622a0"
+                    "name": "MyButton",
+                    "designerId": "4f03957f-8988-4a3a-9d3c-09dfeafb7685"
                 }
             ]
         }

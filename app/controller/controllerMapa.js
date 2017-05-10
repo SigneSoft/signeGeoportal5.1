@@ -30,8 +30,8 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
         "#btnImprimir": {
             click: 'onBtnImprimirClick'
         },
-        "#mygridpanel": {
-            itemdblclick: 'onMygridpanelItemDblClick'
+        "#btnAniadirCapa": {
+            click: 'onBtnAniadirCapaClick'
         }
     },
 
@@ -166,11 +166,20 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
 
     },
 
-    onMygridpanelItemDblClick: function(dataview, record, item, index, e, eOpts) {
-        //console.log(signeGeoportal.xClone);
+    onBtnAniadirCapaClick: function(button, e, eOpts) {
+        var pgParametro = Ext.getCmp('pgParametro');
+        data = pgParametro.getSource();
+        store = pgParametro.getStore();
+        var strParametros = "";
+        var strTexto = "";
 
-        signeGeoportal.getApplication().aniadarCapa(record.data.title, record.data.url, record.data.name, signeGeoportal.xClone, record.data.descripcion, record.data.descripcion);
+        for(var i=0;i<store.data.items.length;i++)
+        {
+            strParametros = strParametros + "p" + i + ":" + store.data.items[i].data.value + ";";
+            strTexto = strTexto + store.data.items[i].data.value + " ";
+        }
 
+        signeGeoportal.getApplication().aniadirCapa(signeGeoportal.xClone.title, signeGeoportal.xClone.url, signeGeoportal.xClone.name, signeGeoportal.xClone, strParametros, strTexto);
 
     }
 

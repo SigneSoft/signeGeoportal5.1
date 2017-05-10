@@ -9,8 +9,8 @@
         "designer|userClassName": "modelParametro",
         "idProperty": null
     },
-    "name": "modelBase",
-    "designerId": "f23dd549-4542-43fa-9949-45a4bc042c37",
+    "name": "modelParametro1",
+    "designerId": "42f71256-8314-4f5b-bbfc-27dfa46d383f",
     "cn": [
         {
             "type": "Ext.data.field.Field",
@@ -20,11 +20,10 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "valor",
-                "persist": null
+                "name": "nombre"
             },
-            "name": "MyField15",
-            "designerId": "961c0fa9-c7f9-4a6e-b1d8-6fc5428e7b12"
+            "name": "MyField1",
+            "designerId": "ffda920c-7bed-41ed-99d2-d9da0956bb98"
         },
         {
             "type": "Ext.data.field.Field",
@@ -34,10 +33,36 @@
             },
             "codeClass": null,
             "userConfig": {
-                "name": "descripcion"
+                "name": "tipo"
             },
-            "name": "MyField",
-            "designerId": "1c99c35c-ff13-4dc8-a865-ec06c95cdcbc"
+            "name": "MyField2",
+            "designerId": "60503b1d-4ed9-4bba-bb62-476d21a82b69"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "tabla"
+            },
+            "name": "MyField3",
+            "designerId": "2261370a-6a8e-41d7-97cc-ba2682c11ab0"
+        },
+        {
+            "type": "Ext.data.field.Field",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "name": "id"
+            },
+            "name": "MyField4",
+            "designerId": "8631b748-6398-437b-a19b-47887d21e7f4"
         }
     ]
 }
