@@ -72,7 +72,8 @@ Ext.define('signeGeoportal.store.storeCatalogo', {
             model: 'signeGeoportal.model.modelCatalogo',
             proxy: {
                 type: 'ajax',
-                api: {
+                api: //{read: '../serverside/getCatalogo.jsp'}
+                {
                     read: 'http://192.168.56.101:8282/serverside/getCatalogo.jsp'
                 },
                 url: '',

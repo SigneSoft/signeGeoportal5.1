@@ -181,6 +181,7 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
 
         signeGeoportal.getApplication().aniadirCapa(signeGeoportal.xClone.title, signeGeoportal.xClone.url, signeGeoportal.xClone.name, signeGeoportal.xClone, strParametros, strTexto);
 
+
     }
 
 });

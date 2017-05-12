@@ -246,8 +246,6 @@ Ext.application({
     },
 
     aniadirCapa: function(titulo_capa, url_capa, nombre_capa, clone, parametros, texto) {
-        console.log(parametros);
-
         if (!parametros){
             var wms = new OpenLayers.Layer.WMS(
                 clone.title,
@@ -283,6 +281,13 @@ Ext.application({
             );
 
             signeGeoportal.xMap.map.addLayer(wms);
+
+            Ext.MessageBox.show({
+                title: 'Mensaje del Sistema',
+                msg: 'La capa se esta cargando al visor del mapa.',
+                icon: Ext.MessageBox.INFO,
+                buttons: Ext.Msg.OK
+            });
         }
 
 

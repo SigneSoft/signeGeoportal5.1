@@ -72,6 +72,7 @@
             "codeClass": null,
             "userConfig": {
                 "api": [
+                    "//{read: '../serverside/getCatalogo.jsp'}",
                     "{read: 'http://192.168.56.101:8282/serverside/getParametro.jsp'}"
                 ],
                 "idParam": null,
