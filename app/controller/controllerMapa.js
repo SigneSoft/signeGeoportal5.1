@@ -173,13 +173,30 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
         var strParametros = "";
         var strTexto = "";
 
+        var error = false;
+
         for(var i=0;i<store.data.items.length;i++)
         {
             strParametros = strParametros + "p" + i + ":" + store.data.items[i].data.value + ";";
             strTexto = strTexto + store.data.items[i].data.value + " ";
+
+            if (!store.data.items[i].data.value){
+
+                error = true;
+        //        console.log(store.data.items[i]);
+            }
         }
 
-        signeGeoportal.getApplication().aniadirCapa(signeGeoportal.xClone.title, signeGeoportal.xClone.url, signeGeoportal.xClone.name, signeGeoportal.xClone, strParametros, strTexto);
+        if (error === true){
+            Ext.Msg.show({
+                title: 'Mensaje del Sistema',
+                msg: 'No es posible añadir la capa debido que existen parámetros que no se han definido.',
+                buttons: Ext.Msg.OK,
+                icon: Ext.MessageBox.INFO
+            });
+        }else{
+            signeGeoportal.getApplication().aniadirCapa(signeGeoportal.xClone.title, signeGeoportal.xClone.url, signeGeoportal.xClone.name, signeGeoportal.xClone, strParametros, strTexto);
+        }
 
 
     }

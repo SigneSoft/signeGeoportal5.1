@@ -70,8 +70,8 @@ Ext.define('signeGeoportal.view.ListaLayerViewController', {
                         });
 
                         Ext.Ajax.request({
-                            url: '../serverside/getCatalogo.jsp',
-                            //                    url: 'http://192.168.56.101:8282/serverside/getCatalogo.jsp',
+                            //                    url: '../serverside/getCatalogo.jsp',
+                            url: 'http://192.168.56.101:8282/serverside/getCatalogo.jsp',
                             method: 'POST',
                             timeout: 30000,
                             async: false,
@@ -94,6 +94,7 @@ Ext.define('signeGeoportal.view.ListaLayerViewController', {
                                                 queryMode: 'local',
                                                 displayField: 'descripcion',
                                                 valueField: 'valor',
+                                                forceSelection: true,
                                             }),
                                             renderer: function(val){
 
