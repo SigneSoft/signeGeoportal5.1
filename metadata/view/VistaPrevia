@@ -1,0 +1,37 @@
+{
+    "type": "Ext.window.Window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "vistaprevia",
+        "designer|userClassName": "VistaPrevia",
+        "height": 600,
+        "layout": "border",
+        "modal": true,
+        "title": "Visor de documento",
+        "width": 800
+    },
+    "name": "MyWindow",
+    "designerId": "ef807ad5-1fab-4e6c-a3f6-c76c98f80faf",
+    "viewControllerInstanceId": "c5063887-f097-4fed-828b-a62677ec9409",
+    "viewModelInstanceId": "9472b0da-4c4a-4b04-a135-03386abe71e9",
+    "cn": [
+        {
+            "type": "Ext.Component",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "vistaPrevia",
+                "layout|region": "center"
+            },
+            "name": "MyComponent",
+            "designerId": "c091e696-e811-41f2-b697-f6aa4a215754"
+        }
+    ]
+}

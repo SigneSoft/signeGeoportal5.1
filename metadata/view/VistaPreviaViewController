@@ -1,0 +1,13 @@
+{
+    "type": "Ext.app.ViewController",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userAlias": "vistaprevia",
+        "designer|userClassName": "VistaPreviaViewController"
+    },
+    "designerId": "c5063887-f097-4fed-828b-a62677ec9409"
+}

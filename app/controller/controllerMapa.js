@@ -17,7 +17,8 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
     extend: 'Ext.app.Controller',
 
     views: [
-        'LegendPanel'
+        'LegendPanel',
+        'VistaPrevia'
     ],
 
     control: {
@@ -32,6 +33,9 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
         },
         "#btnAniadirCapa": {
             click: 'onBtnAniadirCapaClick'
+        },
+        "#btnAyuda": {
+            click: 'onBtnAyudaClick'
         }
     },
 
@@ -199,6 +203,14 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
         }
 
 
+    },
+
+    onBtnAyudaClick: function(button, e, eOpts) {
+        url='manual_siceg_geoportal.pdf';
+
+        var vp = Ext.widget('vistaprevia');
+        vp.down('#vistaPrevia').update('<iframe src="./docs/' + url + '" width="100%" height="100%"></iframe>');
+        vp.show();
     }
 
 });

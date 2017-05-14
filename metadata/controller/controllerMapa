@@ -8,7 +8,8 @@
     "userConfig": {
         "designer|userClassName": "controllerMapa",
         "views": [
-            "LegendPanel"
+            "LegendPanel",
+            "VistaPrevia"
         ]
     },
     "name": "MyController",
@@ -259,6 +260,34 @@
             },
             "name": "onBtnAniadirCapaClick",
             "designerId": "df4476bf-411f-43df-ae8d-e1b041afc4a8"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnAyuda",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnAyudaClick",
+                "implHandler": [
+                    "url='manual_siceg_geoportal.pdf';",
+                    "",
+                    "var vp = Ext.widget('vistaprevia');",
+                    "vp.down('#vistaPrevia').update('<iframe src=\"./docs/' + url + '\" width=\"100%\" height=\"100%\"></iframe>');",
+                    "vp.show();"
+                ],
+                "name": "click"
+            },
+            "name": "onBtnAyudaClick",
+            "designerId": "39dbf78a-513c-4cc4-b4d1-9200c9a7d80b"
         }
     ]
 }

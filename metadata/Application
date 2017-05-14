@@ -25,7 +25,8 @@
             "ListaLayer",
             "InfoPanel",
             "ContentPanel",
-            "VentanaParametro"
+            "VentanaParametro",
+            "VentanaAyuda"
         ]
     },
     "name": "Application",

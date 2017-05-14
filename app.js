@@ -41,7 +41,8 @@ Ext.application({
         'ListaLayer',
         'InfoPanel',
         'ContentPanel',
-        'VentanaParametro'
+        'VentanaParametro',
+        'VistaPrevia'
     ],
     controllers: [
         'controllerMapa'
