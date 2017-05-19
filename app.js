@@ -41,8 +41,7 @@ Ext.application({
         'ListaLayer',
         'InfoPanel',
         'ContentPanel',
-        'VentanaParametro',
-        'VistaPrevia'
+        'VentanaParametro'
     ],
     controllers: [
         'controllerMapa'
@@ -246,7 +245,7 @@ Ext.application({
 
     },
 
-    aniadirCapa: function(titulo_capa, url_capa, nombre_capa, clone, parametros, texto) {
+    aniadirCapa: function(titulo_capa, url_capa, nombre_capa, clone, variables, parametros, texto) {
         if (!parametros){
             var wms = new OpenLayers.Layer.WMS(
                 clone.title,
@@ -268,7 +267,7 @@ Ext.application({
 
             var wms = new OpenLayers.Layer.WMS(
                 clone.title + " " + texto,
-                clone.url,
+                clone.url + variables,
                 {layers:clone.name,
                  transparent : 'true',
                  format: 'image/png',

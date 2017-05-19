@@ -25,8 +25,7 @@
             "ListaLayer",
             "InfoPanel",
             "ContentPanel",
-            "VentanaParametro",
-            "VentanaAyuda"
+            "VentanaParametro"
         ]
     },
     "name": "Application",
@@ -311,6 +310,7 @@
             "userConfig": {
                 "designer|params": [
                     "titulo_capa, url_capa, nombre_capa, clone",
+                    "variables",
                     "parametros",
                     "texto"
                 ],
@@ -337,7 +337,7 @@
                     "",
                     "    var wms = new OpenLayers.Layer.WMS(",
                     "        clone.title + \" \" + texto,",
-                    "        clone.url,",
+                    "        clone.url + variables,",
                     "        {layers:clone.name,",
                     "         transparent : 'true',",
                     "         format: 'image/png',",

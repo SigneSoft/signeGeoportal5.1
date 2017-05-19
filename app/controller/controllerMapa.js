@@ -176,18 +176,72 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
         store = pgParametro.getStore();
         var strParametros = "";
         var strTexto = "";
+        var strVariable = "&env=";
 
         var error = false;
 
-        for(var i=0;i<store.data.items.length;i++)
+        // Validación para el parmámetro color
+        if(!store.data.items[0].data.value){
+            error = true;
+
+        }else{
+            //                                    var codigo_color =['a','b','c','d','e','f','9','8','7','6','5','4','3','2','1','0'];
+            //                                    var codigo_color =['a','b','c','d','e','f','0','1','2','3','4','5','6','7','8','9'];
+            var value = store.data.items[0].data.value;
+
+            var codigo_color =['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+
+            //value = '123456';
+
+            var codigo = value.substring(2, 3);
+
+            var par1 = value.substring(0,2);
+
+            var par3 = value.substring(4,6);
+
+            var posicion = codigo_color.indexOf(codigo);
+
+            var intervalo = parseInt(16 / 3) ;
+
+            //var intervalo_redondeado = parseFloat(intervalo).toFixed(0);
+            //        cadenavariables="&env=r1:"+r1+";r2:"+r2+";r3:"+r3+";r4:"+r4+";r5:"+limite+";c1:33a02c;c2:b2df8a;c4:ff7f00;c5:e31a1c";
+            //&env=color:00FF00;name:triangle;size:12
+            var strVariable = strVariable + "color0:"+value;
+
+            for(var n=1;n<3;n++)
+            {
+                posicion = parseInt(posicion) + intervalo;
+                if (posicion > 16){
+                    posicion = 0;
+
+                }
+                strVariable = strVariable + ";color" + n + ":" + par1 + codigo_color[posicion] + codigo_color[posicion] + par3;
+
+
+            }
+
+            console.log(strVariable);
+
+        }
+
+
+        //Validación para el resto de parámetros
+        for(var i=1;i<store.data.items.length;i++)
         {
-            strParametros = strParametros + "p" + i + ":" + store.data.items[i].data.value + ";";
-            strTexto = strTexto + store.data.items[i].data.value + " ";
 
-            if (!store.data.items[i].data.value){
+            if (i > 0 ){
 
-                error = true;
-        //        console.log(store.data.items[i]);
+                // A la variable i se le debe restar la cantidad de variables de substitución de estilo
+
+                strParametros = strParametros + "p" + (i - 1) + ":" + store.data.items[i].data.value + ";";
+                strTexto = strTexto + store.data.items[i].data.value + " ";
+
+                if (!store.data.items[i].data.value){
+
+                    error = true;
+                    //        console.log(store.data.items[i]);
+                }
+
             }
         }
 
@@ -199,7 +253,7 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
                 icon: Ext.MessageBox.INFO
             });
         }else{
-            signeGeoportal.getApplication().aniadirCapa(signeGeoportal.xClone.title, signeGeoportal.xClone.url, signeGeoportal.xClone.name, signeGeoportal.xClone, strParametros, strTexto);
+            signeGeoportal.getApplication().aniadirCapa(signeGeoportal.xClone.title, signeGeoportal.xClone.url, signeGeoportal.xClone.name, signeGeoportal.xClone, strVariable, strParametros, strTexto);
         }
 
 
