@@ -98,6 +98,9 @@
                         "type": "array"
                     },
                     "codeClass": null,
+                    "userConfig": {
+                        "hidden": true
+                    },
                     "name": "infopanel",
                     "designerId": "5540ff9e-3481-48fe-9b35-369dce80369a",
                     "masterInstanceId": "41ab2da3-c791-4901-9133-7b8dd576767f"

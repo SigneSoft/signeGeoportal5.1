@@ -1,0 +1,14 @@
+ El volumen de la unidad C es OS
+ El n£mero de serie del volumen es: F4A6-7E1F
+
+ Directorio de c:\Apache24\htdocs\signeGeoportal5.1\app
+
+02/06/2017  09:35    <DIR>          .
+02/06/2017  09:35    <DIR>          ..
+27/12/2016  19:00    <DIR>          controller
+02/06/2017  09:35                 0 listado_archivos.txt
+08/05/2017  21:08    <DIR>          model
+08/05/2017  21:08    <DIR>          store
+13/05/2017  22:14    <DIR>          view
+               1 archivos              0 bytes
+               6 dirs  192,113,426,432 bytes libres

@@ -112,11 +112,11 @@
                                 ],
                                 "fn": "toggleHandler",
                                 "implHandler": [
-                                    "if (state === true){    ",
-                                    "    signeGeoportal.xInfo.activate();    ",
+                                    "/*if (state === true){",
+                                    "    signeGeoportal.xInfo.activate();",
                                     "}else{",
-                                    "    signeGeoportal.xInfo.deactivate();       ",
-                                    "}",
+                                    "    signeGeoportal.xInfo.deactivate();",
+                                    "}*/",
                                     ""
                                 ]
                             },

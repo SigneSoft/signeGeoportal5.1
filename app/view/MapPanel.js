@@ -56,11 +56,11 @@ Ext.define('signeGeoportal.view.MapPanel', {
                 {
                     xtype: 'button',
                     toggleHandler: function(button, state) {
-                        if (state === true){
-                            signeGeoportal.xInfo.activate();
+                        /*if (state === true){
+                        signeGeoportal.xInfo.activate();
                         }else{
-                            signeGeoportal.xInfo.deactivate();
-                        }
+                        signeGeoportal.xInfo.deactivate();
+                        }*/
 
                     },
                     id: 'btnInformacion',

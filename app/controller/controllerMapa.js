@@ -176,7 +176,7 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
         store = pgParametro.getStore();
         var strParametros = "";
         var strTexto = "";
-        var strVariable = "&env=";
+        var strVariable = "env=";
 
         var error = false;
 
