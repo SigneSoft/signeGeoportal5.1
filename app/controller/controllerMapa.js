@@ -220,7 +220,7 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
 
             }
 
-            console.log(strVariable);
+           // console.log(strVariable);
 
         }
 

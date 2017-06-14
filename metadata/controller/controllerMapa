@@ -272,7 +272,7 @@
                     "",
                     "    }",
                     "",
-                    "    console.log(strVariable);",
+                    "   // console.log(strVariable);",
                     "",
                     "}",
                     "",
