@@ -303,8 +303,22 @@ Ext.application({
                                );
 
                 }
+            }else if(Ext.getCmp("btnPosicion").pressed === true){
+                var position = this.events.getMousePosition(e);
+                var lonlat = signeGeoportal.xMap.map.getLonLatFromPixel(position);
+                var lonlatTransf = lonlat.transform(signeGeoportal.xMap.map.getProjectionObject(), new OpenLayers.Projection("EPSG:4326"));
+                mouseLat = lonlatTransf.lat;
+                mouseLon = lonlatTransf.lon;
 
+                var str = '';
 
+                str +=  ', Longitud: ' + mouseLon + ' Latitud: ' + mouseLat + '&nbsp;&nbsp;&nbsp;';
+
+                var infopanel = Ext.ComponentQuery.query('infopanel')[0];
+
+                infopanel.removeAll();
+
+                infopanel.update(str);
             }
         });
 
@@ -431,7 +445,7 @@ Ext.application({
 
             },
             'measurepartial': function(evt) {
-               var infopanel = Ext.ComponentQuery.query('infopanel')[0];
+                var infopanel = Ext.ComponentQuery.query('infopanel')[0];
 
                 infopanel.removeAll();
 

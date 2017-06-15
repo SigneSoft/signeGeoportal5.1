@@ -68,7 +68,14 @@ Ext.define('signeGeoportal.view.Map', {
 			controls: []	
 		});
 
-		map.addControl(new OpenLayers.Control.MousePosition());		
+		/*map.addControl(new OpenLayers.Control.PanZoomBar({
+                                                        position: new OpenLayers.Pixel(2, 15)
+                                        }));*/
+		
+		map.addControl(new OpenLayers.Control.MousePosition({
+                                                        position: new OpenLayers.Pixel(50, 0),
+														displayProjection: new OpenLayers.Projection("EPSG:4326")
+                                        }));		
 		//map.addControl(new OpenLayers.Control.LayerSwitcher());		
 		map.addControl(new OpenLayers.Control.PanZoomBar());   // la linea de zoom
 		map.addControl(new OpenLayers.Control.Navigation());	//

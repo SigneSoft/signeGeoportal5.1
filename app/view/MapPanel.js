@@ -60,6 +60,7 @@ Ext.define('signeGeoportal.view.MapPanel', {
                         Ext.getCmp("lineToggle").toggle(false);
                         Ext.getCmp("polygonToggle").toggle(false);
                         Ext.getCmp("btnInformacion").toggle(false);
+                        Ext.getCmp("btnPosicion").toggle(false);
 
                         signeGeoportal.getApplication().toggleControl(this);
                     },
@@ -81,6 +82,7 @@ Ext.define('signeGeoportal.view.MapPanel', {
                         Ext.getCmp("btnNavegar").toggle(false);
                         Ext.getCmp("polygonToggle").toggle(false);
                         Ext.getCmp("btnInformacion").toggle(false);
+                        Ext.getCmp("btnPosicion").toggle(false);
 
                         var infopanel = Ext.ComponentQuery.query('infopanel')[0];
                         infopanel.expand();
@@ -102,6 +104,8 @@ Ext.define('signeGeoportal.view.MapPanel', {
                         Ext.getCmp("btnNavegar").toggle(false);
                         Ext.getCmp("lineToggle").toggle(false);
                         Ext.getCmp("btnInformacion").toggle(false);
+                        Ext.getCmp("btnPosicion").toggle(false);
+
 
                         var infopanel = Ext.ComponentQuery.query('infopanel')[0];
                         infopanel.expand();
@@ -131,6 +135,36 @@ Ext.define('signeGeoportal.view.MapPanel', {
                     tooltip: 'Información de elementos'
                 },
                 {
+                    xtype: 'button',
+                    toggleHandler: function(button, state) {
+
+                        Ext.getCmp("btnNavegar").toggle(false);
+                        Ext.getCmp("lineToggle").toggle(false);
+                        Ext.getCmp("polygonToggle").toggle(false);
+                        Ext.getCmp("btnInformacion").toggle(false);
+
+                        var infopanel = Ext.ComponentQuery.query('infopanel')[0];
+
+                        infopanel.expand();
+
+                        signeGeoportal.getApplication().toggleControl(this);
+
+                        /*if (state === true){
+                        signeGeoportal.xInfo.activate();
+                        }else{
+                        signeGeoportal.xInfo.deactivate();
+                        }*/
+
+                    },
+                    id: 'btnPosicion',
+                    enableToggle: true,
+                    iconAlign: 'top',
+                    iconCls: 'pos-icon',
+                    scale: 'medium',
+                    text: 'Posición',
+                    tooltip: 'Información de elementos'
+                },
+                {
                     xtype: 'tbseparator'
                 },
                 {
@@ -140,6 +174,8 @@ Ext.define('signeGeoportal.view.MapPanel', {
                         Ext.getCmp("btnNavegar").toggle(false);
                         Ext.getCmp("lineToggle").toggle(false);
                         Ext.getCmp("polygonToggle").toggle(false);
+                        Ext.getCmp("btnPosicion").toggle(false);
+
 
                         signeGeoportal.getApplication().toggleControl(this);
 

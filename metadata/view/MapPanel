@@ -116,6 +116,7 @@
                                     "Ext.getCmp(\"lineToggle\").toggle(false);",
                                     "Ext.getCmp(\"polygonToggle\").toggle(false);",
                                     "Ext.getCmp(\"btnInformacion\").toggle(false);",
+                                    "Ext.getCmp(\"btnPosicion\").toggle(false);",
                                     "",
                                     "signeGeoportal.getApplication().toggleControl(this);"
                                 ]
@@ -177,6 +178,7 @@
                                     "Ext.getCmp(\"btnNavegar\").toggle(false);",
                                     "Ext.getCmp(\"polygonToggle\").toggle(false);",
                                     "Ext.getCmp(\"btnInformacion\").toggle(false);",
+                                    "Ext.getCmp(\"btnPosicion\").toggle(false);",
                                     "",
                                     "var infopanel = Ext.ComponentQuery.query('infopanel')[0];",
                                     "infopanel.expand();",
@@ -229,6 +231,8 @@
                                     "Ext.getCmp(\"btnNavegar\").toggle(false);",
                                     "Ext.getCmp(\"lineToggle\").toggle(false);",
                                     "Ext.getCmp(\"btnInformacion\").toggle(false);",
+                                    "Ext.getCmp(\"btnPosicion\").toggle(false);",
+                                    "",
                                     "",
                                     "var infopanel = Ext.ComponentQuery.query('infopanel')[0];",
                                     "infopanel.expand();",
@@ -252,6 +256,67 @@
                             },
                             "name": "toggleHandler",
                             "designerId": "3d731717-4bf2-4bf6-89f6-b12edbf47bbd"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "enableToggle": true,
+                        "iconAlign": "top",
+                        "iconCls": "pos-icon",
+                        "id": "btnPosicion",
+                        "layout|flex": null,
+                        "scale": "medium",
+                        "text": "Posición",
+                        "tooltip": [
+                            "Información de elementos"
+                        ]
+                    },
+                    "name": "MyButton9",
+                    "designerId": "037abaff-c66d-4e6f-890f-1a1def373b58",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "state"
+                                ],
+                                "fn": "toggleHandler",
+                                "implHandler": [
+                                    "",
+                                    "Ext.getCmp(\"btnNavegar\").toggle(false);",
+                                    "Ext.getCmp(\"lineToggle\").toggle(false);",
+                                    "Ext.getCmp(\"polygonToggle\").toggle(false);",
+                                    "Ext.getCmp(\"btnInformacion\").toggle(false);",
+                                    "",
+                                    "var infopanel = Ext.ComponentQuery.query('infopanel')[0];",
+                                    "",
+                                    "infopanel.expand();",
+                                    "",
+                                    "signeGeoportal.getApplication().toggleControl(this);",
+                                    "",
+                                    "/*if (state === true){",
+                                    "    signeGeoportal.xInfo.activate();",
+                                    "}else{",
+                                    "    signeGeoportal.xInfo.deactivate();",
+                                    "}*/",
+                                    ""
+                                ]
+                            },
+                            "name": "toggleHandler",
+                            "designerId": "47dad464-39c0-4840-8c78-2da7f40f567c"
                         }
                     ]
                 },
@@ -308,6 +373,8 @@
                                     "Ext.getCmp(\"btnNavegar\").toggle(false);",
                                     "Ext.getCmp(\"lineToggle\").toggle(false);",
                                     "Ext.getCmp(\"polygonToggle\").toggle(false);",
+                                    "Ext.getCmp(\"btnPosicion\").toggle(false);",
+                                    "",
                                     "",
                                     "signeGeoportal.getApplication().toggleControl(this);",
                                     "",

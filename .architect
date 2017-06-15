@@ -51,6 +51,7 @@
                         },
                         {
                             "id": "6842d17f-5a40-43fe-9d17-459035c4bc8c",
+                            "expanded": false,
                             "cn": [
                                 {
                                     "id": "623f7a78-3ebd-45b8-a130-e583d311954d"
@@ -62,6 +63,7 @@
                         },
                         {
                             "id": "f9aea768-f644-42e7-b176-e9a0082df18c",
+                            "expanded": false,
                             "cn": [
                                 {
                                     "id": "e75c7a47-9ea4-4529-9660-1fbdb5454448"
@@ -77,10 +79,19 @@
                             ]
                         },
                         {
+                            "id": "037abaff-c66d-4e6f-890f-1a1def373b58",
+                            "cn": [
+                                {
+                                    "id": "47dad464-39c0-4840-8c78-2da7f40f567c"
+                                }
+                            ]
+                        },
+                        {
                             "id": "3994ff92-ee2f-4234-beeb-4272c9dde59a"
                         },
                         {
                             "id": "ad994ae1-d3b7-4d10-98fe-df2c6d6fdfc7",
+                            "expanded": false,
                             "cn": [
                                 {
                                     "id": "6e3d0c99-b29a-49b9-9888-60128752aa41"
@@ -360,9 +371,8 @@
     },
     "tabState": {
         "openTabs": [
-            "46caa872-8989-4970-9eea-d804a17bd5b4",
             "application",
-            "a60423d4-cd5a-4fda-8e22-a83e9c4ffcfe"
+            "46caa872-8989-4970-9eea-d804a17bd5b4"
         ]
     },
     "canvasState": {

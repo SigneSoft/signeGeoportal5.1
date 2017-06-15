@@ -11,6 +11,7 @@
 .rule-icon {background:transparent url(./icons/ruler-24.png) no-repeat center !important;}
 .tape-icon {background:transparent url(./icons/tape-measure-2-24.png) no-repeat center !important;}
 .hand-icon {background:transparent url(./icons/hand-24.png) no-repeat center !important;}
+.pos-icon {background:transparent url(./icons/map-marker-24.png) no-repeat center !important;}
 
 
 
@@ -31,5 +32,5 @@
 
 
 .male-cell { 
-     background-color: #ffa; 
+    background-color: #ffa; 
 } 
