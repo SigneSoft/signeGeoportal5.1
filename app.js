@@ -50,6 +50,8 @@ Ext.application({
 
     launch: function() {
         Ext.create('signeGeoportal.view.Escritorio');
+
+
         // Carga el listado de capas disponibles en el servidor
 
         var store = Ext.create('GeoExt.data.WmsCapabilitiesLayerStore', {
@@ -177,15 +179,13 @@ Ext.application({
         //console.log(signeGeoportal.xMap.map.layers);
 
         // Define y crea el panel de información
-        signeGeoportal.xInfo = new OpenLayers.Control.WMSGetFeatureInfo({
+        /*signeGeoportal.xInfo = new OpenLayers.Control.WMSGetFeatureInfo({
             //    autoActivate: true,
             //infoFormat: "application/vnd.ogc.gml",
             //url: "http://192.168.56.101:8282/geoserver/SIGE/wms?SERVICE=WMS&",
             maxFeatures: 3,
             //    layers: [signeGeoportal.xMap.map.layers['3']],
             eventListeners: {
-
-                //*** codigo original ***
 
                 beforegetfeatureinfo: function(event) {
 
@@ -248,10 +248,10 @@ Ext.application({
 
                 }
 
-                /*** fin ***/
+
 
             }
-        });
+        });*/
 
         //signeGeoportal.xMap.map.addControl(signeGeoportal.xInfo);
 
@@ -261,6 +261,7 @@ Ext.application({
 
                 var retNameArray = [];
                 var vParams = [];
+                var layerUrl;
 
                 for(var i=0;i<signeGeoportal.xMap.map.layers.length;i++)
                 {
@@ -275,34 +276,173 @@ Ext.application({
                         else{
                             vParams.push('x:0'); // just to have something. Number of params must equal number of layers
                         }
+                        layerUrl = layer;
                         retNameArray.push(layer.params.LAYERS);
                     }
                 }
 
-                var url =  signeGeoportal.xMap.map.layers[3].getFullRequestString({
-                    REQUEST: "GetFeatureInfo",
-                    EXCEPTIONS: "application/vnd.ogc.se_xml",
-                    FEATURE_COUNT:3,
-                    BBOX: signeGeoportal.xMap.map.getExtent().toBBOX(),
-                    X: e.xy.x,
-                    Y: e.xy.y,
-                    INFO_FORMAT: 'text/html',
-                    LAYERS:retNameArray,
-                    QUERY_LAYERS: retNameArray,//layer_group.params.LAYERS,
-                    WIDTH: signeGeoportal.xMap.map.size.w,
-                    HEIGHT: signeGeoportal.xMap.map.size.h,
-                    VIEWPARAMS:vParams
-                });
+                if (layerUrl){
+                    var url =  layer.getFullRequestString({
+                        REQUEST: "GetFeatureInfo",
+                        EXCEPTIONS: "application/vnd.ogc.se_xml",
+                        FEATURE_COUNT:3,
+                        BBOX: signeGeoportal.xMap.map.getExtent().toBBOX(),
+                        X: e.xy.x,
+                        Y: e.xy.y,
+                        INFO_FORMAT: 'text/html',
+                        LAYERS:retNameArray,
+                        QUERY_LAYERS: retNameArray,//layer_group.params.LAYERS,
+                        WIDTH: signeGeoportal.xMap.map.size.w,
+                        HEIGHT: signeGeoportal.xMap.map.size.h,
+                        VIEWPARAMS:vParams
+                    });
 
-                window.open(url,
-                            "getfeatureinfo",
-                            "location=0,status=0,scrollbars=1,width=600,height=400,modal=true"
-                           );
+                    window.open(url,
+                                "getfeatureinfo",
+                                "location=0,status=0,scrollbars=1,width=600,height=400,modal=true"
+                               );
+
+                }
 
 
             }
         });
 
+        /*signeGeoportal.xMeasure = new OpenLayers.Control.Measure(
+            OpenLayers.Handler.Path,
+            {
+                immediate: true,
+                persist: true
+            }
+        );*/
+
+
+
+        /*signeGeoportal.xMap.map.addControl(signeGeoportal.xMeasure);
+
+        signeGeoportal.xMeasure.events.on({
+            'measure': function(evt) {
+                var infopanel = Ext.ComponentQuery.query('infopanel')[0];
+
+                infopanel.removeAll();
+
+                infopanel.update(signeGeoportal.xMeasure.getCustomLength(evt, true));
+            },
+            'measurepartial': function(evt) {
+                var infopanel = Ext.ComponentQuery.query('infopanel')[0];
+
+                infopanel.removeAll();
+
+                infopanel.update(signeGeoportal.xMeasure.getCustomLength(evt, false));
+
+            }
+        });*/
+
+
+        signeGeoportal.xMeasure = {
+            /* NOTE: Should be sure whether projection requires `{geodesic:true}`.
+                  See: http://dev.openlayers.org/docs/files/OpenLayers/Control/Measure-js.html#OpenLayers.Control.Measure.geodesic
+                  ""
+                    Geodesic calculation works the same in both the ScaleLine and Measure
+                    controls, so it has the same prerequisites. The advice that proj4js
+                    is needed to make it work is only true to the extent it is with any
+                    re-projection in OpenLayers: as long as your map is in EPSG:900913,
+                    you don't need proj4js. As soon as you use a different projection,
+                    you need it.
+                  "" (from comment by Andreas Hocevar)
+                  See: http://osgeo-org.1560.x6.nabble.com/Getting-the-right-results-from-Measure-tool-using-EPSG-3776-td3921884.html#a3921894
+                */
+            line: new OpenLayers.Control.DynamicMeasure(
+                OpenLayers.Handler.Path, {geodesic:true}),
+            polygon: new OpenLayers.Control.DynamicMeasure(
+                OpenLayers.Handler.Polygon, {geodesic:true})
+        };
+
+        signeGeoportal.xMap.map.addControls([
+            signeGeoportal.xMeasure.line,
+            signeGeoportal.xMeasure.polygon
+        ]);
+
+        /*signeGeoportal.xMeasure.line.getCustomLength = function(evt, onlySum) {
+            var idx = evt.geometry.components.length;
+
+            if (idx < 2)
+                return '';
+
+            var geom = new OpenLayers.Geometry.LineString([
+                evt.geometry.components[idx - 2],
+                evt.geometry.components[idx - 1]
+            ]);
+
+            var lastLengthArr = this.getBestLength(geom);
+
+            var str = '';
+
+            if (idx > 2 || onlySum)
+                str += 'Total: ' + (evt.units === 'km' ? evt.measure.toFixed(3) : evt.measure.toFixed(1)) + ' ' + evt.units + '&nbsp;&nbsp;&nbsp;';
+
+            if (!onlySum)
+                str += 'Ultimo segmento: ' + (lastLengthArr[1] === 'km' ?  lastLengthArr[0].toFixed(3) : lastLengthArr[0].toFixed(1)) + ' ' + lastLengthArr[1];
+
+            return str;
+        };*/
+
+
+
+        signeGeoportal.xMeasure.line.events.on({
+            'measure': function(evt) {
+                var infopanel = Ext.ComponentQuery.query('infopanel')[0];
+
+                infopanel.removeAll();
+
+                var str = '';
+
+                str += 'Total: ' + (evt.units === 'km' ? evt.measure.toFixed(3) : evt.measure.toFixed(1)) + ' ' + evt.units + '&nbsp;&nbsp;&nbsp;';
+
+                infopanel.update(str);
+            },
+            'measurepartial': function(evt) {
+                var infopanel = Ext.ComponentQuery.query('infopanel')[0];
+
+                infopanel.removeAll();
+
+                var str = '';
+
+                str += 'Total: ' + (evt.units === 'km' ? evt.measure.toFixed(3) : evt.measure.toFixed(1)) + ' ' + evt.units + '&nbsp;&nbsp;&nbsp;';
+
+                infopanel.update(str);
+
+            }
+        });
+
+
+        signeGeoportal.xMeasure.polygon.events.on({
+            'measure': function(evt) {
+                ///console.log(evt);
+                var infopanel = Ext.ComponentQuery.query('infopanel')[0];
+
+                infopanel.removeAll();
+
+                var str = '';
+
+                str += 'Total: ' + (evt.units === 'km cuadrado' ? evt.measure.toFixed(3) : evt.measure.toFixed(1)) + ' ' + evt.units + '&nbsp;&nbsp;&nbsp;';
+
+                infopanel.update(str);
+
+            },
+            'measurepartial': function(evt) {
+               var infopanel = Ext.ComponentQuery.query('infopanel')[0];
+
+                infopanel.removeAll();
+
+                var str = '';
+
+                str += 'Total: ' + (evt.units === 'km cuadrado' ? evt.measure.toFixed(3) : evt.measure.toFixed(1)) + ' ' + evt.units + '&nbsp;&nbsp;&nbsp;';
+
+                infopanel.update(str);
+
+            }
+        });
 
     },
 
@@ -363,6 +503,24 @@ Ext.application({
         //alert("func cambiando opacidad");
 
 
+    },
+
+    toggleControl: function(element) {
+        for (var key in signeGeoportal.xMeasure) {
+            if(element.id === "lineToggle"){
+                value = "line";
+            }else if(element.id === "polygonToggle"){
+                value = "polygon";
+            }else{
+                value = "none";
+            }
+
+            if (value === key && element.pressed) {
+                signeGeoportal.xMeasure[key].activate();
+            } else {
+                signeGeoportal.xMeasure[key].deactivate();
+            }
+        }
     }
 
 });

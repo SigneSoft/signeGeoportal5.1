@@ -10,6 +10,7 @@
         "designer|userClassName": "InfoPanel",
         "height": "100%",
         "layout": "fit",
+        "padding": "",
         "title": "Información de elementos",
         "titleAlign": "center",
         "width": "100%"

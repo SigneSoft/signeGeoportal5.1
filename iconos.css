@@ -1,13 +1,16 @@
 .add-file-icon {background:transparent url(./icons/add.png) 0 0 no-repeat !important;}
 .remove-file-icon{background:transparent url(./icons/delete.png) 0 0 no-repeat !important;}
 .edit-file-icon{background:transparent url(./icons/file_edit.png) 0 0 no-repeat !important;}
-.zoom-extent {background:transparent url(./icons/zoom_default.png) no-repeat center !important;}
-.info {background:transparent url(./icons/finger.png) no-repeat center !important;}
-.print {background:transparent url(./icons/print_map.png) no-repeat center !important;}
+.zoom-extent {background:transparent url(./icons/zoom-24.png) no-repeat center !important;}
+.info {background:transparent url(./icons/info-3-24.png) no-repeat center !important;}
+.print {background:transparent url(./icons/printer-24.png) no-repeat center !important;}
 .print-pdf {background:transparent url(./icons/page_white_acrobat.png) no-repeat center !important;}
 .help-icon {background:transparent url(./icons/help.png) no-repeat center !important;}
-.help-icon1 {background:transparent url(./icons/help1.png) no-repeat center !important;}
+.help-icon1 {background:transparent url(./icons/help-24.png) no-repeat center !important;}
 .cancel-file-icon {background:transparent url(./icons/cancel.png) 0 0 no-repeat !important;}
+.rule-icon {background:transparent url(./icons/ruler-24.png) no-repeat center !important;}
+.tape-icon {background:transparent url(./icons/tape-measure-2-24.png) no-repeat center !important;}
+.hand-icon {background:transparent url(./icons/hand-24.png) no-repeat center !important;}
 
 
 

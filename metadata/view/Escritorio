@@ -65,7 +65,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "listalayer",
+                    "name": "listalayer1",
                     "designerId": "e2dc5bef-b8f9-456e-b005-b7c6663155e1",
                     "masterInstanceId": "9a8573dd-1394-40f5-8751-3faedd443dd9"
                 },
@@ -76,7 +76,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "contentpanel",
+                    "name": "contentpanel1",
                     "designerId": "9f7927a3-102e-4089-ae42-1f50462e8059",
                     "masterInstanceId": "dd6293bf-c4a1-4d4e-8f7f-aafd9249b833"
                 },
@@ -87,7 +87,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "legendpanel",
+                    "name": "legendpanel1",
                     "designerId": "fb85d06e-4b22-42da-871e-2d20649bdacf",
                     "masterInstanceId": "cad4187c-619d-477d-a609-7cee55148f55"
                 },
@@ -99,9 +99,9 @@
                     },
                     "codeClass": null,
                     "userConfig": {
-                        "hidden": true
+                        "hidden": false
                     },
-                    "name": "infopanel",
+                    "name": "infopanel1",
                     "designerId": "5540ff9e-3481-48fe-9b35-369dce80369a",
                     "masterInstanceId": "41ab2da3-c791-4901-9133-7b8dd576767f"
                 }
@@ -131,7 +131,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "mappanel",
+                    "name": "mappanel1",
                     "designerId": "04045572-3604-4eda-b1a5-78825e34496e",
                     "masterInstanceId": "46caa872-8989-4970-9eea-d804a17bd5b4"
                 }

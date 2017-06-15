@@ -69,7 +69,7 @@ Ext.define('signeGeoportal.view.Escritorio', {
                 },
                 {
                     xtype: 'infopanel',
-                    hidden: true
+                    hidden: false
                 }
             ]
         },

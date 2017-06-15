@@ -68,7 +68,7 @@
                         "id": "btnEnfocar",
                         "layout|flex": null,
                         "scale": "medium",
-                        "text": "Enfocar país",
+                        "text": "Enfocar",
                         "tooltip": [
                             "Enfocar al país"
                         ]
@@ -86,11 +86,203 @@
                     "userConfig": {
                         "enableToggle": true,
                         "iconAlign": "top",
+                        "iconCls": "hand-icon",
+                        "id": "btnNavegar",
+                        "layout|flex": null,
+                        "pressed": true,
+                        "scale": "medium",
+                        "text": "Navegar",
+                        "tooltip": [
+                            "Enfocar al país"
+                        ]
+                    },
+                    "name": "MyButton7",
+                    "designerId": "6842d17f-5a40-43fe-9d17-459035c4bc8c",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "state"
+                                ],
+                                "fn": "toggleHandler",
+                                "implHandler": [
+                                    "Ext.getCmp(\"lineToggle\").toggle(false);",
+                                    "Ext.getCmp(\"polygonToggle\").toggle(false);",
+                                    "Ext.getCmp(\"btnInformacion\").toggle(false);",
+                                    "",
+                                    "signeGeoportal.getApplication().toggleControl(this);"
+                                ]
+                            },
+                            "name": "toggleHandler",
+                            "designerId": "623f7a78-3ebd-45b8-a130-e583d311954d"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Separator",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MySeparator",
+                    "designerId": "56969d70-b136-446b-87fb-6f0b41eb2a65"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "enableToggle": true,
+                        "iconAlign": "top",
+                        "iconCls": "rule-icon",
+                        "id": "lineToggle",
+                        "layout|flex": null,
+                        "scale": "medium",
+                        "text": "Distancia",
+                        "tooltip": [
+                            "Información de elementos"
+                        ]
+                    },
+                    "name": "MyButton5",
+                    "designerId": "f9aea768-f644-42e7-b176-e9a0082df18c",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "state"
+                                ],
+                                "fn": "toggleHandler",
+                                "implHandler": [
+                                    "Ext.getCmp(\"btnNavegar\").toggle(false);",
+                                    "Ext.getCmp(\"polygonToggle\").toggle(false);",
+                                    "Ext.getCmp(\"btnInformacion\").toggle(false);",
+                                    "",
+                                    "var infopanel = Ext.ComponentQuery.query('infopanel')[0];",
+                                    "infopanel.expand();",
+                                    "",
+                                    "signeGeoportal.getApplication().toggleControl(this);",
+                                    ""
+                                ]
+                            },
+                            "name": "toggleHandler",
+                            "designerId": "e75c7a47-9ea4-4529-9660-1fbdb5454448"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "enableToggle": true,
+                        "iconAlign": "top",
+                        "iconCls": "tape-icon",
+                        "id": "polygonToggle",
+                        "layout|flex": null,
+                        "scale": "medium",
+                        "text": "Area",
+                        "tooltip": [
+                            "Información de elementos"
+                        ]
+                    },
+                    "name": "MyButton6",
+                    "designerId": "376f7cbb-46d9-432d-a8c6-b07d374fe604",
+                    "cn": [
+                        {
+                            "type": "fixedfunction",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|params": [
+                                    "button",
+                                    "state"
+                                ],
+                                "fn": "toggleHandler",
+                                "implHandler": [
+                                    "Ext.getCmp(\"btnNavegar\").toggle(false);",
+                                    "Ext.getCmp(\"lineToggle\").toggle(false);",
+                                    "Ext.getCmp(\"btnInformacion\").toggle(false);",
+                                    "",
+                                    "var infopanel = Ext.ComponentQuery.query('infopanel')[0];",
+                                    "infopanel.expand();",
+                                    "",
+                                    "signeGeoportal.getApplication().toggleControl(this);",
+                                    "",
+                                    "/*var infopanel = Ext.ComponentQuery.query('infopanel')[0];",
+                                    "",
+                                    "if (state === true){",
+                                    "",
+                                    "    infopanel.expand();",
+                                    "",
+                                    "    signeGeoportal.xMeasure.activate();",
+                                    "}else{",
+                                    "    //infopanel.collapse();",
+                                    "",
+                                    "    signeGeoportal.xMeasure.deactivate();",
+                                    "}*/",
+                                    ""
+                                ]
+                            },
+                            "name": "toggleHandler",
+                            "designerId": "3d731717-4bf2-4bf6-89f6-b12edbf47bbd"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.toolbar.Separator",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null
+                    },
+                    "name": "MySeparator1",
+                    "designerId": "3994ff92-ee2f-4234-beeb-4272c9dde59a"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "enableToggle": true,
+                        "iconAlign": "top",
                         "iconCls": "info",
                         "id": "btnInformacion",
                         "layout|flex": null,
                         "scale": "medium",
-                        "text": "Información",
+                        "text": "Info",
                         "tooltip": [
                             "Información de elementos"
                         ]
@@ -112,6 +304,13 @@
                                 ],
                                 "fn": "toggleHandler",
                                 "implHandler": [
+                                    "",
+                                    "Ext.getCmp(\"btnNavegar\").toggle(false);",
+                                    "Ext.getCmp(\"lineToggle\").toggle(false);",
+                                    "Ext.getCmp(\"polygonToggle\").toggle(false);",
+                                    "",
+                                    "signeGeoportal.getApplication().toggleControl(this);",
+                                    "",
                                     "/*if (state === true){",
                                     "    signeGeoportal.xInfo.activate();",
                                     "}else{",

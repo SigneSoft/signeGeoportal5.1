@@ -1,0 +1,17 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "defer": false,
+        "designer|userClassName": "js_8kzrs613",
+        "id": "DynamicMeasure",
+        "url": "../OpenLayers212/lib/OpenLayers/Control/DynamicMeasure.js",
+        "x-compile": true
+    },
+    "name": "js3",
+    "designerId": "1464a4d7-7e24-40fe-b887-5c7b477c6b5f"
+}

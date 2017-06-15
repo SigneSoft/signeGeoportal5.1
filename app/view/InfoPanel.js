@@ -25,6 +25,7 @@ Ext.define('signeGeoportal.view.InfoPanel', {
         type: 'infopanel'
     },
     height: '100%',
+    padding: '',
     width: '100%',
     layout: 'fit',
     title: 'Información de elementos',

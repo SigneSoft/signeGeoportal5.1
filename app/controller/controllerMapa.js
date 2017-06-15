@@ -70,6 +70,8 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
     },
 
     onBtnImprimirClick: function(button, e, eOpts) {
+        signeGeoportal.getApplication().toggleControl(this);
+
         var printExtent = Ext.create('GeoExt.plugins.PrintExtent', {
             printProvider: printProvider
         });
