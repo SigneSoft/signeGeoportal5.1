@@ -32,6 +32,9 @@ Ext.define('signeGeoportal.model.modelParametro', {
         },
         {
             name: 'id'
+        },
+        {
+            name: 'clases'
         }
     ]
 });

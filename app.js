@@ -26,6 +26,7 @@ Ext.application({
     requires: [
         'Ext.Loader'
     ],
+    xClase: 0,
     models: [
         'modelParametro'
     ],

@@ -28,6 +28,7 @@ Ext.define('signeGeoportal.view.ListaLayerViewController', {
 
             if (this.getCount()>=1){
                 signeGeoportal.xClone = clone.data;
+                signeGeoportal.xClase = records[0].data.clases;
 
                 var windowParametro= Ext.widget('ventanaparametro');
                 windowParametro.setTitle(clone.data.title);
@@ -159,7 +160,7 @@ Ext.define('signeGeoportal.view.ListaLayerViewController', {
                         });
 
                         Ext.Ajax.request({
-                            //                    url: '../serverside/getCatalogo.jsp',
+                            //url: './serverside/getCatalogo.jsp',
                             url: 'http://192.168.56.101:8282/serverside/getCatalogo.jsp',
                             method: 'POST',
                             timeout: 30000,

@@ -26,7 +26,8 @@
             "InfoPanel",
             "ContentPanel",
             "VentanaParametro"
-        ]
+        ],
+        "xClase": 0
     },
     "name": "Application",
     "configAlternates": {
@@ -37,7 +38,9 @@
         "xSlider": "object",
         "xTip": "object",
         "xClone": "object",
-        "xMeasure": "object"
+        "xMeasure": "object",
+        "xClases": "number",
+        "xClase": "number"
     },
     "designerId": "application",
     "customConfigs": [
@@ -79,6 +82,11 @@
         {
             "group": "(Custom Properties)",
             "name": "xMeasure",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "xClase",
             "type": "string"
         }
     ],
