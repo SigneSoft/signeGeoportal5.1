@@ -1,0 +1,133 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "controllerLogin",
+        "stores": [
+            "storeLogin"
+        ]
+    },
+    "name": "controlLog",
+    "designerId": "a3518c3a-277c-4021-9108-c11b660ee543",
+    "cn": [
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "ref": "escritorio",
+                "selector": "Escritorio"
+            },
+            "name": "escritorio",
+            "designerId": "92efa4d7-4f4d-4318-be87-ebd6ee84670f"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnIngreso",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnIngresoClick",
+                "implHandler": [
+                    "var win = button.up('window');",
+                    "form = win.down('form');",
+                    "",
+                    "if (form.getForm().isValid()) {",
+                    "    win.mask(\"Ingresando al sistema...\");",
+                    "",
+                    "    var user = form.down('#usuario').getValue();",
+                    "    var pwd = form.down('#pass').getValue();",
+                    "",
+                    "    store = this.getStoreLoginStore();",
+                    "",
+                    "    store.getProxy().setExtraParam('user', user);",
+                    "    store.getProxy().setExtraParam('pwd', pwd);",
+                    "",
+                    "    store.load(function(records, operation, success) {",
+                    "        if(this.getCount()>=1){",
+                    "",
+                    "",
+                    "            //                indice = store.getAt(0);",
+                    "            //                signeInventas.xNombreUsuario =  indice.get('nombre') + ' ' + indice.get('apellido');",
+                    "",
+                    "            win.close();",
+                    "",
+                    "            var escritorio= Ext.widget('escritorio');",
+                    "            escritorio.show();",
+                    "",
+                    "            //            statusBar = escritorio.down('#statusBar');",
+                    "            //            statusBar.items.getAt(0).update('Usuario: ' + signeInventas.xNombreUsuario);",
+                    "",
+                    "        }",
+                    "        else{",
+                    "            win.unmask();",
+                    "",
+                    "            Ext.MessageBox.show({",
+                    "                title: 'Mensaje del Sistema',",
+                    "                msg: 'Los datos de usuario que se proporcionarón son inválidos.',",
+                    "                icon: Ext.MessageBox.ERROR,",
+                    "                buttons: Ext.Msg.OK",
+                    "            });",
+                    "        }",
+                    "",
+                    "    });",
+                    "",
+                    "}"
+                ],
+                "name": "click"
+            },
+            "name": "onBtnIngresoClick",
+            "designerId": "69579c46-f122-4df2-8885-f99479f4b5be"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#mytool",
+                "designer|params": [
+                    "tool",
+                    "e",
+                    "owner",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.panel.Tool",
+                "fn": "onMytoolClickSalir",
+                "implHandler": [
+                    "",
+                    "",
+                    "var escritorio= Ext.getCmp('escritorio');",
+                    "",
+                    "escritorio.destroy();",
+                    "",
+                    "var windowLogin= Ext.widget('clslogin');",
+                    "",
+                    "windowLogin.show();",
+                    ""
+                ],
+                "name": "click"
+            },
+            "name": "onMytoolClickSalir",
+            "designerId": "d723939f-67ea-474e-a3cb-04f4c24130f7"
+        }
+    ]
+}

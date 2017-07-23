@@ -30,6 +30,8 @@ Ext.define('signeGeoportal.view.Escritorio', {
     viewModel: {
         type: 'escritorio'
     },
+    id: 'escritorio',
+    itemId: 'myviewport',
     padding: '10 10 10',
 
     layout: {

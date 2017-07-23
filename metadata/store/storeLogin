@@ -1,0 +1,166 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "autoLoad": false,
+        "autoSave": false,
+        "autoSync": true,
+        "designer|userClassName": "storeLogin",
+        "listeners": [
+            "{",
+            "write: function(store, operation, eOpts){",
+            "",
+            "if (operation.action == 'destroy') {",
+            "\tExt.MessageBox.show({",
+            "\ttitle: 'Mensaje del Sistema  ',",
+            "\tmsg:  operation._resultSet.message,",
+            "\tbuttons: Ext.MessageBox.OK,",
+            "\ticon: Ext.MessageBox.INFO",
+            "\t});    ",
+            "}",
+            "",
+            "if (operation.action == 'create') {",
+            "\tExt.MessageBox.show({",
+            "\ttitle: 'Mensaje del Sistema  ',",
+            "\tmsg:  operation._resultSet.message,",
+            "\tbuttons: Ext.MessageBox.OK,",
+            "\ticon: Ext.MessageBox.INFO",
+            "\t});    ",
+            "}",
+            "",
+            "",
+            "if (operation.action == 'update') {",
+            "\tExt.MessageBox.show({",
+            "\ttitle: 'Mensaje del Sistema  ',",
+            "\tmsg:  operation._resultSet.message,",
+            "\tbuttons: Ext.MessageBox.OK,",
+            "\ticon: Ext.MessageBox.INFO",
+            "\t});    ",
+            "}        ",
+            "\tthis.load();",
+            "/*this.load({",
+            "\tmetodo: 'READ',",
+            "\tid: 0",
+            "});*/",
+            "}",
+            "}"
+        ],
+        "model": "modelLogin",
+        "storeId": "storeLogin"
+    },
+    "name": "storeLog",
+    "configAlternates": {
+        "autoSave": "boolean",
+        "listener": "object",
+        "listeners": "object"
+    },
+    "designerId": "105fffc5-7459-4a14-ad8f-6918687221b5",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "autoSave",
+            "type": "string"
+        },
+        {
+            "group": "(Custom Properties)",
+            "name": "listeners",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "api": [
+                    "//{read: '../serverside/getLogin.jsp'}",
+                    "{read: 'http://192.168.56.101:8282/serverside/getLogin.jsp'}",
+                    ""
+                ],
+                "url": ""
+            },
+            "name": "MyAjaxProxy22",
+            "designerId": "eaa1e13c-194a-4e9a-9873-4c8fcd0c5ac7",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "messageProperty": "message",
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonReader21",
+                    "designerId": "3f793fdd-ed4c-4694-8ffb-c8a09251170d"
+                },
+                {
+                    "type": "Ext.data.writer.Json",
+                    "reference": {
+                        "name": "writer",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "encode": true,
+                        "rootProperty": "data"
+                    },
+                    "name": "MyJsonWriter21",
+                    "designerId": "8f879e8e-234d-45d0-ba6c-b79b5fca12eb"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onAjaxException",
+                        "implHandler": [
+                            "if (operation.getError()){",
+                            "\tif (operation.getError().statusText){",
+                            "\t\tExt.MessageBox.show({",
+                            "\t\t\ttitle: 'Mensaje del Sistema',",
+                            "\t\t\tmsg: operation.getError().statusText,",
+                            "\t\t\ticon: Ext.MessageBox.ERROR,",
+                            "\t\t\tbuttons: Ext.Msg.OK",
+                            "\t\t});",
+                            "\t}else{",
+                            "\t\tExt.MessageBox.show({",
+                            "\t\t\ttitle: 'Mensaje del Sistema',",
+                            "\t\t\tmsg: operation.getError(),",
+                            "\t\t\ticon: Ext.MessageBox.ERROR,",
+                            "\t\t\tbuttons: Ext.Msg.OK",
+                            "\t\t});",
+                            "\t}",
+                            "}else{",
+                            "\tvar json = Ext.decode(request.responseText);",
+                            "\tExt.MessageBox.show({",
+                            "\t\ttitle: 'Mensaje del Sistema',",
+                            "\t\tmsg: json.message,",
+                            "\t\ticon: Ext.MessageBox.ERROR,",
+                            "\t\tbuttons: Ext.Msg.OK",
+                            "\t});",
+                            "}"
+                        ],
+                        "name": "exception",
+                        "scope": "me"
+                    },
+                    "name": "onAjaxException",
+                    "designerId": "4aa91e92-c42e-4a36-8b4c-9c45342486ca"
+                }
+            ]
+        }
+    ]
+}
