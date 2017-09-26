@@ -277,8 +277,8 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
 
         var store = Ext.create('GeoExt.data.WmsCapabilitiesLayerStore', {
             storeId: 'wmscapsStore',
-            //url: "http://190.85.233.223:8080/geoserver/siceg/wms?service=wms&version=1.1.1&request=GetCapabilities",
-            url: "http://192.168.56.101:8282/geoserver/SIGE/wms?service=wms&version=1.1.1&request=GetCapabilities",
+            url: "http://190.85.233.223:8080/geoserver/siceg/wms?service=wms&version=1.1.1&request=GetCapabilities",
+            //url: "http://192.168.56.101:8282/geoserver/SIGE/wms?service=wms&version=1.1.1&request=GetCapabilities",
             autoLoad: true
         });
 

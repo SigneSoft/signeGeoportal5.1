@@ -63,16 +63,15 @@
                     "        if(this.getCount()>=1){",
                     "",
                     "",
-                    "            //                indice = store.getAt(0);",
-                    "            //                signeInventas.xNombreUsuario =  indice.get('nombre') + ' ' + indice.get('apellido');",
+                    "            indice = store.getAt(0);",
                     "",
                     "            win.close();",
                     "",
                     "            var escritorio= Ext.widget('escritorio');",
                     "            escritorio.show();",
                     "",
-                    "            //            statusBar = escritorio.down('#statusBar');",
-                    "            //            statusBar.items.getAt(0).update('Usuario: ' + signeInventas.xNombreUsuario);",
+                    "            statusBar = escritorio.down('#statusBar');",
+                    "            statusBar.items.getAt(0).update('Usuario activo: ' + indice.get('usuario'));",
                     "",
                     "        }",
                     "        else{",
@@ -103,17 +102,32 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|controlQuery": "#mytool",
+                "designer|controlQuery": "#btnSalir",
                 "designer|params": [
-                    "tool",
+                    "button",
                     "e",
-                    "owner",
                     "eOpts"
                 ],
-                "designer|targetType": "Ext.panel.Tool",
-                "fn": "onMytoolClickSalir",
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnSalirClick",
                 "implHandler": [
-                    "",
+                    "this.salir();"
+                ],
+                "name": "click"
+            },
+            "name": "onBtnSalirClick",
+            "designerId": "0ac087f6-000d-42a0-9388-4b84731c664d"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "salir",
+                "implHandler": [
                     "",
                     "var escritorio= Ext.getCmp('escritorio');",
                     "",
@@ -121,13 +135,36 @@
                     "",
                     "var windowLogin= Ext.widget('clslogin');",
                     "",
-                    "windowLogin.show();",
-                    ""
-                ],
-                "name": "click"
+                    "windowLogin.show();"
+                ]
             },
-            "name": "onMytoolClickSalir",
-            "designerId": "d723939f-67ea-474e-a3cb-04f4c24130f7"
+            "name": "salir",
+            "designerId": "ba4be9cd-fb2d-4261-9989-63540bdbbf70"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#WindowLogin",
+                "designer|params": [
+                    "component",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.window.Window",
+                "fn": "onWindowLoginAfterRender",
+                "implHandler": [
+                    "if (Ext.get('loading')) {",
+                    "    Ext.get('loading').remove();",
+                    "}"
+                ],
+                "name": "afterrender"
+            },
+            "name": "onWindowLoginAfterRender",
+            "designerId": "d51cd3e1-f12a-423f-9bd9-cc6a6770b20a"
         }
     ]
 }

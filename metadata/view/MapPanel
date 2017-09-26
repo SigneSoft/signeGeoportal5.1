@@ -92,6 +92,7 @@
                         "pressed": true,
                         "scale": "medium",
                         "text": "Navegar",
+                        "toggleGroup": "operacionesMapa",
                         "tooltip": [
                             "Enfocar al país"
                         ]
@@ -154,6 +155,7 @@
                         "layout|flex": null,
                         "scale": "medium",
                         "text": "Distancia",
+                        "toggleGroup": "operacionesMapa",
                         "tooltip": [
                             "Información de elementos"
                         ]
@@ -207,6 +209,7 @@
                         "layout|flex": null,
                         "scale": "medium",
                         "text": "Area",
+                        "toggleGroup": "operacionesMapa",
                         "tooltip": [
                             "Información de elementos"
                         ]
@@ -274,6 +277,7 @@
                         "layout|flex": null,
                         "scale": "medium",
                         "text": "Posición",
+                        "toggleGroup": "operacionesMapa",
                         "tooltip": [
                             "Información de elementos"
                         ]
@@ -348,6 +352,7 @@
                         "layout|flex": null,
                         "scale": "medium",
                         "text": "Info",
+                        "toggleGroup": "operacionesMapa",
                         "tooltip": [
                             "Información de elementos"
                         ]
@@ -432,6 +437,27 @@
                     },
                     "name": "MyButton4",
                     "designerId": "cc6084dc-022b-463a-ae16-1b91e5eea2cd"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconAlign": "top",
+                        "iconCls": "logout-icon",
+                        "id": "btnSalir",
+                        "layout|flex": null,
+                        "scale": "medium",
+                        "text": "Salir",
+                        "tooltip": [
+                            "Salir"
+                        ]
+                    },
+                    "name": "MyButton8",
+                    "designerId": "3e596d13-7133-4ac7-8082-357ba9e50ba2"
                 }
             ]
         }

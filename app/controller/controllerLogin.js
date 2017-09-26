@@ -28,8 +28,11 @@ Ext.define('signeGeoportal.controller.controllerLogin', {
         "#btnIngreso": {
             click: 'onBtnIngresoClick'
         },
-        "#mytool": {
-            click: 'onMytoolClickSalir'
+        "#btnSalir": {
+            click: 'onBtnSalirClick'
+        },
+        "#WindowLogin": {
+            afterrender: 'onWindowLoginAfterRender'
         }
     },
 
@@ -52,16 +55,15 @@ Ext.define('signeGeoportal.controller.controllerLogin', {
                 if(this.getCount()>=1){
 
 
-                    //                indice = store.getAt(0);
-                    //                signeInventas.xNombreUsuario =  indice.get('nombre') + ' ' + indice.get('apellido');
+                    indice = store.getAt(0);
 
                     win.close();
 
                     var escritorio= Ext.widget('escritorio');
                     escritorio.show();
 
-                    //            statusBar = escritorio.down('#statusBar');
-                    //            statusBar.items.getAt(0).update('Usuario: ' + signeInventas.xNombreUsuario);
+                    statusBar = escritorio.down('#statusBar');
+                    statusBar.items.getAt(0).update('Usuario activo: ' + indice.get('usuario'));
 
                 }
                 else{
@@ -80,8 +82,17 @@ Ext.define('signeGeoportal.controller.controllerLogin', {
         }
     },
 
-    onMytoolClickSalir: function(tool, e, owner, eOpts) {
+    onBtnSalirClick: function(button, e, eOpts) {
+        this.salir();
+    },
 
+    onWindowLoginAfterRender: function(component, eOpts) {
+        if (Ext.get('loading')) {
+            Ext.get('loading').remove();
+        }
+    },
+
+    salir: function() {
 
         var escritorio= Ext.getCmp('escritorio');
 
@@ -90,7 +101,6 @@ Ext.define('signeGeoportal.controller.controllerLogin', {
         var windowLogin= Ext.widget('clslogin');
 
         windowLogin.show();
-
     }
 
 });

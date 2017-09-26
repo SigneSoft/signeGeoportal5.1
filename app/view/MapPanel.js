@@ -71,6 +71,7 @@ Ext.define('signeGeoportal.view.MapPanel', {
                     pressed: true,
                     scale: 'medium',
                     text: 'Navegar',
+                    toggleGroup: 'operacionesMapa',
                     tooltip: 'Enfocar al país'
                 },
                 {
@@ -96,6 +97,7 @@ Ext.define('signeGeoportal.view.MapPanel', {
                     iconCls: 'rule-icon',
                     scale: 'medium',
                     text: 'Distancia',
+                    toggleGroup: 'operacionesMapa',
                     tooltip: 'Información de elementos'
                 },
                 {
@@ -132,6 +134,7 @@ Ext.define('signeGeoportal.view.MapPanel', {
                     iconCls: 'tape-icon',
                     scale: 'medium',
                     text: 'Area',
+                    toggleGroup: 'operacionesMapa',
                     tooltip: 'Información de elementos'
                 },
                 {
@@ -162,6 +165,7 @@ Ext.define('signeGeoportal.view.MapPanel', {
                     iconCls: 'pos-icon',
                     scale: 'medium',
                     text: 'Posición',
+                    toggleGroup: 'operacionesMapa',
                     tooltip: 'Información de elementos'
                 },
                 {
@@ -192,6 +196,7 @@ Ext.define('signeGeoportal.view.MapPanel', {
                     iconCls: 'info',
                     scale: 'medium',
                     text: 'Info',
+                    toggleGroup: 'operacionesMapa',
                     tooltip: 'Información de elementos'
                 },
                 {
@@ -211,6 +216,15 @@ Ext.define('signeGeoportal.view.MapPanel', {
                     scale: 'medium',
                     text: 'Ayuda',
                     tooltip: 'Ayuda'
+                },
+                {
+                    xtype: 'button',
+                    id: 'btnSalir',
+                    iconAlign: 'top',
+                    iconCls: 'logout-icon',
+                    scale: 'medium',
+                    text: 'Salir',
+                    tooltip: 'Salir'
                 }
             ]
         }

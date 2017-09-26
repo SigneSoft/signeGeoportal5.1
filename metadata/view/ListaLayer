@@ -504,20 +504,6 @@
             },
             "name": "MyGridFiltersPlugin",
             "designerId": "0c8029d2-9555-4123-94d2-6adc6939908d"
-        },
-        {
-            "type": "Ext.panel.Tool",
-            "reference": {
-                "name": "tools",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "itemId": "mytool",
-                "type": "close"
-            },
-            "name": "MyTool",
-            "designerId": "690e8f8c-797e-420f-9bd5-8cc5454465d5"
         }
     ]
 }

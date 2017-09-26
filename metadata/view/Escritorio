@@ -66,7 +66,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "listalayer1",
+                    "name": "listalayer",
                     "designerId": "e2dc5bef-b8f9-456e-b005-b7c6663155e1",
                     "masterInstanceId": "9a8573dd-1394-40f5-8751-3faedd443dd9"
                 },
@@ -77,7 +77,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "contentpanel1",
+                    "name": "contentpanel",
                     "designerId": "9f7927a3-102e-4089-ae42-1f50462e8059",
                     "masterInstanceId": "dd6293bf-c4a1-4d4e-8f7f-aafd9249b833"
                 },
@@ -88,7 +88,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "legendpanel1",
+                    "name": "legendpanel",
                     "designerId": "fb85d06e-4b22-42da-871e-2d20649bdacf",
                     "masterInstanceId": "cad4187c-619d-477d-a609-7cee55148f55"
                 },
@@ -99,9 +99,41 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "infopanel1",
+                    "name": "infopanel",
                     "designerId": "5540ff9e-3481-48fe-9b35-369dce80369a",
                     "masterInstanceId": "41ab2da3-c791-4901-9133-7b8dd576767f"
+                },
+                {
+                    "type": "Ext.toolbar.Toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "middle",
+                        "dock": "bottom",
+                        "id": "statusBar",
+                        "width": 150
+                    },
+                    "name": "MyToolbar4",
+                    "designerId": "46b200b8-ecbd-4f14-8fb0-51d280747146",
+                    "cn": [
+                        {
+                            "type": "Ext.form.Label",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "Usuario"
+                            },
+                            "name": "MyLabel",
+                            "designerId": "3d62aacd-fdee-4932-970b-2c1268c302ff"
+                        }
+                    ]
                 }
             ]
         },
@@ -129,7 +161,7 @@
                         "type": "array"
                     },
                     "codeClass": null,
-                    "name": "mappanel1",
+                    "name": "mappanel",
                     "designerId": "04045572-3604-4eda-b1a5-78825e34496e",
                     "masterInstanceId": "46caa872-8989-4970-9eea-d804a17bd5b4"
                 }

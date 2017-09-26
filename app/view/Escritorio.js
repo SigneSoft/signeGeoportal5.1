@@ -24,7 +24,9 @@ Ext.define('signeGeoportal.view.Escritorio', {
         'signeGeoportal.view.LegendPanel',
         'signeGeoportal.view.InfoPanel',
         'signeGeoportal.view.MapPanel',
-        'Ext.grid.Panel'
+        'Ext.grid.Panel',
+        'Ext.toolbar.Toolbar',
+        'Ext.form.Label'
     ],
 
     viewModel: {
@@ -57,6 +59,22 @@ Ext.define('signeGeoportal.view.Escritorio', {
                     dock: 'top',
                     html: '<div class="logo-empresa"></div>',
                     id: 'contenedorLogo'
+                },
+                {
+                    xtype: 'toolbar',
+                    dock: 'bottom',
+                    id: 'statusBar',
+                    width: 150,
+                    layout: {
+                        type: 'hbox',
+                        align: 'middle'
+                    },
+                    items: [
+                        {
+                            xtype: 'label',
+                            text: 'Usuario'
+                        }
+                    ]
                 }
             ],
             items: [

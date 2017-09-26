@@ -23,8 +23,7 @@ Ext.define('signeGeoportal.view.ListaLayer', {
         'Ext.grid.filters.filter.String',
         'Ext.toolbar.Toolbar',
         'Ext.grid.column.Action',
-        'Ext.grid.filters.Filters',
-        'Ext.panel.Tool'
+        'Ext.grid.filters.Filters'
     ],
 
     controller: 'listalayer',
@@ -140,13 +139,6 @@ Ext.define('signeGeoportal.view.ListaLayer', {
             ptype: 'gridfilters',
             pluginId: 'gfListaLayer',
             menuFilterText: 'Filtrar'
-        }
-    ],
-    tools: [
-        {
-            xtype: 'tool',
-            itemId: 'mytool',
-            type: 'close'
         }
     ]
 
