@@ -47,6 +47,19 @@ Ext.define('signeGeoportal.view.MapPanel', {
             items: [
                 {
                     xtype: 'button',
+                    id: 'btnAniadir',
+                    iconAlign: 'top',
+                    iconCls: 'add-folder-icon',
+                    scale: 'medium',
+                    text: 'Añadir',
+                    tooltip: 'Añadir capa externa'
+                },
+                {
+                    xtype: 'tbseparator',
+                    width: 100
+                },
+                {
+                    xtype: 'button',
                     id: 'btnEnfocar',
                     iconAlign: 'top',
                     iconCls: 'zoom-extent',
@@ -64,7 +77,9 @@ Ext.define('signeGeoportal.view.MapPanel', {
 
                         signeGeoportal.getApplication().toggleControl(this);
                     },
+                    cls: 'my-btn',
                     id: 'btnNavegar',
+                    overCls: 'my-over',
                     enableToggle: true,
                     iconAlign: 'top',
                     iconCls: 'hand-icon',
@@ -91,7 +106,9 @@ Ext.define('signeGeoportal.view.MapPanel', {
                         signeGeoportal.getApplication().toggleControl(this);
 
                     },
+                    cls: 'my-btn',
                     id: 'lineToggle',
+                    overCls: 'my-over',
                     enableToggle: true,
                     iconAlign: 'top',
                     iconCls: 'rule-icon',
@@ -128,7 +145,9 @@ Ext.define('signeGeoportal.view.MapPanel', {
                     }*/
 
                     },
+                    cls: 'my-btn',
                     id: 'polygonToggle',
+                    overCls: 'my-over',
                     enableToggle: true,
                     iconAlign: 'top',
                     iconCls: 'tape-icon',
@@ -159,7 +178,9 @@ Ext.define('signeGeoportal.view.MapPanel', {
                         }*/
 
                     },
+                    cls: 'my-btn',
                     id: 'btnPosicion',
+                    overCls: 'my-over',
                     enableToggle: true,
                     iconAlign: 'top',
                     iconCls: 'pos-icon',
@@ -190,7 +211,9 @@ Ext.define('signeGeoportal.view.MapPanel', {
                         }*/
 
                     },
+                    cls: 'my-btn',
                     id: 'btnInformacion',
+                    overCls: 'my-over',
                     enableToggle: true,
                     iconAlign: 'top',
                     iconCls: 'info',

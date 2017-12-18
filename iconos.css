@@ -13,9 +13,7 @@
 .hand-icon {background:transparent url(./icons/hand-24.png) no-repeat center !important;}
 .pos-icon {background:transparent url(./icons/map-marker-24.png) no-repeat center !important;}
 .logout-icon {background:transparent url(./icons/logout-24.png) no-repeat center !important;}
-
-
-
+.add-folder-icon {background:transparent url(./icons/add-list-24.png) no-repeat center !important;}
 
 
 
@@ -38,3 +36,11 @@
 .male-cell { 
     background-color: #ffa; 
 } 
+
+.x-btn.my-over {
+    background: LightBlue;
+}
+
+.my-btn.x-btn.x-btn-pressed  {
+    background: LightSkyBlue;
+}

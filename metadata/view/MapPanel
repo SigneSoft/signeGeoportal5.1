@@ -64,6 +64,41 @@
                     "codeClass": null,
                     "userConfig": {
                         "iconAlign": "top",
+                        "iconCls": "add-folder-icon",
+                        "id": "btnAniadir",
+                        "layout|flex": null,
+                        "scale": "medium",
+                        "text": "Añadir",
+                        "tooltip": [
+                            "Añadir capa externa"
+                        ]
+                    },
+                    "name": "MyButton10",
+                    "designerId": "e115a3d8-0a8c-4147-a580-f5c3ed7e9e52"
+                },
+                {
+                    "type": "Ext.toolbar.Separator",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": null,
+                        "width": 100
+                    },
+                    "name": "MySeparator2",
+                    "designerId": "3bbf30f0-875f-4e5b-9479-229b71800436"
+                },
+                {
+                    "type": "Ext.button.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "iconAlign": "top",
                         "iconCls": "zoom-extent",
                         "id": "btnEnfocar",
                         "layout|flex": null,
@@ -84,11 +119,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "cls": "my-btn",
                         "enableToggle": true,
                         "iconAlign": "top",
                         "iconCls": "hand-icon",
                         "id": "btnNavegar",
                         "layout|flex": null,
+                        "overCls": "my-over",
                         "pressed": true,
                         "scale": "medium",
                         "text": "Navegar",
@@ -148,11 +185,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "cls": "my-btn",
                         "enableToggle": true,
                         "iconAlign": "top",
                         "iconCls": "rule-icon",
                         "id": "lineToggle",
                         "layout|flex": null,
+                        "overCls": "my-over",
                         "scale": "medium",
                         "text": "Distancia",
                         "toggleGroup": "operacionesMapa",
@@ -202,11 +241,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "cls": "my-btn",
                         "enableToggle": true,
                         "iconAlign": "top",
                         "iconCls": "tape-icon",
                         "id": "polygonToggle",
                         "layout|flex": null,
+                        "overCls": "my-over",
                         "scale": "medium",
                         "text": "Area",
                         "toggleGroup": "operacionesMapa",
@@ -270,11 +311,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "cls": "my-btn",
                         "enableToggle": true,
                         "iconAlign": "top",
                         "iconCls": "pos-icon",
                         "id": "btnPosicion",
                         "layout|flex": null,
+                        "overCls": "my-over",
                         "scale": "medium",
                         "text": "Posición",
                         "toggleGroup": "operacionesMapa",
@@ -345,11 +388,13 @@
                     },
                     "codeClass": null,
                     "userConfig": {
+                        "cls": "my-btn",
                         "enableToggle": true,
                         "iconAlign": "top",
                         "iconCls": "info",
                         "id": "btnInformacion",
                         "layout|flex": null,
+                        "overCls": "my-over",
                         "scale": "medium",
                         "text": "Info",
                         "toggleGroup": "operacionesMapa",

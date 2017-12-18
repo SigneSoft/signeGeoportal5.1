@@ -39,6 +39,9 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
         },
         "#myviewport": {
             afterrender: 'onMyviewportAfterRender'
+        },
+        "#btnAniadir": {
+            click: 'onBtnAniadirClick'
         }
     },
 
@@ -679,6 +682,11 @@ Ext.define('signeGeoportal.controller.controllerMapa', {
             }
         });
 
+    },
+
+    onBtnAniadirClick: function(button, e, eOpts) {
+        var aniadirWMS = Ext.widget('ventanaaniadircapa');
+                            aniadirWMS.show();
     }
 
 });

@@ -73,8 +73,9 @@ Ext.define('signeGeoportal.store.storeParametro', {
             proxy: {
                 type: 'ajax',
                 api: //{read: '../serverside/getCatalogo.jsp'}
+                //{read: 'http://192.168.56.101:8282/serverside/getParametro.jsp'}
                 {
-                    read: 'http://192.168.56.101:8282/serverside/getParametro.jsp'
+                    read: 'http://190.85.233.223:8080/serverside/getParametro.jsp'
                 },
                 url: '',
                 password: '',

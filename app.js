@@ -45,7 +45,8 @@ Ext.application({
         'InfoPanel',
         'ContentPanel',
         'VentanaParametro',
-        'clsLogin'
+        'clsLogin',
+        'VentanaAniadirCapa'
     ],
     controllers: [
         'controllerMapa',
@@ -132,6 +133,177 @@ Ext.application({
                 signeGeoportal.xMeasure[key].deactivate();
             }
         }
+    },
+
+    addWMSServer: function(wms_url) {
+        //Ext.getCmp('wms_grid_services').loadMask.show();
+
+        /*var wms_store_layers_expander = new Ext.grid.RowExpander({
+            id: 'expander',
+            tpl : new Ext.Template(
+                '<p><b>Resumen:</b><br/><div style="width:500px">{Abstract}</div></p>'
+            )
+        });*/
+
+        function WMS_BaseName_LayerId(val,a,b,ss)
+        {
+        	var cellValue=Ext.getCmp('wms_grid_layers').getStore().getAt(ss);
+
+        	var layer_baseName= cellValue.get('Name');
+
+        	var layer_url= cellValue.get('URL');
+
+        	var layer_id=layer_url+"_"+layer_baseName;
+
+        	var img="";
+
+        	if (findBaseNameLayerIfAlreadyInTree(layer_id))
+        	{
+        		img="<img src='images/check_16.png' width='14' height='14'\">";
+        	}
+
+        	return img;
+
+        }
+
+        var wms_store_layers_columns=new Ext.grid.ColumnModel([
+        //    wms_store_layers_expander,
+            {header: '',dataIndex:"URL",renderer:WMS_BaseName_LayerId,sortable: true,width:24,hidden:false},
+            {header: 'Nombre', dataIndex: "Name", sortable: true,width:200},
+            {header: 'Título', dataIndex: "Title", sortable: true,width:280},
+            {header: 'Resumen', dataIndex: "Abstract",width:200,hidden:true},
+            {header: '', dataIndex: "crs",width:200,hidden:true},
+            {header: '', dataIndex: "Minx",width:200,hidden:true},
+            {header: '', dataIndex: "Miny",width:200,hidden:true},
+            {header: '', dataIndex: "Maxx",width:200,hidden:true},
+            {header: '', dataIndex: "Maxy",width:200,hidden:true},
+            {header: '', dataIndex: "SRS",width:100,hidden:true},
+            {header: '', dataIndex: "EPSG",width:100,hidden:true},
+            {header: '', dataIndex: "queryable",width:100,hidden:true}
+
+        ]);
+
+
+        Ext.Ajax.request({
+            url:"./app/data/wms_isvalid_url.php?url="+wms_url,
+            timeout:5000,
+            async:false,
+            success:function(result, response)
+            {
+                var wms_result=result.responseText;
+
+                if (wms_result!=="")
+                {
+
+                    Ext.Ajax.request({
+                        url:"./app/data/wms_get_version_epsg.php?url="+wms_url,
+                        timeout:5000,
+                        async:false,
+                        success:function(result,response)
+                        {
+                            //console.log(result.responseText);
+
+                            var jsonData = Ext.util.JSON.decode(result.responseText);
+
+                            var version = jsonData['version'];
+
+                            var epsg = jsonData["epsg"];
+
+                            var crs_wms = "";
+
+        //                    crs_wms=get_selected_wms_service_epsg;
+
+                            var xml_columns="";
+
+                            if (version == "1.1.0")
+                            {
+                                xml_columns=['Name','Title','Abstract',{name:'Minx',mapping:'LatLonBoundingBox/@minx'},{name:'Miny',mapping:'LatLonBoundingBox/@miny'},{name:'Maxx',mapping:'LatLonBoundingBox/@maxx'},{name:'Maxy',mapping:'LatLonBoundingBox/@maxy'},{name:"SRS",mapping:function(){return "1.1.0";}},{name:"EPSG",mapping:function(){return epsg;}},{name:'queryable',mapping:'@queryable'},{name:'URL',mapping:function(){return r.data.url;}},{name:'crs',mapping:function(){return crs_wms;}}];
+                            }
+                            if (version == "1.1.1")
+                            {
+                                xml_columns=['Name','Title','Abstract',{name:'Minx',mapping:'LatLonBoundingBox/@minx'},{name:'Miny',mapping:'LatLonBoundingBox/@miny'},{name:'Maxx',mapping:'LatLonBoundingBox/@maxx'},{name:'Maxy',mapping:'LatLonBoundingBox/@maxy'},{name:"SRS",mapping:function(){return "1.1.1";}},{name:"EPSG",mapping:function(){return epsg;}},{name:'queryable',mapping:'@queryable'},{name:'URL',mapping:function(){return r.data.url;}},{name:'crs',mapping:function(){return crs_wms;}}];
+                            }
+                            if (version == "1.3.0")
+                            {
+
+                                xml_columns=['Name','Title','Abstract',{name:'Minx',mapping:'EX_GeographicBoundingBox/westBoundLongitude'},{name:'Miny',mapping:'EX_GeographicBoundingBox/eastBoundLongitude'},{name:'Maxx',mapping:'EX_GeographicBoundingBox/southBoundLatitude'},{name:'Maxy',mapping:'EX_GeographicBoundingBox/northBoundLatitude'},{name:"SRS",mapping:function(){return "1.3.0";}},{name:"EPSG",mapping:function(){return epsg;}},{name:'queryable',mapping:'@queryable'},{name:'URL',mapping:function(){return r.data.url;}},{name:'crs',mapping:function(){return crs_wms;}}];
+                            }
+
+
+                            Ext.Ajax.request({
+                                url: "./app/data/proxy.php?url="+Ext.urlAppend(wms_url,"REQUEST=GetCapabilities"), //r.data.url
+                                timeout:5000,
+                                async:false,
+                                success:function(result,response)
+                                {
+                                    console.log(result);
+                                }});
+
+
+                            var store = new Ext.data.Store({
+                                url: "./app/data/proxy.php?url="+Ext.urlAppend(wms_url,"REQUEST=GetCapabilities"), //r.data.url
+                                autoLoad: true,
+                                reader: new Ext.data.XmlReader({
+                                    record: 'Layer/Layer',
+                                    fields: ['Name','Title']
+                                })
+                            });
+
+
+                            store.on('load', function(store, records, options) {
+
+                                console.log(records);
+                                alert("en load");
+                                /*var tpl = new Ext.XTemplate(
+                                    '<tpl for=".">',
+                                    '<h1>{filename}</h1>',
+                                    '<h1>{show_name}</h1>',
+                                    '</tpl>'
+                                );
+
+                                tpl.append(Ext.get("woos-desktop"), store.getRange());*/
+
+                            });
+
+                            /*var wms_store_layers = new Ext.data.Store({
+                                url: "./app/data/proxy.php?url="+Ext.urlAppend(wms_url,"REQUEST=GetCapabilities"), //r.data.url
+                                reader: new Ext.data.XmlReader({
+                                    record: 'Layer/Layer'}, xml_columns
+                                                              )
+                            });
+
+
+                            wms_store_layers.on('load', function(){
+                                Ext.MessageBox.alert('Total records', 'Total: ' + wms_store_layers.getCount());
+                            });
+
+
+                            wms_store_layers.load();*/
+
+
+                            Ext.getCmp('wms_grid_layers').reconfigure(store,wms_store_layers_columns);
+
+
+                        }
+
+
+                    });
+
+
+                }
+                else
+                {
+                    Ext.Msg.alert("Error","La dirección WMS no es correcta!");
+
+                }
+                //Ext.getCmp('wms_grid_services').loadMask.hide();
+            },
+            failure:function()
+            {
+                Ext.Msg.alert("Error", "El servicio WMS no responde.");
+                //Ext.getCmp('wms_grid_services').loadMask.hide();
+            }
+        });
     }
 
 });

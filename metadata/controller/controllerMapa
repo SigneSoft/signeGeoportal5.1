@@ -772,6 +772,31 @@
             },
             "name": "onMyviewportAfterRender",
             "designerId": "692332ae-fe33-4543-a7da-e9e2fddf90ff"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|controlQuery": "#btnAniadir",
+                "designer|params": [
+                    "button",
+                    "e",
+                    "eOpts"
+                ],
+                "designer|targetType": "Ext.button.Button",
+                "fn": "onBtnAniadirClick",
+                "implHandler": [
+                    "var aniadirWMS = Ext.widget('ventanaaniadircapa');",
+                    "                    aniadirWMS.show();"
+                ],
+                "name": "click"
+            },
+            "name": "onBtnAniadirClick",
+            "designerId": "7c6fa8ca-e5d9-47d9-920e-f24fa7e67d9b"
         }
     ]
 }
